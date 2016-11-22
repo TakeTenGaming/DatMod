@@ -12,7 +12,5 @@ public class GoldiriteShovel extends ItemShovel {
 	 */
 	public GoldiriteShovel() {
 		super(Materials.goldirite, "Goldirite Shovel");
-
-		setImplemented(true);
 	}
 }

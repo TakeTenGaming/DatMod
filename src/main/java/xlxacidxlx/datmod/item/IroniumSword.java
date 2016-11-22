@@ -12,7 +12,5 @@ public class IroniumSword extends ItemSword {
 	 */
 	public IroniumSword() {
 		super(Materials.ironium, "Ironium Sword");
-
-		setImplemented(true);
 	}
 }

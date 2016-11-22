@@ -12,7 +12,5 @@ public class EmeraldiPickaxe extends ItemPickaxe {
 	 */
 	public EmeraldiPickaxe() {
 		super(Materials.emeraldi, "Emeraldi Pickaxe");
-
-		setImplemented(true);
 	}
 }

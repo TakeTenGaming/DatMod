@@ -12,6 +12,6 @@ public class GoldiriteOre extends BlockOre {
 	public GoldiriteOre() {
 		super("Goldirite Ore");
 
-		setImplemented(true);
+		setHarvestLevel("pickaxe", 2);
 	}
 }

@@ -14,6 +14,5 @@ public class IroniumIngot extends Item {
 		super("Ironium Ingot");
 
 		setCreativeTab(CreativeTabs.ingots);
-		setImplemented(true);
 	}
 }

@@ -14,6 +14,5 @@ public class IroniumDust extends Item {
 		super("Ironium Dust");
 
 		setCreativeTab(CreativeTabs.dusts);
-		setImplemented(true);
 	}
 }

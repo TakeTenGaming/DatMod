@@ -14,6 +14,5 @@ public class GoldiriteIngot extends Item {
 		super("Goldirite Ingot");
 
 		setCreativeTab(CreativeTabs.ingots);
-		setImplemented(true);
 	}
 }

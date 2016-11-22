@@ -1,23 +1,18 @@
 package xlxacidxlx.datmod.command;
 
-import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.text.TextComponentString;
+import xlxacidxlx.datmod.base.Command;
 
 /**
  * Created by Acid on 11/6/2016.
  */
-public class DatMod extends CommandBase {
+public class DatMod extends Command {
 	@Override
 	public String getCommandName() {
-		return "DatMod";
-	}
-
-	@Override
-	public String getCommandUsage(ICommandSender sender) {
-		return getCommandName();
+		return "datmod";
 	}
 
 	@Override

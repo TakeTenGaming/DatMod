@@ -12,6 +12,6 @@ public class IroniumOre extends BlockOre {
 	public IroniumOre() {
 		super("Ironium Ore");
 
-		setImplemented(true);
+		setHarvestLevel("pickaxe", 1);
 	}
 }

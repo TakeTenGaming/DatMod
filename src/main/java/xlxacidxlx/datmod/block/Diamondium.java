@@ -13,6 +13,5 @@ public class Diamondium extends Block {
 		super("Diamondium Block");
 
 		setHardness(3.5f);
-		setImplemented(true);
 	}
 }

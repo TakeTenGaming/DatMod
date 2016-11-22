@@ -12,7 +12,5 @@ public class DiamondiumPickaxe extends ItemPickaxe {
 	 */
 	public DiamondiumPickaxe() {
 		super(Materials.diamondium, "Diamondium Pickaxe");
-
-		setImplemented(true);
 	}
 }

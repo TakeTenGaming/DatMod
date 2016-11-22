@@ -12,7 +12,5 @@ public class DiamondiumShovel extends ItemShovel {
 	 */
 	public DiamondiumShovel() {
 		super(Materials.diamondium, "Diamondium Shovel");
-
-		setImplemented(true);
 	}
 }

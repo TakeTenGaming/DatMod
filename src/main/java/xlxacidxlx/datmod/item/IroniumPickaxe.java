@@ -12,7 +12,5 @@ public class IroniumPickaxe extends ItemPickaxe {
 	 */
 	public IroniumPickaxe() {
 		super(Materials.ironium, "Ironium Pickaxe");
-
-		setImplemented(true);
 	}
 }

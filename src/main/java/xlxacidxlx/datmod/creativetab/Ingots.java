@@ -17,6 +17,6 @@ public class Ingots extends net.minecraft.creativetab.CreativeTabs {
 
 	@Override
 	public Item getTabIconItem() {
-		return Items.diamondiumIngot;
+		return Items.diamondium;
 	}
 }

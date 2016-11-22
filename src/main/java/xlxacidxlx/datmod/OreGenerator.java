@@ -1,11 +1,12 @@
 package xlxacidxlx.datmod;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import xlxacidxlx.datmod.register.Blocks;
 
@@ -16,24 +17,63 @@ import java.util.Random;
  */
 public class OreGenerator implements IWorldGenerator {
 	// Diamondium Settings
-	private int oreDiamondiumChance = 3;
+	private int oreDiamondiumChance = 8;
 	private int oreDiamondiumMaxVein = 5;
 	private int oreDiamondiumMaxY = 20;
+	private int oreDiamondiumMinY = 2;
 
 	// Emeraldi Settings
-	private int oreEmeraldiChance = 4;
+	private int oreEmeraldiChance = 6;
 	private int oreEmeraldiMaxVein = 4;
 	private int oreEmeraldiMaxY = 32;
+	private int oreEmeraldiMinY = 2;
 
 	// Goldirite Settings
-	private int oreGoldiriteChance = 2;
+	private int oreGoldiriteChance = 4;
 	private int oreGoldiriteMaxVein = 4;
 	private int oreGoldiriteMaxY = 18;
+	private int oreGoldiriteMinY = 2;
 
 	// Ironium Settings
-	private int oreIroniumChance = 10;
+	private int oreIroniumChance = 15;
 	private int oreIroniumMaxVein = 8;
 	private int oreIroniumMaxY = 63;
+	private int oreIroniumMinY = 2;
+
+	// Ore Holders
+	private WorldGenMinable diamondiumOverworld;
+	private WorldGenMinable diamondiumNether;
+	private WorldGenMinable diamondiumEnd;
+
+	private WorldGenMinable emeraldiOverworld;
+	private WorldGenMinable emeraldiNether;
+	private WorldGenMinable emeraldiEnd;
+
+	private WorldGenMinable goldiriteOverworld;
+	private WorldGenMinable goldiriteNether;
+	private WorldGenMinable goldiriteEnd;
+
+	private WorldGenMinable ironiumOverworld;
+	private WorldGenMinable ironiumNether;
+	private WorldGenMinable ironiumEnd;
+
+	public OreGenerator() {
+		diamondiumOverworld = new WorldGenMinable(Blocks.diamondiumOre.getDefaultState(), oreDiamondiumMaxVein);
+		diamondiumNether = new WorldGenMinable(Blocks.diamondiumOre.getDefaultState(), oreDiamondiumMaxVein, BlockMatcher.forBlock(net.minecraft.init.Blocks.NETHERRACK));
+		diamondiumEnd = new WorldGenMinable(Blocks.diamondiumOre.getDefaultState(), oreDiamondiumMaxVein, BlockMatcher.forBlock(net.minecraft.init.Blocks.END_STONE));
+
+		emeraldiOverworld = new WorldGenMinable(Blocks.emeraldiOre.getDefaultState(), oreEmeraldiMaxVein);
+		emeraldiNether = new WorldGenMinable(Blocks.emeraldiOre.getDefaultState(), oreEmeraldiMaxVein, BlockMatcher.forBlock(net.minecraft.init.Blocks.NETHERRACK));
+		emeraldiEnd = new WorldGenMinable(Blocks.emeraldiOre.getDefaultState(), oreEmeraldiMaxVein, BlockMatcher.forBlock(net.minecraft.init.Blocks.END_STONE));
+
+		goldiriteOverworld = new WorldGenMinable(Blocks.goldiriteOre.getDefaultState(), oreGoldiriteMaxVein);
+		goldiriteNether = new WorldGenMinable(Blocks.goldiriteOre.getDefaultState(), oreGoldiriteMaxVein, BlockMatcher.forBlock(net.minecraft.init.Blocks.NETHERRACK));
+		goldiriteEnd = new WorldGenMinable(Blocks.goldiriteOre.getDefaultState(), oreGoldiriteMaxVein, BlockMatcher.forBlock(net.minecraft.init.Blocks.END_STONE));
+
+		ironiumOverworld = new WorldGenMinable(Blocks.ironiumOre.getDefaultState(), oreIroniumMaxVein);
+		ironiumNether = new WorldGenMinable(Blocks.ironiumOre.getDefaultState(), oreIroniumMaxVein, BlockMatcher.forBlock(net.minecraft.init.Blocks.NETHERRACK));
+		ironiumEnd = new WorldGenMinable(Blocks.ironiumOre.getDefaultState(), oreIroniumMaxVein, BlockMatcher.forBlock(net.minecraft.init.Blocks.END_STONE));
+	}
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
@@ -63,19 +103,19 @@ public class OreGenerator implements IWorldGenerator {
 	 */
 	private void generateEnd(World world, Random rand, int x, int z) {
 		if (ConfigHandler.enableOreGenerationDiamondium) {
-			generateOre(Blocks.diamondiumOre, world, rand, x, z, oreDiamondiumMaxVein, oreDiamondiumChance, oreDiamondiumMaxY);
+			generateOre(diamondiumEnd, world, rand, x, z, oreDiamondiumChance, oreDiamondiumMinY, oreDiamondiumMaxY);
 		}
 
 		if (ConfigHandler.enableOreGenerationEmeraldi) {
-			generateOre(Blocks.emeraldiOre, world, rand, x, z, oreEmeraldiMaxVein, oreEmeraldiChance, oreEmeraldiMaxY);
+			generateOre(emeraldiEnd, world, rand, x, z, oreEmeraldiChance, oreEmeraldiMinY, oreEmeraldiMaxY);
 		}
 
 		if (ConfigHandler.enableOreGenerationGoldirite) {
-			generateOre(Blocks.goldiriteOre, world, rand, x, z, oreGoldiriteMaxVein, oreGoldiriteChance, oreGoldiriteMaxY);
+			generateOre(goldiriteEnd, world, rand, x, z, oreGoldiriteChance, oreGoldiriteMinY, oreGoldiriteMaxY);
 		}
 
 		if (ConfigHandler.enableOreGenerationIronium) {
-			generateOre(Blocks.ironiumOre, world, rand, x, z, oreIroniumMaxVein, oreIroniumChance, oreIroniumMaxY);
+			generateOre(ironiumEnd, world, rand, x, z, oreIroniumChance, oreIroniumMinY, oreIroniumMaxY);
 		}
 	}
 
@@ -89,19 +129,19 @@ public class OreGenerator implements IWorldGenerator {
 	 */
 	private void generateNether(World world, Random rand, int x, int z) {
 		if (ConfigHandler.enableOreGenerationDiamondium) {
-			generateOre(Blocks.diamondiumOre, world, rand, x, z, oreDiamondiumMaxVein, oreDiamondiumChance, oreDiamondiumMaxY);
+			generateOre(diamondiumNether, world, rand, x, z, oreDiamondiumChance, oreDiamondiumMinY, oreDiamondiumMaxY);
 		}
 
 		if (ConfigHandler.enableOreGenerationEmeraldi) {
-			generateOre(Blocks.emeraldiOre, world, rand, x, z, oreEmeraldiMaxVein, oreEmeraldiChance, oreEmeraldiMaxY);
+			generateOre(emeraldiNether, world, rand, x, z, oreEmeraldiChance, oreEmeraldiMinY, oreEmeraldiMaxY);
 		}
 
 		if (ConfigHandler.enableOreGenerationGoldirite) {
-			generateOre(Blocks.goldiriteOre, world, rand, x, z, oreGoldiriteMaxVein, oreGoldiriteChance, oreGoldiriteMaxY);
+			generateOre(goldiriteNether, world, rand, x, z, oreGoldiriteChance, oreGoldiriteMinY, oreGoldiriteMaxY);
 		}
 
 		if (ConfigHandler.enableOreGenerationIronium) {
-			generateOre(Blocks.ironiumOre, world, rand, x, z, oreIroniumMaxVein, oreIroniumChance, oreIroniumMaxY);
+			generateOre(ironiumNether, world, rand, x, z, oreIroniumChance, oreIroniumMinY, oreIroniumMaxY);
 		}
 	}
 
@@ -115,46 +155,55 @@ public class OreGenerator implements IWorldGenerator {
 	 */
 	private void generateOverworld(World world, Random rand, int x, int z) {
 		if (ConfigHandler.enableOreGenerationDiamondium) {
-			generateOre(Blocks.diamondiumOre, world, rand, x, z, oreDiamondiumMaxVein, oreDiamondiumChance, oreDiamondiumMaxY);
+			generateOre(diamondiumOverworld, world, rand, x, z, oreDiamondiumChance, oreDiamondiumMinY, oreDiamondiumMaxY);
 		}
 
 		if (ConfigHandler.enableOreGenerationEmeraldi) {
-			generateOre(Blocks.emeraldiOre, world, rand, x, z, oreEmeraldiMaxVein, oreEmeraldiChance, oreEmeraldiMaxY);
+			generateOre(emeraldiOverworld, world, rand, x, z, oreEmeraldiChance, oreEmeraldiMinY, oreEmeraldiMaxY);
 		}
 
 		if (ConfigHandler.enableOreGenerationGoldirite) {
-			generateOre(Blocks.goldiriteOre, world, rand, x, z, oreGoldiriteMaxVein, oreGoldiriteChance, oreGoldiriteMaxY);
+			generateOre(goldiriteOverworld, world, rand, x, z, oreGoldiriteChance, oreGoldiriteMinY, oreGoldiriteMaxY);
 		}
 
 		if (ConfigHandler.enableOreGenerationIronium) {
-			generateOre(Blocks.ironiumOre, world, rand, x, z, oreIroniumMaxVein, oreIroniumChance, oreIroniumMaxY);
+			generateOre(ironiumOverworld, world, rand, x, z, oreIroniumChance, oreIroniumMinY, oreIroniumMaxY);
 		}
 	}
 
 	/**
-	 * Generates the specified Ore (Block) in the world
+	 * Runs the specified World Generator
 	 *
-	 * @param block       The block to generate
-	 * @param world       The current world
-	 * @param random      Random number
-	 * @param chunkX      Chunk X coordinate
-	 * @param chunkZ      Chunk Z coordinate
-	 * @param maxVeinSize The maximum vein size the ore can generate
-	 * @param chance      The amount of chances the ore has to generate
-	 * @param maxY        The maximum Y value the ore can generate at
+	 * @param generator      The Generator to run
+	 * @param world          The world we're generating in
+	 * @param rand           A random number
+	 * @param x              The X chunk being worked in
+	 * @param z              The Z chunk being worked in
+	 * @param chancesToSpawn The amount of chances the ore has to spawn
+	 * @param minHeight      The minimum height the ore can spawn at
+	 * @param maxHeight      The maximum height the ore can spawn at
 	 */
-	private void generateOre(Block block, World world, Random random, int chunkX, int chunkZ, int maxVeinSize, int chance, int maxY) {
-		int radius = 16;
+	private void generateOre(WorldGenerator generator, World world, Random rand, int x, int z, int chancesToSpawn, int minHeight, int maxHeight) {
+		if (minHeight <= 0) {
+			throw new IllegalArgumentException("Height can't be 0");
+		}
 
-		for (int i = 0; i <= chance; i++) {
-			int veinSize = 1 + random.nextInt(maxVeinSize);
-			int posX = chunkX + random.nextInt(radius);
-			int posZ = chunkZ + random.nextInt(radius);
-			int posY = random.nextInt(maxY);
+		if (minHeight > maxHeight) {
+			throw new IllegalArgumentException("Minimum ore height may not be greater than maximum ore height");
+		}
 
-			BlockPos blockPosition = new BlockPos(posX, posY, posZ);
-			WorldGenMinable worldGen = new WorldGenMinable(block.getDefaultState(), veinSize);
-			worldGen.generate(world, random, blockPosition);
+		if (maxHeight > 256) {
+			throw new IllegalArgumentException("Ore height may not be greater than world height!");
+		}
+
+		int difference = maxHeight - minHeight + 1;
+		for (int i = 0; i < chancesToSpawn; i++) {
+			int xValue = x * 16 + rand.nextInt(16);
+			int yValue = minHeight + rand.nextInt(difference);
+			int zValue = z * 16 + rand.nextInt(16);
+			BlockPos position = new BlockPos(xValue, yValue, zValue);
+
+			generator.generate(world, rand, position);
 		}
 	}
 }

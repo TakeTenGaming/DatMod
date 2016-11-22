@@ -12,7 +12,5 @@ public class EmeraldiShovel extends ItemShovel {
 	 */
 	public EmeraldiShovel() {
 		super(Materials.emeraldi, "Emeraldi Shovel");
-
-		setImplemented(true);
 	}
 }

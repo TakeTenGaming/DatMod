@@ -13,6 +13,5 @@ public class Goldirite extends Block {
 		super("Goldirite Block");
 
 		setHardness(3.5f);
-		setImplemented(true);
 	}
 }

@@ -12,7 +12,5 @@ public class DiamondiumSword extends ItemSword {
 	 */
 	public DiamondiumSword() {
 		super(Materials.diamondium, "Diamondium Sword");
-
-		setImplemented(true);
 	}
 }

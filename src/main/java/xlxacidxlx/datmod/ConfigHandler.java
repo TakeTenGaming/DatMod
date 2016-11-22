@@ -35,6 +35,8 @@ public class ConfigHandler {
 	public static boolean enableEmeraldiTools;
 	public static boolean enableGoldiriteTools;
 	public static boolean enableIroniumTools;
+	public static boolean enableLapisLazuliTools;
+	public static boolean enableRedstoneTools;
 
 	/**
 	 * Initialized the Config
@@ -82,6 +84,8 @@ public class ConfigHandler {
 		enableEmeraldiTools = config.getBoolean("enableEmeraldiTools", category, true, "Toggles Emeraldi tools");
 		enableGoldiriteTools = config.getBoolean("enableGoldiriteTools", category, true, "Toggles Goldirite tools");
 		enableIroniumTools = config.getBoolean("enableIroniumTools", category, true, "Toggles Ironium tools");
+		enableLapisLazuliTools = config.getBoolean("enableLapisLazuliTools", category, true, "Toggles Lapis Lazuli tools");
+		enableRedstoneTools = config.getBoolean("enableRedstoneTools", category, true, "Toggles Redstone tools");
 
 		config.save();
 	}

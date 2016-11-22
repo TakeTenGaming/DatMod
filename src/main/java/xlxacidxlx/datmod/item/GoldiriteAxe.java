@@ -11,8 +11,6 @@ public class GoldiriteAxe extends ItemAxe {
 	 * Constructs the Goldirite Axe
 	 */
 	public GoldiriteAxe() {
-		super(Materials.goldirite, "Goldirite Axe", Materials.goldirite.getDamageVsEntity(), Materials.goldirite.getEfficiencyOnProperMaterial());
-
-		setImplemented(true);
+		super(Materials.goldirite, "Goldirite Axe");
 	}
 }

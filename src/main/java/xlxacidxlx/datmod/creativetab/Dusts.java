@@ -17,6 +17,6 @@ public class Dusts extends net.minecraft.creativetab.CreativeTabs {
 
 	@Override
 	public Item getTabIconItem() {
-		return Items.diamondiumDust;
+		return Items.ironiumDust;
 	}
 }

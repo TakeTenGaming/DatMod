@@ -12,7 +12,5 @@ public class EmeraldiSword extends ItemSword {
 	 */
 	public EmeraldiSword() {
 		super(Materials.emeraldi, "Emeraldi Sword");
-
-		setImplemented(true);
 	}
 }

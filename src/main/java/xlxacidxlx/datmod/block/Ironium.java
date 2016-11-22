@@ -13,6 +13,5 @@ public class Ironium extends Block {
 		super("Ironium Block");
 
 		setHardness(3.5f);
-		setImplemented(true);
 	}
 }

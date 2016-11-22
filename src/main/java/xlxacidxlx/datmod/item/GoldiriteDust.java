@@ -14,6 +14,5 @@ public class GoldiriteDust extends Item {
 		super("Goldirite Dust");
 
 		setCreativeTab(CreativeTabs.dusts);
-		setImplemented(true);
 	}
 }

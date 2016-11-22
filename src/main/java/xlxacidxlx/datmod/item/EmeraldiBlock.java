@@ -14,6 +14,5 @@ public class EmeraldiBlock extends Item {
 		super("Emeraldi Block");
 
 		setCreativeTab(CreativeTabs.blocks);
-		setImplemented(true);
 	}
 }

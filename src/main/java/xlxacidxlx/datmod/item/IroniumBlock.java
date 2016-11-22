@@ -14,6 +14,5 @@ public class IroniumBlock extends Item {
 		super("Ironium Block");
 
 		setCreativeTab(CreativeTabs.blocks);
-		setImplemented(true);
 	}
 }

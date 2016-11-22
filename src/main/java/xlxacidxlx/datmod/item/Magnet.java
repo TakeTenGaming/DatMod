@@ -35,7 +35,6 @@ public class Magnet extends Item {
 	public Magnet() {
 		super("Magnet");
 
-		setImplemented(true);
 		setMaxDamage(0);
 		setMaxStackSize(1);
 	}
@@ -55,8 +54,11 @@ public class Magnet extends Item {
 	 * @return boolean
 	 */
 	private static boolean isActive(ItemStack itemStack) {
-		NBTTagCompound tags = itemStack.getTagCompound();
+		if (itemStack.getTagCompound() == null) {
+			itemStack.setTagCompound(new NBTTagCompound());
+		}
 
+		NBTTagCompound tags = itemStack.getTagCompound();
 		if (!tags.hasKey("active")) {
 			tags.setBoolean("active", false);
 		}
@@ -76,13 +78,6 @@ public class Magnet extends Item {
 	@Override
 	public boolean isDamageable() {
 		return false;
-	}
-
-	@Override
-	public void onCreated(ItemStack stack, World worldIn, EntityPlayer playerIn) {
-		if (stack.getTagCompound() == null) {
-			stack.setTagCompound(new NBTTagCompound());
-		}
 	}
 
 	@Override

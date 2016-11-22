@@ -8,7 +8,7 @@ import xlxacidxlx.datmod.creativetab.CreativeTabs;
  */
 public class BlockOre extends Block {
 	/**
-	 * Constructs the BaseBlockOre class
+	 * Constructs the BlockOre class
 	 *
 	 * @param material The type of material the ore is made of
 	 * @param name     The name of the ore
@@ -27,7 +27,7 @@ public class BlockOre extends Block {
 	 *
 	 * @param name The name of the block
 	 */
-	protected BlockOre(String name) {
+	public BlockOre(String name) {
 		super(name);
 
 		setCreativeTab(CreativeTabs.ores);

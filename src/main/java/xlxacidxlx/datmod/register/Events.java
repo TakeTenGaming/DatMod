@@ -1,21 +1,21 @@
 package xlxacidxlx.datmod.register;
 
 import net.minecraftforge.common.MinecraftForge;
-import xlxacidxlx.datmod.event.EntityJoinWorld;
 import xlxacidxlx.datmod.event.LivingDrops;
+import xlxacidxlx.datmod.event.PlayedLoggedIn;
 
 /**
  * Created by Acid on 10/26/2016.
  */
 public class Events {
-	private static EntityJoinWorld entityJoinWorldEvent = new EntityJoinWorld();
-	private static LivingDrops livingDropsEvent = new LivingDrops();
+	private static LivingDrops livingDrops = new LivingDrops();
+	private static PlayedLoggedIn playedLoggedIn = new PlayedLoggedIn();
 
 	/**
-	 * Registers all the mod's events during Forge's FMLPostInitialization event
+	 * Registers all the mod's events during Forge's FMLInitialization event
 	 */
-	public static void postInit() {
-		MinecraftForge.EVENT_BUS.register(entityJoinWorldEvent);
-		MinecraftForge.EVENT_BUS.register(livingDropsEvent);
+	public static void init() {
+		MinecraftForge.EVENT_BUS.register(livingDrops);
+		MinecraftForge.EVENT_BUS.register(playedLoggedIn);
 	}
 }

@@ -45,11 +45,12 @@ public class Recipes {
 	 * Registers the recipes
 	 */
 	private static void registerRecipes() {
-		Item diamondiumIngot = Items.diamondiumIngot;
-		Item emeraldiIngot = Items.emeraldiIngot;
+		Item diamondium = Items.diamondium;
+		Item emeraldi = Items.emeraldi;
 		Item goldiriteIngot = Items.goldiriteIngot;
 		Item ironiumIngot = Items.ironiumIngot;
 
+		ItemStack lapis = new ItemStack(net.minecraft.init.Items.DYE, 1, 2);
 		net.minecraft.item.Item stick = net.minecraft.init.Items.STICK;
 		net.minecraft.item.Item redstone = net.minecraft.init.Items.REDSTONE;
 
@@ -58,14 +59,14 @@ public class Recipes {
 				" DD",
 				" SD",
 				" S ",
-				'D', diamondiumIngot,
+				'D', diamondium,
 				'S', stick
 		});
 		GameRegistry.addRecipe(new ItemStack(Items.emeraldiAxe), new Object[]{
 				" EE",
 				" SE",
 				" S ",
-				'E', emeraldiIngot,
+				'E', emeraldi,
 				'S', stick
 		});
 		GameRegistry.addRecipe(new ItemStack(Items.goldiriteAxe), new Object[]{
@@ -82,19 +83,26 @@ public class Recipes {
 				'I', ironiumIngot,
 				'S', stick
 		});
+		GameRegistry.addRecipe(new ItemStack(Items.lapisLazuliAxe), new Object[]{
+				" LL",
+				" SL",
+				" S ",
+				'L', lapis,
+				'S', stick
+		});
 
 		// Blocks
 		GameRegistry.addRecipe(new ItemStack(Blocks.diamondium), new Object[]{
 				"DDD",
 				"DDD",
 				"DDD",
-				'D', diamondiumIngot
+				'D', diamondium
 		});
 		GameRegistry.addRecipe(new ItemStack(Blocks.emeraldi), new Object[]{
 				"EEE",
 				"EEE",
 				"EEE",
-				'E', emeraldiIngot
+				'E', emeraldi
 		});
 		GameRegistry.addRecipe(new ItemStack(Blocks.goldirite), new Object[]{
 				"GGG",
@@ -107,6 +115,202 @@ public class Recipes {
 				"III",
 				"III",
 				'I', ironiumIngot
+		});
+
+		// Boots
+		GameRegistry.addRecipe(new ItemStack(Items.diamondiumBoots), new Object[]{
+				"D D",
+				"D D",
+				"   ",
+				'D', diamondium
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.emeraldiBoots), new Object[]{
+				"E E",
+				"E E",
+				"   ",
+				'E', emeraldi
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.goldiriteBoots), new Object[]{
+				"G G",
+				"G G",
+				"   ",
+				'G', goldiriteIngot
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.ironiumBoots), new Object[]{
+				"I I",
+				"I I",
+				"   ",
+				'I', ironiumIngot
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.lapisLazuliBoots), new Object[]{
+				"L L",
+				"L L",
+				"   ",
+				'L', lapis
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.redstoneBoots), new Object[]{
+				"R R",
+				"R R",
+				"   ",
+				'R', redstone
+		});
+
+		// Chestplates
+		GameRegistry.addRecipe(new ItemStack(Items.diamondiumChestplate), new Object[]{
+				"D D",
+				"DDD",
+				"DDD",
+				'D', diamondium
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.emeraldiChestplate), new Object[]{
+				"E E",
+				"EEE",
+				"EEE",
+				'E', emeraldi
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.goldiriteChestplate), new Object[]{
+				"G G",
+				"GGG",
+				"GGG",
+				'G', goldiriteIngot
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.ironiumChestplate), new Object[]{
+				"I I",
+				"III",
+				"III",
+				'I', ironiumIngot
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.lapisLazuliChestplate), new Object[]{
+				"L L",
+				"LLL",
+				"LLL",
+				'L', lapis
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.redstoneChestplate), new Object[]{
+				"R R",
+				"RRR",
+				"RRR",
+				'R', redstone
+		});
+
+		// Helmets
+		GameRegistry.addRecipe(new ItemStack(Items.diamondiumHelmet), new Object[]{
+				"DDD",
+				"D D",
+				"   ",
+				'D', diamondium
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.emeraldiHelmet), new Object[]{
+				"EEE",
+				"E E",
+				"   ",
+				'E', emeraldi
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.goldiriteHelmet), new Object[]{
+				"GGG",
+				"G G",
+				"   ",
+				'G', goldiriteIngot
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.ironiumHelmet), new Object[]{
+				"III",
+				"I I",
+				"   ",
+				'I', ironiumIngot
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.lapisLazuliHelmet), new Object[]{
+				"LLL",
+				"L L",
+				"   ",
+				'L', lapis
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.redstoneHelmet), new Object[]{
+				"RRR",
+				"R R",
+				"   ",
+				'R', redstone
+		});
+
+		// Hoes
+		GameRegistry.addRecipe(new ItemStack(Items.diamondiumHoe), new Object[]{
+				" DD",
+				" S ",
+				" S ",
+				'D', diamondium,
+				'S', stick
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.emeraldiHoe), new Object[]{
+				" EE",
+				" S ",
+				" S ",
+				'E', emeraldi,
+				'S', stick
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.goldiriteHoe), new Object[]{
+				" GG",
+				" S ",
+				" S ",
+				'G', goldiriteIngot,
+				'S', stick
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.ironiumHoe), new Object[]{
+				" II",
+				" S ",
+				" S ",
+				'I', ironiumIngot,
+				'S', stick
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.lapisLazuliHoe), new Object[]{
+				" LL",
+				" S ",
+				" S ",
+				'L', lapis,
+				'S', stick
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.redstoneHoe), new Object[]{
+				" RR",
+				" S ",
+				" S ",
+				'R', redstone,
+				'S', stick
+		});
+
+		// Leggings
+		GameRegistry.addRecipe(new ItemStack(Items.diamondiumLeggings), new Object[]{
+				"DDD",
+				"D D",
+				"D D",
+				'D', diamondium
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.emeraldiLeggings), new Object[]{
+				"EEE",
+				"E E",
+				"E E",
+				'E', emeraldi
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.goldiriteLeggings), new Object[]{
+				"GGG",
+				"G G",
+				"G G",
+				'G', goldiriteIngot
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.ironiumLeggings), new Object[]{
+				"III",
+				"I I",
+				"I I",
+				'I', ironiumIngot
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.lapisLazuliLeggings), new Object[]{
+				"LLL",
+				"L L",
+				"L L",
+				'L', lapis
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.redstoneLeggings), new Object[]{
+				"RRR",
+				"R R",
+				"R R",
+				'R', redstone
 		});
 
 		// Magnet
@@ -123,14 +327,14 @@ public class Recipes {
 				"DDD",
 				" S ",
 				" S ",
-				'D', diamondiumIngot,
+				'D', diamondium,
 				'S', stick
 		});
 		GameRegistry.addRecipe(new ItemStack(Items.emeraldiPickaxe), new Object[]{
 				"EEE",
 				" S ",
 				" S ",
-				'E', emeraldiIngot,
+				'E', emeraldi,
 				'S', stick
 		});
 		GameRegistry.addRecipe(new ItemStack(Items.goldiritePickaxe), new Object[]{
@@ -147,20 +351,34 @@ public class Recipes {
 				'I', ironiumIngot,
 				'S', stick
 		});
+		GameRegistry.addRecipe(new ItemStack(Items.lapisLazuliPickaxe), new Object[]{
+				"LLL",
+				" S ",
+				" S ",
+				'L', lapis,
+				'S', stick
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.redstonePickaxe), new Object[]{
+				"RRR",
+				" S ",
+				" S ",
+				'R', redstone,
+				'S', stick
+		});
 
 		// Shovels
 		GameRegistry.addRecipe(new ItemStack(Items.diamondiumShovel), new Object[]{
 				" D ",
 				" S ",
 				" S ",
-				'D', diamondiumIngot,
+				'D', diamondium,
 				'S', stick
 		});
 		GameRegistry.addRecipe(new ItemStack(Items.emeraldiShovel), new Object[]{
 				" E ",
 				" S ",
 				" S ",
-				'E', emeraldiIngot,
+				'E', emeraldi,
 				'S', stick
 		});
 		GameRegistry.addRecipe(new ItemStack(Items.goldiriteShovel), new Object[]{
@@ -177,20 +395,34 @@ public class Recipes {
 				'I', ironiumIngot,
 				'S', stick
 		});
+		GameRegistry.addRecipe(new ItemStack(Items.lapisLazuliShovel), new Object[]{
+				" L ",
+				" S ",
+				" S ",
+				'L', lapis,
+				'S', stick
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.redstoneShovel), new Object[]{
+				" R ",
+				" S ",
+				" S ",
+				'R', redstone,
+				'S', stick
+		});
 
 		// Swords
 		GameRegistry.addRecipe(new ItemStack(Items.diamondiumSword), new Object[]{
 				" D ",
 				" D ",
 				" S ",
-				'D', diamondiumIngot,
+				'D', diamondium,
 				'S', stick
 		});
 		GameRegistry.addRecipe(new ItemStack(Items.emeraldiSword), new Object[]{
 				" E ",
 				" E ",
 				" S ",
-				'E', emeraldiIngot,
+				'E', emeraldi,
 				'S', stick
 		});
 		GameRegistry.addRecipe(new ItemStack(Items.goldiriteSword), new Object[]{
@@ -205,6 +437,20 @@ public class Recipes {
 				" I ",
 				" S ",
 				'I', ironiumIngot,
+				'S', stick
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.lapisLazuliSword), new Object[]{
+				" L ",
+				" L ",
+				" S ",
+				'L', lapis,
+				'S', stick
+		});
+		GameRegistry.addRecipe(new ItemStack(Items.redstoneSword), new Object[]{
+				" R ",
+				" R ",
+				" S ",
+				'R', redstone,
 				'S', stick
 		});
 	}
@@ -247,13 +493,12 @@ public class Recipes {
 		float xpIronium = xp;
 		float xpLeather = 0.1f;
 
-		registerSmeltingRecipe(new ItemStack(Blocks.diamondiumOre), new ItemStack(Items.diamondiumIngot), xpDiamondium);
-		registerSmeltingRecipe(new ItemStack(Blocks.emeraldiOre), new ItemStack(Items.emeraldiIngot), xpEmeraldi);
+		registerSmeltingRecipe(new ItemStack(Blocks.diamondiumOre), new ItemStack(Items.diamondium), xpDiamondium);
+		registerSmeltingRecipe(new ItemStack(Blocks.emeraldiOre), new ItemStack(Items.emeraldi), xpEmeraldi);
 		registerSmeltingRecipe(new ItemStack(Blocks.goldiriteOre), new ItemStack(Items.goldiriteIngot), xpGoldirite);
 		registerSmeltingRecipe(new ItemStack(Blocks.ironiumOre), new ItemStack(Items.ironiumIngot), xpIronium);
 
 		if (ConfigHandler.enableRottenFleshToLeatherRecipe) {
-			// Rotten flesh -> leather
 			registerSmeltingRecipe(new ItemStack(net.minecraft.init.Items.ROTTEN_FLESH), new ItemStack(net.minecraft.init.Items.LEATHER), xpLeather);
 		}
 	}

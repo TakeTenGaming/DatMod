@@ -14,6 +14,5 @@ public class GoldiriteBlock extends Item {
 		super("Goldirite Block");
 
 		setCreativeTab(CreativeTabs.blocks);
-		setImplemented(true);
 	}
 }

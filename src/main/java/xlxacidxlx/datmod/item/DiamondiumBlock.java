@@ -14,6 +14,5 @@ public class DiamondiumBlock extends Item {
 		super("Diamondium Block");
 
 		setCreativeTab(CreativeTabs.blocks);
-		setImplemented(true);
 	}
 }

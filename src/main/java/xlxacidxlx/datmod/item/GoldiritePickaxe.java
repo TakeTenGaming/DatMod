@@ -12,7 +12,5 @@ public class GoldiritePickaxe extends ItemPickaxe {
 	 */
 	public GoldiritePickaxe() {
 		super(Materials.goldirite, "Goldirite Pickaxe");
-
-		setImplemented(true);
 	}
 }

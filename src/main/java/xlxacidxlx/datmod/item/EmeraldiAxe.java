@@ -11,8 +11,6 @@ public class EmeraldiAxe extends ItemAxe {
 	 * Constructs the Emeraldi Axe
 	 */
 	public EmeraldiAxe() {
-		super(Materials.emeraldi, "Emeraldi Axe", Materials.emeraldi.getDamageVsEntity(), Materials.emeraldi.getEfficiencyOnProperMaterial());
-
-		setImplemented(true);
+		super(Materials.emeraldi, "Emeraldi Axe");
 	}
 }

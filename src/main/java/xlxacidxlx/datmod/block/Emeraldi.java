@@ -13,6 +13,5 @@ public class Emeraldi extends Block {
 		super("Emeraldi Block");
 
 		setHardness(3.5f);
-		setImplemented(true);
 	}
 }

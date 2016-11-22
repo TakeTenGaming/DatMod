@@ -1,12 +1,30 @@
 # Changelog
 The following is a list of changes in each release of the mod.
 
+## 1.2.0
+This update includes bug fixes, code changes and some new features. It's recommended to update to this version.
+
+Additions/Changes
+- Cleaned up/removed code that wasn't used or needed
+- Adjusted Ore Generation values to allow for a bit more flexible ore generation
+- Cleaned up Ore Generation code and added Overworld, Nether and The End ore definitions
+- Adds "/profiler" command, useful for checking how many blocks are around you.
+- Added 2 new tool sets: Lapis Lazuli & Redstone
+- Adds hoes for each Ore type
+- Adds armor for each Ore type
+- Emeraldi and Diamondium now drops it's gem rather than the ore when mined. Silk Touch & Fortune are accounted for
+
+Fixes
+- Fixes entities always dropping bones on death, even if not killed by a player.
+- Fixes "welcome" message being shown after death, rather than only on first login
+- Fixes commands never being registered. Derp!
+
 ## 1.1.0
 This update fixes some issues. It's recommended to update to this version.
 
 - Fixes #15 - Magnet State Doesn't Persist on Reload, this should actually be fixed now.. I hope.. lol
-- Fixes #18 - Some classes missing @SideOnly annotation
 - Fixes #17 - Change Creative Tabs to use Mod Items
+- Fixes #18 - Some classes missing @SideOnly annotation
 - Fixes #19 - Code Refactor, moved some classes around
 
 ## 1.0.0 - The Gold Update

@@ -11,8 +11,6 @@ public class IroniumAxe extends ItemAxe {
 	 * Constructs the Ironium Axe
 	 */
 	public IroniumAxe() {
-		super(Materials.ironium, "Ironium Axe", Materials.ironium.getDamageVsEntity(), Materials.ironium.getEfficiencyOnProperMaterial());
-
-		setImplemented(true);
+		super(Materials.ironium, "Ironium Axe");
 	}
 }

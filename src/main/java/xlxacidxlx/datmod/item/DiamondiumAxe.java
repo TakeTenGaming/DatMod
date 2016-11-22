@@ -11,8 +11,6 @@ public class DiamondiumAxe extends ItemAxe {
 	 * Constructs the Diamondium Axe
 	 */
 	public DiamondiumAxe() {
-		super(Materials.diamondium, "Diamondium Axe", Materials.diamondium.getDamageVsEntity(), Materials.diamondium.getEfficiencyOnProperMaterial());
-
-		setImplemented(true);
+		super(Materials.diamondium, "Diamondium Axe");
 	}
 }

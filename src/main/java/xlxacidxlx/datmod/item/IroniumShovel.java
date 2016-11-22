@@ -12,7 +12,5 @@ public class IroniumShovel extends ItemShovel {
 	 */
 	public IroniumShovel() {
 		super(Materials.ironium, "Ironium Shovel");
-
-		setImplemented(true);
 	}
 }

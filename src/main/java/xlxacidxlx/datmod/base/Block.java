@@ -3,8 +3,6 @@ package xlxacidxlx.datmod.base;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -13,16 +11,12 @@ import net.minecraft.world.IBlockAccess;
 import xlxacidxlx.datmod.DatMod;
 import xlxacidxlx.datmod.creativetab.CreativeTabs;
 
-import java.util.List;
-
 /**
  * Created by Acid on 10/26/2016.
  */
 public class Block extends net.minecraft.block.Block {
-	private boolean implemented = false;
-
 	/**
-	 * Constructs the BaseBlock class
+	 * Constructs the Block class
 	 *
 	 * @param materialIn The type of material the block is made of
 	 * @param name       The name of the block
@@ -63,15 +57,6 @@ public class Block extends net.minecraft.block.Block {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-		if (!isImplemented()) {
-			tooltip.add("[Not implemented!]");
-		}
-
-		super.addInformation(stack, playerIn, tooltip, advanced);
-	}
-
-	@Override
 	public boolean canDropFromExplosion(Explosion explosion) {
 		return false;
 	}
@@ -93,21 +78,5 @@ public class Block extends net.minecraft.block.Block {
 	@Override
 	public boolean isFlammable(IBlockAccess world, BlockPos pos, EnumFacing face) {
 		return false;
-	}
-
-	/**
-	 * Checks if the block is marked as implemented
-	 */
-	private boolean isImplemented() {
-		return this.implemented;
-	}
-
-	/**
-	 * Sets the implemented state to the specified boolean
-	 *
-	 * @param implemented True/false
-	 */
-	public void setImplemented(boolean implemented) {
-		this.implemented = implemented;
 	}
 }

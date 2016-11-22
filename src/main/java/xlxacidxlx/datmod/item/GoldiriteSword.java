@@ -12,7 +12,5 @@ public class GoldiriteSword extends ItemSword {
 	 */
 	public GoldiriteSword() {
 		super(Materials.goldirite, "Goldirite Sword");
-
-		setImplemented(true);
 	}
 }
