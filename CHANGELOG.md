@@ -1,6 +1,14 @@
 # Changelog
 The following is a list of changes in each release of the mod.
 
+## 1.4.0
+This update is a bug fix release.
+
+**Changes**
+- Cleaned up Recipes a bit. No more redundant code, yay!
+- Fixed Lapis Lazuli armors not being craftable due to wrong ingredient.
+- Fixed Redstone Axe not being craftable
+
 ## 1.3.0
 This update is a feature/general change release.
 

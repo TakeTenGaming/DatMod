@@ -2,7 +2,6 @@
 *.ini
 *.hprof
 changelog.template
-CHANGELOG_CURSE.md
 CHANGELOG_GENERATED.md
 PLANNED_FEATURES.md
 TOOL_STATISTICS.md

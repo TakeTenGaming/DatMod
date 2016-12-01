@@ -20,7 +20,7 @@ import java.io.File;
 @Mod(modid = DatMod.MODID, version = DatMod.VERSION, name = DatMod.NAME, updateJSON = "http://raw.githubusercontent.com/xlxAciDxlx/DatMod/VERSION.md")
 public class DatMod {
 	public static final String MODID = "datmod";
-	public static final String VERSION = "1.3.0";
+	public static final String VERSION = "1.4.0";
 	public static final String NAME = "DatMod";
 	@Mod.Instance
 	public static DatMod instance;
