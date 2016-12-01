@@ -8,11 +8,6 @@ import xlxacidxlx.datmod.creativetab.CreativeTabs;
  * Created by Acid on 11/1/2016.
  */
 public class Item extends net.minecraft.item.Item {
-	/**
-	 * Constructs the Item
-	 *
-	 * @param name The name of the item
-	 */
 	public Item(String name) {
 		setCreativeTab(CreativeTabs.items);
 
@@ -21,20 +16,14 @@ public class Item extends net.minecraft.item.Item {
 		setUnlocalizedName(name);
 	}
 
-	/**
-	 * Gets the items model location
-	 *
-	 * @return ModelResourceLocation
-	 */
 	public ModelResourceLocation getModelResourceLocation() {
 		return new ModelResourceLocation(getRegistryName(), "inventory");
 	}
 
-	/**
-	 * Gets the item's name
-	 *
-	 * @return String
-	 */
+	public ModelResourceLocation getModelResourceLocation(int metadata) {
+		return new ModelResourceLocation(getRegistryName() + "_" + metadata, "inventory");
+	}
+
 	public String getName() {
 		return this.toString().toLowerCase();
 	}

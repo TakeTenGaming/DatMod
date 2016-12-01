@@ -1,11 +1,13 @@
 package xlxacidxlx.datmod.proxy;
 
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import xlxacidxlx.datmod.DatMod;
 import xlxacidxlx.datmod.base.Item;
 import xlxacidxlx.datmod.register.Blocks;
 import xlxacidxlx.datmod.register.Items;
@@ -17,8 +19,7 @@ import xlxacidxlx.datmod.register.Items;
 public class ClientProxy extends CommonProxy {
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
-		// TODO: Uncomment this once we have 3D items/models
-		//OBJLoader.INSTANCE.addDomain(DatMod.MODID);
+		OBJLoader.INSTANCE.addDomain(DatMod.MODID);
 	}
 
 	@Override
@@ -31,12 +32,11 @@ public class ClientProxy extends CommonProxy {
 	public void postInit(FMLPostInitializationEvent event) {
 	}
 
-	/**
-	 * Registers the specified item's model
-	 *
-	 * @param item The item to register
-	 */
 	public void registerModel(Item item) {
 		ModelLoader.setCustomModelResourceLocation(item, 0, item.getModelResourceLocation());
+	}
+
+	public void registerModel(Item item, int metadata) {
+		ModelLoader.setCustomModelResourceLocation(item, metadata, item.getModelResourceLocation(metadata));
 	}
 }

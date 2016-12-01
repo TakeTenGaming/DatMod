@@ -93,14 +93,6 @@ public class OreGenerator implements IWorldGenerator {
 
 	}
 
-	/**
-	 * Generates ores in "The End"
-	 *
-	 * @param world The current world
-	 * @param rand  Random number
-	 * @param x     X coordinate
-	 * @param z     Z coordinate
-	 */
 	private void generateEnd(World world, Random rand, int x, int z) {
 		if (ConfigHandler.enableOreGenerationDiamondium) {
 			generateOre(diamondiumEnd, world, rand, x, z, oreDiamondiumChance, oreDiamondiumMinY, oreDiamondiumMaxY);
@@ -119,14 +111,6 @@ public class OreGenerator implements IWorldGenerator {
 		}
 	}
 
-	/**
-	 * Generates ores in "The Nether"
-	 *
-	 * @param world The current world
-	 * @param rand  Random number
-	 * @param x     X coordinate
-	 * @param z     Z coordinate
-	 */
 	private void generateNether(World world, Random rand, int x, int z) {
 		if (ConfigHandler.enableOreGenerationDiamondium) {
 			generateOre(diamondiumNether, world, rand, x, z, oreDiamondiumChance, oreDiamondiumMinY, oreDiamondiumMaxY);
@@ -145,14 +129,6 @@ public class OreGenerator implements IWorldGenerator {
 		}
 	}
 
-	/**
-	 * Generates ores in the "Overworld"
-	 *
-	 * @param world The current world
-	 * @param rand  Random number
-	 * @param x     X coordinate
-	 * @param z     Z coordinate
-	 */
 	private void generateOverworld(World world, Random rand, int x, int z) {
 		if (ConfigHandler.enableOreGenerationDiamondium) {
 			generateOre(diamondiumOverworld, world, rand, x, z, oreDiamondiumChance, oreDiamondiumMinY, oreDiamondiumMaxY);
@@ -171,18 +147,6 @@ public class OreGenerator implements IWorldGenerator {
 		}
 	}
 
-	/**
-	 * Runs the specified World Generator
-	 *
-	 * @param generator      The Generator to run
-	 * @param world          The world we're generating in
-	 * @param rand           A random number
-	 * @param x              The X chunk being worked in
-	 * @param z              The Z chunk being worked in
-	 * @param chancesToSpawn The amount of chances the ore has to spawn
-	 * @param minHeight      The minimum height the ore can spawn at
-	 * @param maxHeight      The maximum height the ore can spawn at
-	 */
 	private void generateOre(WorldGenerator generator, World world, Random rand, int x, int z, int chancesToSpawn, int minHeight, int maxHeight) {
 		if (minHeight <= 0) {
 			throw new IllegalArgumentException("Height can't be 0");

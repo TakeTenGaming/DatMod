@@ -12,9 +12,6 @@ import java.util.Random;
  * Created by Acid on 11/1/2016.
  */
 public class DiamondiumOre extends BlockOre {
-	/**
-	 * Constructs the Diamondium Ore block
-	 */
 	public DiamondiumOre() {
 		super("Diamondium Ore");
 

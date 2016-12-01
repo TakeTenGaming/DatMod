@@ -7,9 +7,6 @@ import xlxacidxlx.datmod.creativetab.CreativeTabs;
  * Created by Acid on 10/26/2016.
  */
 public class IroniumIngot extends Item {
-	/**
-	 * Constructs the Ironium Ingot
-	 */
 	public IroniumIngot() {
 		super("Ironium Ingot");
 

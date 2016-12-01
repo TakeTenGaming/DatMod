@@ -7,9 +7,6 @@ import xlxacidxlx.datmod.base.ItemAxe;
  * Created by Acid on 11/20/2016.
  */
 public class RedstoneAxe extends ItemAxe {
-	/**
-	 * Constructs the Redstone Axe
-	 */
 	public RedstoneAxe() {
 		super(Materials.redstone, "Redstone Axe");
 	}

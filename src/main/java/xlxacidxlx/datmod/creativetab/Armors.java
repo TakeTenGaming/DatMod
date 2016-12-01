@@ -7,9 +7,6 @@ import xlxacidxlx.datmod.DatMod;
  * Created by Acid on 11/20/2016.
  */
 public class Armors extends net.minecraft.creativetab.CreativeTabs {
-	/**
-	 * Registers the Armors Creative Tab
-	 */
 	public Armors() {
 		super(getNextID(), DatMod.MODID + "_armors");
 	}

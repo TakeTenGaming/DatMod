@@ -13,8 +13,6 @@ run
 src/api
 src/test
 
-## General Files/Folders
-
 ## Eclipse
 eclipse
 .metadata

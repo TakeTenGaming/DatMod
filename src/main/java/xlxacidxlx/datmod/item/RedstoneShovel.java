@@ -7,9 +7,6 @@ import xlxacidxlx.datmod.base.ItemShovel;
  * Created by Acid on 11/20/2016.
  */
 public class RedstoneShovel extends ItemShovel {
-	/**
-	 * Constructs the Redstone Shovel
-	 */
 	public RedstoneShovel() {
 		super(Materials.redstone, "Redstone Shovel");
 	}

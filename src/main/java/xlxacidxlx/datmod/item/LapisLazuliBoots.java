@@ -8,9 +8,6 @@ import xlxacidxlx.datmod.base.ItemArmor;
  * Created by Acid on 11/20/2016.
  */
 public class LapisLazuliBoots extends ItemArmor {
-	/**
-	 * Constructs the Lapis Lazuli Boots
-	 */
 	public LapisLazuliBoots() {
 		super(Materials.lapisLazuliArmor, EntityEquipmentSlot.FEET, "Lapis Lazuli Boots");
 	}

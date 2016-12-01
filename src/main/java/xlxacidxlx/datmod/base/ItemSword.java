@@ -8,12 +8,6 @@ import xlxacidxlx.datmod.creativetab.CreativeTabs;
  * Created by Acid on 11/1/2016.
  */
 public class ItemSword extends net.minecraft.item.ItemSword {
-	/**
-	 * Constructs the ItemSword
-	 *
-	 * @param material The material the sword is made of
-	 * @param name     The name of the sword
-	 */
 	public ItemSword(ToolMaterial material, String name) {
 		super(material);
 
@@ -24,12 +18,11 @@ public class ItemSword extends net.minecraft.item.ItemSword {
 		setUnlocalizedName(name);
 	}
 
-	/**
-	 * Gets the items model location
-	 *
-	 * @return ModelResourceLocation
-	 */
 	public ModelResourceLocation getModelResourceLocation() {
 		return new ModelResourceLocation(getRegistryName(), "inventory");
+	}
+
+	public ModelResourceLocation getModelResourceLocation(int metadata) {
+		return new ModelResourceLocation(getRegistryName() + "_" + metadata, "inventory");
 	}
 }

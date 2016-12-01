@@ -80,9 +80,6 @@ public class Items {
 
 	public static Magnet magnetItem;
 
-	/**
-	 * Registers all the mods items
-	 */
 	public static void preInit() {
 		diamondium = new Diamondium();
 		diamondiumAxe = new DiamondiumAxe();
@@ -155,9 +152,6 @@ public class Items {
 		registerItems();
 	}
 
-	/**
-	 * Registers the items
-	 */
 	private static void registerItems() {
 		if (ConfigHandler.enableOreGeneration) {
 			if (ConfigHandler.enableOreGenerationDiamondium && ConfigHandler.enableDiamondiumTools) {
@@ -242,77 +236,77 @@ public class Items {
 		GameRegistry.register(magnetItem);
 	}
 
-	/**
-	 * Registers the specified item's render
-	 *
-	 * @param item The item to render
-	 */
 	@SideOnly(Side.CLIENT)
 	private static void registerRender(Item item) {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, item.getModelResourceLocation());
 	}
 
-	/**
-	 * Registers the specified item's render
-	 */
+	@SideOnly(Side.CLIENT)
+	private static void registerRender(Item item, int metadata) {
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, metadata, item.getModelResourceLocation
+				(metadata));
+	}
+
 	@SideOnly(Side.CLIENT)
 	private static void registerRender(ItemArmor item) {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, item.getModelResourceLocation());
 	}
 
-	/**
-	 * Registers the specified item's render
-	 *
-	 * @param item The item to render
-	 */
+	@SideOnly(Side.CLIENT)
+	private static void registerRender(ItemArmor item, int metadata) {
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, metadata, item.getModelResourceLocation(metadata));
+	}
+
 	@SideOnly(Side.CLIENT)
 	private static void registerRender(ItemAxe item) {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, item.getModelResourceLocation());
 	}
 
-	/**
-	 * Registers the specified item's render
-	 *
-	 * @param item The item to render
-	 */
+	@SideOnly(Side.CLIENT)
+	private static void registerRender(ItemAxe item, int metadata) {
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, metadata, item.getModelResourceLocation(metadata));
+	}
+
 	@SideOnly(Side.CLIENT)
 	private static void registerRender(ItemHoe item) {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, item.getModelResourceLocation());
 	}
 
-	/**
-	 * Registers the specified item's render
-	 *
-	 * @param item The item to render
-	 */
+	@SideOnly(Side.CLIENT)
+	private static void registerRender(ItemHoe item, int metadata) {
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, metadata, item.getModelResourceLocation(metadata));
+	}
+
 	@SideOnly(Side.CLIENT)
 	private static void registerRender(ItemPickaxe item) {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, item.getModelResourceLocation());
 	}
 
-	/**
-	 * Registers the specified item's render
-	 *
-	 * @param item The item to render
-	 */
+	@SideOnly(Side.CLIENT)
+	private static void registerRender(ItemPickaxe item, int metadata) {
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, metadata, item.getModelResourceLocation(metadata));
+	}
+
 	@SideOnly(Side.CLIENT)
 	private static void registerRender(ItemShovel item) {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, item.getModelResourceLocation());
 	}
 
-	/**
-	 * Registers the specified item's render
-	 *
-	 * @param item The item to render
-	 */
+	@SideOnly(Side.CLIENT)
+	private static void registerRender(ItemShovel item, int metadata) {
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, metadata, item.getModelResourceLocation(metadata));
+	}
+
 	@SideOnly(Side.CLIENT)
 	private static void registerRender(ItemSword item) {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, item.getModelResourceLocation());
 	}
 
-	/**
-	 * Registers all the item's renders
-	 */
+	@SideOnly(Side.CLIENT)
+	private static void registerRender(ItemSword item, int metadata) {
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, metadata, item.getModelResourceLocation(metadata));
+	}
+
 	@SideOnly(Side.CLIENT)
 	public static void registerRenders() {
 		registerRender(diamondium);

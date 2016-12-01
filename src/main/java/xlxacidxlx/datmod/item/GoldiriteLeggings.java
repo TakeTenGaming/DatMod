@@ -8,9 +8,6 @@ import xlxacidxlx.datmod.base.ItemArmor;
  * Created by Acid on 11/20/2016.
  */
 public class GoldiriteLeggings extends ItemArmor {
-	/**
-	 * Constructs the Goldirite Leggings
-	 */
 	public GoldiriteLeggings() {
 		super(Materials.goldiriteArmor, EntityEquipmentSlot.LEGS, "Goldirite Leggings");
 	}

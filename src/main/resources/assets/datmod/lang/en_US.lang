@@ -2,6 +2,25 @@
 # English US
 #
 
+# Achievements
+achievement.datmod_test=Test Achievement
+achievement.datmod_test.desc=This is a simple test achievement!
+
+achievement.datmod_oreMinerDiamondium=Ore Miner - Diamondium
+achievement.datmod_oreMinerDiamondium.desc=You mined Diamondium Ore!
+
+achievement.datmod_oreMinerEmeraldi=Ore Miner - Emeraldi
+achievement.datmod_oreMinerEmeraldi.desc=You mined Emeraldi Ore!
+
+achievement.datmod_oreMinerGoldirite=Ore Miner - Goldirite
+achievement.datmod_oreMinerGoldirite.desc=You mined Goldirite Ore!
+
+achievement.datmod_oreMinerIronium=Ore Miner - Ironium
+achievement.datmod_oreMinerIronium.desc=You mined Ironium Ore!
+
+achievement.datmod_oreMiner=Ore Miner
+achievement.datmod_oreMiner.desc=You've mined every ore from DatMod!
+
 # Creative Tabs
 itemGroup.datmod_armors=DatMod - Armors
 itemGroup.datmod_blocks=DatMod - Blocks
@@ -59,7 +78,6 @@ item.goldiriteingot.name=Goldirite Ingot
 item.ironiumingot.name=Ironium Ingot
 
 # Items
-item.chestbag.name=Chest Bag
 item.magnet.name=Magnet
 
 # Ores

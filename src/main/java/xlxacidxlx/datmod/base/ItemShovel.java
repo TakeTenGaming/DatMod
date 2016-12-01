@@ -9,12 +9,6 @@ import xlxacidxlx.datmod.creativetab.CreativeTabs;
  * Created by Acid on 11/1/2016.
  */
 public class ItemShovel extends ItemSpade {
-	/**
-	 * Constructs the ItemShovel
-	 *
-	 * @param material The material the shovel is made of
-	 * @param name     The name of the shovel
-	 */
 	public ItemShovel(ToolMaterial material, String name) {
 		super(material);
 
@@ -25,12 +19,11 @@ public class ItemShovel extends ItemSpade {
 		setUnlocalizedName(name);
 	}
 
-	/**
-	 * Gets the items model location
-	 *
-	 * @return ModelResourceLocation
-	 */
 	public ModelResourceLocation getModelResourceLocation() {
 		return new ModelResourceLocation(getRegistryName(), "inventory");
+	}
+
+	public ModelResourceLocation getModelResourceLocation(int metadata) {
+		return new ModelResourceLocation(getRegistryName() + "_" + metadata, "inventory");
 	}
 }

@@ -11,13 +11,6 @@ import xlxacidxlx.datmod.creativetab.CreativeTabs;
  * Created by Acid on 11/20/2016.
  */
 public class ItemArmor extends net.minecraft.item.ItemArmor {
-	/**
-	 * Constructs the ItemArmor
-	 *
-	 * @param materialIn      The material the armor is made of
-	 * @param equipmentSlotIn Which slot the armor piece goes in
-	 * @param name            The name of the armor piece
-	 */
 	public ItemArmor(ArmorMaterial materialIn, EntityEquipmentSlot equipmentSlotIn, String name) {
 		super(materialIn, -1, equipmentSlotIn);
 
@@ -28,16 +21,14 @@ public class ItemArmor extends net.minecraft.item.ItemArmor {
 		setUnlocalizedName(name);
 	}
 
-	/**
-	 * Returns the model's resource location
-	 */
 	public ModelResourceLocation getModelResourceLocation() {
 		return new ModelResourceLocation(getRegistryName(), "inventory");
 	}
 
-	/**
-	 * Gets the block's resource location
-	 */
+	public ModelResourceLocation getModelResourceLocation(int metadata) {
+		return new ModelResourceLocation(getRegistryName() + "_" + metadata, "inventory");
+	}
+
 	public ResourceLocation getResourceLocation() {
 		return getRegistryName();
 	}

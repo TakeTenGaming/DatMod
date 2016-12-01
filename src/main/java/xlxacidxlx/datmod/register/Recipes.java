@@ -9,41 +9,19 @@ import xlxacidxlx.datmod.base.Item;
  * Created by Acid on 11/10/2016.
  */
 public class Recipes {
-	/**
-	 * Registers all the recipes during Forge's initialization event
-	 */
 	public static void init() {
 		registerRecipes();
-		registerShapelessRecipes();
 		registerSmeltingRecipes();
 	}
 
-	/**
-	 * Registers the specified recipe
-	 *
-	 * @param output    The item to receive from crafting
-	 * @param lineOne   The first line's recipe
-	 * @param lineTwo   The second line's recipe
-	 * @param lineThree The third line's recipe
-	 * @param input     Items that go into crafting the item
-	 */
 	public static void registerRecipe(ItemStack output, String lineOne, String lineTwo, String lineThree, ItemStack input) {
 		GameRegistry.addRecipe(output, lineOne, lineTwo, lineThree, input);
 	}
 
-	/**
-	 * Registers the specified recipe
-	 *
-	 * @param output The item to get from crafting
-	 * @param params An object of crafting lines and ingredients
-	 */
 	public static void registerRecipe(ItemStack output, Object... params) {
 		GameRegistry.addRecipe(output, params);
 	}
 
-	/**
-	 * Registers the recipes
-	 */
 	private static void registerRecipes() {
 		Item diamondium = Items.diamondium;
 		Item emeraldi = Items.emeraldi;
@@ -192,6 +170,9 @@ public class Recipes {
 				"RRR",
 				'R', redstone
 		});
+
+		// Compressed Items
+		// TODO: Figure out how to register the recipes for compressed items..
 
 		// Helmets
 		GameRegistry.addRecipe(new ItemStack(Items.diamondiumHelmet), new Object[]{
@@ -453,22 +434,6 @@ public class Recipes {
 				'R', redstone,
 				'S', stick
 		});
-	}
-
-	/**
-	 * Registers a shapeless recipe
-	 *
-	 * @param output The item to receive from crafting
-	 * @param input  The item to put in for crafting
-	 */
-	public static void registerShapelessRecipe(ItemStack output, ItemStack input) {
-		GameRegistry.addShapelessRecipe(output, input);
-	}
-
-	/**
-	 * Registers all shapeless recipes
-	 */
-	private static void registerShapelessRecipes() {
 	}
 
 	/**

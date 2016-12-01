@@ -15,12 +15,6 @@ import xlxacidxlx.datmod.creativetab.CreativeTabs;
  * Created by Acid on 10/26/2016.
  */
 public class Block extends net.minecraft.block.Block {
-	/**
-	 * Constructs the Block class
-	 *
-	 * @param materialIn The type of material the block is made of
-	 * @param name       The name of the block
-	 */
 	Block(Material materialIn, String name) {
 		super(materialIn);
 
@@ -36,11 +30,6 @@ public class Block extends net.minecraft.block.Block {
 		setSoundType(SoundType.STONE);
 	}
 
-	/**
-	 * Constructs the BaseBlock class
-	 *
-	 * @param name The name of the block
-	 */
 	protected Block(String name) {
 		super(Material.ROCK);
 
@@ -61,16 +50,14 @@ public class Block extends net.minecraft.block.Block {
 		return false;
 	}
 
-	/**
-	 * Returns the model's resource location
-	 */
 	public ModelResourceLocation getModelResourceLocation() {
 		return new ModelResourceLocation(getRegistryName(), "inventory");
 	}
 
-	/**
-	 * Gets the block's resource location
-	 */
+	public ModelResourceLocation getModelResourceLocation(int metadata) {
+		return new ModelResourceLocation(getRegistryName() + "_" + metadata, "inventory");
+	}
+
 	public ResourceLocation getResourceLocation() {
 		return getRegistryName();
 	}

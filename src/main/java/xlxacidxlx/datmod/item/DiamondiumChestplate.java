@@ -8,9 +8,6 @@ import xlxacidxlx.datmod.base.ItemArmor;
  * Created by Acid on 11/20/2016.
  */
 public class DiamondiumChestplate extends ItemArmor {
-	/**
-	 * Constructs the Diamondium Chestplate
-	 */
 	public DiamondiumChestplate() {
 		super(Materials.diamondiumArmor, EntityEquipmentSlot.CHEST, "Diamondium Chestplate");
 	}

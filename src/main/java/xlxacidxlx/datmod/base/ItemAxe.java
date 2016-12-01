@@ -8,12 +8,6 @@ import xlxacidxlx.datmod.creativetab.CreativeTabs;
  * Created by Acid on 11/1/2016.
  */
 public class ItemAxe extends net.minecraft.item.ItemAxe {
-	/**
-	 * Constructs the ItemAxe
-	 *
-	 * @param material The material the axe is made of
-	 * @param name     The name of the axe
-	 */
 	public ItemAxe(ToolMaterial material, String name) {
 		super(material, material.getDamageVsEntity(), material.getEfficiencyOnProperMaterial());
 
@@ -24,12 +18,11 @@ public class ItemAxe extends net.minecraft.item.ItemAxe {
 		setUnlocalizedName(name);
 	}
 
-	/**
-	 * Gets the items model location
-	 *
-	 * @return ModelResourceLocation
-	 */
 	public ModelResourceLocation getModelResourceLocation() {
 		return new ModelResourceLocation(getRegistryName(), "inventory");
+	}
+
+	public ModelResourceLocation getModelResourceLocation(int metadata) {
+		return new ModelResourceLocation(getRegistryName() + "_" + metadata, "inventory");
 	}
 }

@@ -8,27 +8,21 @@ import java.io.File;
  * Created by Acid on 10/26/2016.
  */
 public class ConfigHandler {
-	private static Configuration config;
-
 	// General Settings
 	public static boolean enableWelcomeMessage;
 	public static boolean giveMagnet;
 	public static boolean giveMagnetFirstJoinOnly;
 	public static boolean mobsDropBones;
-
 	// Magnet Settings
 	public static int magnetRadius;
-
 	// Ore Settings
 	public static boolean enableOreGeneration;
 	public static boolean enableOreGenerationDiamondium;
 	public static boolean enableOreGenerationEmeraldi;
 	public static boolean enableOreGenerationGoldirite;
 	public static boolean enableOreGenerationIronium;
-
 	// Recipe Settings
 	public static boolean enableRottenFleshToLeatherRecipe;
-
 	// Tool Settings
 	public static boolean enableTools;
 	public static boolean enableDiamondiumTools;
@@ -37,20 +31,13 @@ public class ConfigHandler {
 	public static boolean enableIroniumTools;
 	public static boolean enableLapisLazuliTools;
 	public static boolean enableRedstoneTools;
+	private static Configuration config;
 
-	/**
-	 * Initialized the Config
-	 *
-	 * @param file The file to load
-	 */
 	public static void init(File file) {
 		config = new Configuration(file);
 		syncConfig();
 	}
 
-	/**
-	 * Syncs the configuration values
-	 */
 	private static void syncConfig() {
 		String category;
 

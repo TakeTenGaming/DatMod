@@ -1,6 +1,7 @@
 package xlxacidxlx.datmod.register;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -16,42 +17,43 @@ import xlxacidxlx.datmod.block.*;
 public class Blocks {
 	public static Diamondium diamondium;
 	public static DiamondiumOre diamondiumOre;
+
 	public static Emeraldi emeraldi;
 	public static EmeraldiOre emeraldiOre;
+
 	public static Goldirite goldirite;
 	public static GoldiriteOre goldiriteOre;
+
 	public static Ironium ironium;
 	public static IroniumOre ironiumOre;
 
-	/**
-	 * Registers all of the blocks during Forge's FMLPreInitialization event
-	 */
 	public static void preInit() {
 		diamondium = new Diamondium();
 		diamondiumOre = new DiamondiumOre();
+
 		emeraldi = new Emeraldi();
 		emeraldiOre = new EmeraldiOre();
+
 		goldirite = new Goldirite();
 		goldiriteOre = new GoldiriteOre();
+
 		ironium = new Ironium();
 		ironiumOre = new IroniumOre();
 
 		registerBlocks();
 	}
 
-	/**
-	 * Registers the specified block
-	 *
-	 * @param block The block to register
-	 */
 	private static void registerBlock(Block block) {
 		GameRegistry.register(block);
 		GameRegistry.register(new ItemBlock(block), block.getResourceLocation());
 	}
 
-	/**
-	 * Registers all the blocks in this class
-	 */
+	private static void registerBlock(Block block, int metadata) {
+		GameRegistry.register(block);
+		// TODO: Add metadata support to the Block class
+		GameRegistry.register(new ItemBlock(block), block.getModelResourceLocation(metadata));
+	}
+
 	private static void registerBlocks() {
 		if (!ConfigHandler.enableOreGeneration) {
 			return;
@@ -78,20 +80,20 @@ public class Blocks {
 		}
 	}
 
-	/**
-	 * Registers the specified block's model
-	 *
-	 * @param block The block to register
-	 */
 	@SideOnly(Side.CLIENT)
 	private static void registerRender(Block block) {
 		Item item = Item.getItemFromBlock(block);
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, block.getModelResourceLocation());
+		ItemModelMesher itemModelMesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
+		itemModelMesher.register(item, 0, block.getModelResourceLocation());
 	}
 
-	/**
-	 * Registers all the model registers for the blocks in this class
-	 */
+	@SideOnly(Side.CLIENT)
+	private static void registerRender(Block block, int metadata) {
+		Item item = Item.getItemFromBlock(block);
+		ItemModelMesher itemModelMesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
+		itemModelMesher.register(item, metadata, block.getModelResourceLocation());
+	}
+
 	@SideOnly(Side.CLIENT)
 	public static void registerRenders() {
 		registerRender(diamondium);

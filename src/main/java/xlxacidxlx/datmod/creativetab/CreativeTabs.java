@@ -12,11 +12,8 @@ public class CreativeTabs {
 	public static Ores ores;
 	public static Tools tools;
 
-	/**
-	 * Registers all of our creative tabs
-	 */
 	public CreativeTabs() {
-		armors=new Armors();
+		armors = new Armors();
 		blocks = new Blocks();
 		dusts = new Dusts();
 		ingots = new Ingots();

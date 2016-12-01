@@ -24,14 +24,8 @@ import java.util.List;
  * Created by Acid on 10/26/2016.
  */
 public class Magnet extends Item {
-	/**
-	 * Whether the magnet is active or not
-	 */
 	private static boolean active;
 
-	/**
-	 * Constructs the Magnet
-	 */
 	public Magnet() {
 		super("Magnet");
 
@@ -39,20 +33,6 @@ public class Magnet extends Item {
 		setMaxStackSize(1);
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-		tooltip.add("It's very... attractive!");
-		super.addInformation(stack, playerIn, tooltip, advanced);
-	}
-
-	/**
-	 * Checks if the magnet is active or not
-	 *
-	 * @param itemStack The ItemStack to check against
-	 *
-	 * @return boolean
-	 */
 	private static boolean isActive(ItemStack itemStack) {
 		if (itemStack.getTagCompound() == null) {
 			itemStack.setTagCompound(new NBTTagCompound());
@@ -73,6 +53,22 @@ public class Magnet extends Item {
 		} else {
 			return false;
 		}
+	}
+
+	private static void teleportToPlayer(Entity item, EntityPlayer player) {
+		double x = player.posX;
+		double y = player.posY;
+		double z = player.posZ;
+		double factor = 1;
+
+		item.addVelocity((x - item.posX) * factor, (y - item.posY) * factor, (z - item.posZ) * factor);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
+		tooltip.add("It's very... attractive!");
+		super.addInformation(stack, playerIn, tooltip, advanced);
 	}
 
 	@Override
@@ -125,20 +121,5 @@ public class Magnet extends Item {
 				teleportToPlayer(xp, (EntityPlayer) entityIn);
 			}
 		}
-	}
-
-	/**
-	 * Pulls the specified item towards the specified player
-	 *
-	 * @param item   The item to move
-	 * @param player The player to move the item towards
-	 */
-	private static void teleportToPlayer(Entity item, EntityPlayer player) {
-		double x = player.posX;
-		double y = player.posY;
-		double z = player.posZ;
-		double factor = 1;
-
-		item.addVelocity((x - item.posX) * factor, (y - item.posY) * factor, (z - item.posZ) * factor);
 	}
 }

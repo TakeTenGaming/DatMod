@@ -20,17 +20,14 @@ import java.io.File;
 @Mod(modid = DatMod.MODID, version = DatMod.VERSION, name = DatMod.NAME, updateJSON = "http://raw.githubusercontent.com/xlxAciDxlx/DatMod/VERSION.md")
 public class DatMod {
 	public static final String MODID = "datmod";
-	public static final String VERSION = "1.2.0";
+	public static final String VERSION = "1.3.0";
 	public static final String NAME = "DatMod";
-
-	@SidedProxy(clientSide = "xlxacidxlx.datmod.proxy.ClientProxy", serverSide = "xlxacidxlx.datmod.proxy.CommonProxy")
-	private static CommonProxy proxy;
-
 	@Mod.Instance
 	public static DatMod instance;
-
-	private static xlxacidxlx.datmod.creativetab.CreativeTabs creativeTabs;
 	public static Logger logger = LogManager.getLogger(DatMod.NAME);
+	@SidedProxy(clientSide = "xlxacidxlx.datmod.proxy.ClientProxy", serverSide = "xlxacidxlx.datmod.proxy.CommonProxy")
+	private static CommonProxy proxy;
+	private static xlxacidxlx.datmod.creativetab.CreativeTabs creativeTabs;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
@@ -40,10 +37,10 @@ public class DatMod {
 
 		creativeTabs = new xlxacidxlx.datmod.creativetab.CreativeTabs();
 
-		proxy.preInit(event);
 		Items.preInit();
 		Blocks.preInit();
-		// NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
+		proxy.preInit(event);
+		//NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 	}
 
 	@EventHandler
@@ -52,6 +49,7 @@ public class DatMod {
 		Events.init();
 		Recipes.init();
 		OreGen.init(event);
+		Achievements.init();
 	}
 
 	@EventHandler
