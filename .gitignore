@@ -3,6 +3,7 @@
 *.hprof
 changelog.template
 CHANGELOG_GENERATED.md
+.gitchangelog.rc
 PLANNED_FEATURES.md
 TOOL_STATISTICS.md
 
@@ -11,6 +12,7 @@ build
 run
 src/api
 src/test
+testrun
 
 ## Eclipse
 eclipse

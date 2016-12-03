@@ -22,9 +22,11 @@ public class DatMod {
 	public static final String MODID = "datmod";
 	public static final String VERSION = "1.4.0";
 	public static final String NAME = "DatMod";
+
 	@Mod.Instance
 	public static DatMod instance;
 	public static Logger logger = LogManager.getLogger(DatMod.NAME);
+
 	@SidedProxy(clientSide = "xlxacidxlx.datmod.proxy.ClientProxy", serverSide = "xlxacidxlx.datmod.proxy.CommonProxy")
 	private static CommonProxy proxy;
 	private static xlxacidxlx.datmod.creativetab.CreativeTabs creativeTabs;
@@ -39,8 +41,8 @@ public class DatMod {
 
 		Items.preInit();
 		Blocks.preInit();
+		TileEntities.preInit();
 		proxy.preInit(event);
-		//NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 	}
 
 	@EventHandler

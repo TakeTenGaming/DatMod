@@ -15,7 +15,7 @@ import xlxacidxlx.datmod.creativetab.CreativeTabs;
  * Created by Acid on 10/26/2016.
  */
 public class Block extends net.minecraft.block.Block {
-	Block(Material materialIn, String name) {
+	public Block(Material materialIn, String name) {
 		super(materialIn);
 
 		setCreativeTab(CreativeTabs.blocks);
@@ -30,7 +30,7 @@ public class Block extends net.minecraft.block.Block {
 		setSoundType(SoundType.STONE);
 	}
 
-	protected Block(String name) {
+	public Block(String name) {
 		super(Material.ROCK);
 
 		setCreativeTab(CreativeTabs.blocks);

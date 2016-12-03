@@ -3,8 +3,8 @@
 #
 
 # Achievements
-achievement.datmod_test=Test Achievement
-achievement.datmod_test.desc=This is a simple test achievement!
+achievement.datmod_oreMiner=Ore Miner
+achievement.datmod_oreMiner.desc=You've mined every ore from DatMod!
 
 achievement.datmod_oreMinerDiamondium=Ore Miner - Diamondium
 achievement.datmod_oreMinerDiamondium.desc=You mined Diamondium Ore!
@@ -17,9 +17,6 @@ achievement.datmod_oreMinerGoldirite.desc=You mined Goldirite Ore!
 
 achievement.datmod_oreMinerIronium=Ore Miner - Ironium
 achievement.datmod_oreMinerIronium.desc=You mined Ironium Ore!
-
-achievement.datmod_oreMiner=Ore Miner
-achievement.datmod_oreMiner.desc=You've mined every ore from DatMod!
 
 # Creative Tabs
 itemGroup.datmod_armors=DatMod - Armors

@@ -50,7 +50,6 @@ public class Blocks {
 
 	private static void registerBlock(Block block, int metadata) {
 		GameRegistry.register(block);
-		// TODO: Add metadata support to the Block class
 		GameRegistry.register(new ItemBlock(block), block.getModelResourceLocation(metadata));
 	}
 
