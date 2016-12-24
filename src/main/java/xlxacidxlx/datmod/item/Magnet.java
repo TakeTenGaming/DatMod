@@ -87,18 +87,15 @@ public class Magnet extends Item {
 			String message = "Magnet has been %s";
 			NBTTagCompound itemTagCompound = itemStackIn.getTagCompound();
 			if (isActive(itemStackIn)) {
-				message = String.format(message, "deactivated");
 				active = false;
-				itemTagCompound.setBoolean("active", false);
 				itemTagCompound.removeTag("ench");
 			} else {
-				message = String.format(message, "activated");
 				active = true;
-				itemTagCompound.setBoolean("active", true);
 				itemStackIn.addEnchantment(Enchantments.EFFICIENCY, 1);
 			}
 
-			DatMod.logger.info(message);
+			itemTagCompound.setBoolean("active", active);
+			DatMod.logger.info(String.format(message, (active) ? "activated" : "deactivated"));
 			playerIn.addChatComponentMessage(new TextComponentString(message));
 		}
 

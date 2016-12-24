@@ -16,6 +16,23 @@ import java.util.Random;
  * Created by Acid on 11/2/2016.
  */
 public class OreGenerator implements IWorldGenerator {
+	// Ore Holders
+	private WorldGenMinable diamondiumEnd;
+	private WorldGenMinable diamondiumNether;
+	private WorldGenMinable diamondiumOverworld;
+
+	private WorldGenMinable emeraldiEnd;
+	private WorldGenMinable emeraldiNether;
+	private WorldGenMinable emeraldiOverworld;
+
+	private WorldGenMinable goldiriteEnd;
+	private WorldGenMinable goldiriteNether;
+	private WorldGenMinable goldiriteOverworld;
+
+	private WorldGenMinable ironiumEnd;
+	private WorldGenMinable ironiumNether;
+	private WorldGenMinable ironiumOverworld;
+
 	// Diamondium Settings
 	private int oreDiamondiumChance = 8;
 	private int oreDiamondiumMaxVein = 5;
@@ -39,23 +56,6 @@ public class OreGenerator implements IWorldGenerator {
 	private int oreIroniumMaxVein = 8;
 	private int oreIroniumMaxY = 63;
 	private int oreIroniumMinY = 2;
-
-	// Ore Holders
-	private WorldGenMinable diamondiumOverworld;
-	private WorldGenMinable diamondiumNether;
-	private WorldGenMinable diamondiumEnd;
-
-	private WorldGenMinable emeraldiOverworld;
-	private WorldGenMinable emeraldiNether;
-	private WorldGenMinable emeraldiEnd;
-
-	private WorldGenMinable goldiriteOverworld;
-	private WorldGenMinable goldiriteNether;
-	private WorldGenMinable goldiriteEnd;
-
-	private WorldGenMinable ironiumOverworld;
-	private WorldGenMinable ironiumNether;
-	private WorldGenMinable ironiumEnd;
 
 	public OreGenerator() {
 		diamondiumOverworld = new WorldGenMinable(Blocks.diamondiumOre.getDefaultState(), oreDiamondiumMaxVein);
@@ -90,7 +90,6 @@ public class OreGenerator implements IWorldGenerator {
 				generateEnd(world, random, chunkX, chunkZ);
 				break;
 		}
-
 	}
 
 	private void generateEnd(World world, Random rand, int x, int z) {
@@ -129,24 +128,6 @@ public class OreGenerator implements IWorldGenerator {
 		}
 	}
 
-	private void generateOverworld(World world, Random rand, int x, int z) {
-		if (ConfigHandler.enableOreGenerationDiamondium) {
-			generateOre(diamondiumOverworld, world, rand, x, z, oreDiamondiumChance, oreDiamondiumMinY, oreDiamondiumMaxY);
-		}
-
-		if (ConfigHandler.enableOreGenerationEmeraldi) {
-			generateOre(emeraldiOverworld, world, rand, x, z, oreEmeraldiChance, oreEmeraldiMinY, oreEmeraldiMaxY);
-		}
-
-		if (ConfigHandler.enableOreGenerationGoldirite) {
-			generateOre(goldiriteOverworld, world, rand, x, z, oreGoldiriteChance, oreGoldiriteMinY, oreGoldiriteMaxY);
-		}
-
-		if (ConfigHandler.enableOreGenerationIronium) {
-			generateOre(ironiumOverworld, world, rand, x, z, oreIroniumChance, oreIroniumMinY, oreIroniumMaxY);
-		}
-	}
-
 	private void generateOre(WorldGenerator generator, World world, Random rand, int x, int z, int chancesToSpawn, int minHeight, int maxHeight) {
 		if (minHeight <= 0) {
 			throw new IllegalArgumentException("Height can't be 0");
@@ -168,6 +149,24 @@ public class OreGenerator implements IWorldGenerator {
 			BlockPos position = new BlockPos(xValue, yValue, zValue);
 
 			generator.generate(world, rand, position);
+		}
+	}
+
+	private void generateOverworld(World world, Random rand, int x, int z) {
+		if (ConfigHandler.enableOreGenerationDiamondium) {
+			generateOre(diamondiumOverworld, world, rand, x, z, oreDiamondiumChance, oreDiamondiumMinY, oreDiamondiumMaxY);
+		}
+
+		if (ConfigHandler.enableOreGenerationEmeraldi) {
+			generateOre(emeraldiOverworld, world, rand, x, z, oreEmeraldiChance, oreEmeraldiMinY, oreEmeraldiMaxY);
+		}
+
+		if (ConfigHandler.enableOreGenerationGoldirite) {
+			generateOre(goldiriteOverworld, world, rand, x, z, oreGoldiriteChance, oreGoldiriteMinY, oreGoldiriteMaxY);
+		}
+
+		if (ConfigHandler.enableOreGenerationIronium) {
+			generateOre(ironiumOverworld, world, rand, x, z, oreIroniumChance, oreIroniumMinY, oreIroniumMaxY);
 		}
 	}
 }

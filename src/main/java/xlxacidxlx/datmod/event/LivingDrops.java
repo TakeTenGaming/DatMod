@@ -35,8 +35,6 @@ public class LivingDrops {
 
 				entity.dropItem(Items.BONE, drops);
 			}
-		} else {
-			DatMod.logger.info("Killed by: " + source);
 		}
 	}
 }

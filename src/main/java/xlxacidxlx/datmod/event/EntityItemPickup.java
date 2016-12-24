@@ -17,20 +17,31 @@ public class EntityItemPickup {
 
 		switch (item.getName()) {
 			case "item.tile.diamondiumore":
-				player.addStat(OreMiner.diamondium);
+				if (player.hasAchievement(OreMiner.ironium())) {
+					player.addStat(OreMiner.diamondium());
+				}
 				break;
 
 			case "item.tile.emeraldiore":
-				player.addStat(OreMiner.emeraldi);
+				if (player.hasAchievement(OreMiner.diamondium())) {
+					player.addStat(OreMiner.emeraldi());
+				}
 				break;
 
 			case "item.tile.goldiriteore":
-				player.addStat(OreMiner.goldirite);
+				if (player.hasAchievement(OreMiner.diamondium())) {
+					player.addStat(OreMiner.goldirite());
+				}
 				break;
 
 			case "item.tile.ironiumore":
-				player.addStat(OreMiner.ironium);
+				player.addStat(OreMiner.ironium());
 				break;
+		}
+
+		if (player.hasAchievement(OreMiner.ironium()) && player.hasAchievement(OreMiner.diamondium()) && player.hasAchievement(OreMiner.emeraldi()) && player.hasAchievement(OreMiner
+				.goldirite())) {
+			player.addStat(OreMiner.oreMiner());
 		}
 	}
 }

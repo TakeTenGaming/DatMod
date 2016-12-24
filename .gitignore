@@ -4,11 +4,12 @@
 changelog.template
 CHANGELOG_GENERATED.md
 .gitchangelog.rc
+INFO.md
 PLANNED_FEATURES.md
-TOOL_STATISTICS.md
 
 ## General Folders
 build
+docs
 run
 src/api
 src/test

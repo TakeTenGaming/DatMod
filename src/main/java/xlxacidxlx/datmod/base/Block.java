@@ -61,9 +61,4 @@ public class Block extends net.minecraft.block.Block {
 	public ResourceLocation getResourceLocation() {
 		return getRegistryName();
 	}
-
-	@Override
-	public boolean isFlammable(IBlockAccess world, BlockPos pos, EnumFacing face) {
-		return false;
-	}
 }

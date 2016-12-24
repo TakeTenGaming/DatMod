@@ -25,14 +25,14 @@ public class PlayedLoggedIn {
 		EntityPlayer player = event.player;
 
 		if (ConfigHandler.enableWelcomeMessage) {
-			Style chatStyle = new Style().setBold(true).setColor(TextFormatting.DARK_GRAY);
+			Style chatStyle = new Style().setColor(TextFormatting.GRAY);
 			Style dividerStyle = new Style().setBold(true).setColor(TextFormatting.DARK_BLUE);
-			Style githubStyle = new Style().setColor(TextFormatting.WHITE);
-			ITextComponent divider = new TextComponentString("============================").setStyle(dividerStyle);
+			ITextComponent divider = new TextComponentString("-----------------------").setStyle(dividerStyle);
+			ITextComponent dividerTop = new TextComponentString("--------[" + DatMod.NAME + "]--------").setStyle(dividerStyle);
 
-			player.addChatComponentMessage(divider);
-			player.addChatComponentMessage(new TextComponentString("Thanks for trying out " + DatMod.NAME + ", " + player.getDisplayNameString()).setStyle(chatStyle));
-			player.addChatComponentMessage(ForgeHooks.newChatWithLinks("Be sure to report issues at our GitHub: http://github.com/xlxacidxlx/DatMod/").setStyle(githubStyle));
+			player.addChatComponentMessage(dividerTop);
+			player.addChatComponentMessage(ForgeHooks.newChatWithLinks("Thanks for trying my mod, " + TextFormatting.WHITE + player.getDisplayNameString() + TextFormatting.GRAY + "! " +
+					"Please suggest features/report issues at our GitHub: http://github.com/xlxacidxlx/DatMod/").setStyle(chatStyle));
 			player.addChatComponentMessage(divider);
 		}
 

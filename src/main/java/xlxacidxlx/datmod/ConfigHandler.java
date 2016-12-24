@@ -8,30 +8,31 @@ import java.io.File;
  * Created by Acid on 10/26/2016.
  */
 public class ConfigHandler {
-	// General Settings
-	public static boolean enableWelcomeMessage;
-	public static boolean giveMagnet;
-	public static boolean giveMagnetFirstJoinOnly;
-	public static boolean mobsDropBones;
-	// Magnet Settings
-	public static int magnetRadius;
-	// Ore Settings
-	public static boolean enableOreGeneration;
-	public static boolean enableOreGenerationDiamondium;
-	public static boolean enableOreGenerationEmeraldi;
-	public static boolean enableOreGenerationGoldirite;
-	public static boolean enableOreGenerationIronium;
-	// Recipe Settings
-	public static boolean enableRottenFleshToLeatherRecipe;
-	// Tool Settings
-	public static boolean enableTools;
+	private static Configuration config;
+
 	public static boolean enableDiamondiumTools;
 	public static boolean enableEmeraldiTools;
 	public static boolean enableGoldiriteTools;
 	public static boolean enableIroniumTools;
 	public static boolean enableLapisLazuliTools;
+
+	public static boolean enableOreGeneration;
+	public static boolean enableOreGenerationDiamondium;
+	public static boolean enableOreGenerationEmeraldi;
+	public static boolean enableOreGenerationGoldirite;
+	public static boolean enableOreGenerationIronium;
+
 	public static boolean enableRedstoneTools;
-	private static Configuration config;
+	public static boolean enableRottenFleshToLeatherRecipe;
+	public static boolean enableTools;
+	public static boolean enableWelcomeMessage;
+
+	public static boolean giveMagnet;
+	public static boolean giveMagnetFirstJoinOnly;
+
+	public static int magnetRadius;
+
+	public static boolean mobsDropBones;
 
 	public static void init(File file) {
 		config = new Configuration(file);

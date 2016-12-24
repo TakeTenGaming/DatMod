@@ -1,33 +1,3 @@
 # Features
-
-### Ores/Ingots
-- Ironium
-  *Slightly* more durable/powerful than *Iron*
-- Emeraldi
-  *Slightly* more durable/powerful than *Emerald*
-- Goldirite
-  *Slightly* more durable/powerful than *Gold*
-- Diamondium
-  *Slightly* more durable/powerful than *Diamond*
-
-### Tools/Utilities
-- **Axes**
-    - Diamondium
-    - Emeraldi
-    - Goldirite
-    - Ironium
-- **Pickaxes**
-    - Diamondium
-    - Emeraldi
-    - Goldirite
-    - Ironium
-- **Shovels**
-    - Diamondium
-    - Emeraldi
-    - Goldirite
-    - Ironium
-- **Swords**
-    - Diamondium
-    - Emeraldi
-    - Goldirite
-    - Ironium
+- Adds 4 new types of ore: Ironium, Emeraldi, Goldirite, Diamondium
+- Adds 5 new tool sets: Ironium, Emeraldi, Goldirite, Diamondium, Redstone, Lapis Lazuli

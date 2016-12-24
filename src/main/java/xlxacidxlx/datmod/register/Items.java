@@ -68,6 +68,8 @@ public class Items {
 	public static LapisLazuliShovel lapisLazuliShovel;
 	public static LapisLazuliSword lapisLazuliSword;
 
+	public static Magnet magnetItem;
+
 	public static RedstoneAxe redstoneAxe;
 	public static RedstoneBoots redstoneBoots;
 	public static RedstoneChestplate redstoneChestplate;
@@ -77,8 +79,6 @@ public class Items {
 	public static RedstonePickaxe redstonePickaxe;
 	public static RedstoneShovel redstoneShovel;
 	public static RedstoneSword redstoneSword;
-
-	public static Magnet magnetItem;
 
 	public static void preInit() {
 		diamondium = new Diamondium();
@@ -137,6 +137,8 @@ public class Items {
 		lapisLazuliShovel = new LapisLazuliShovel();
 		lapisLazuliSword = new LapisLazuliSword();
 
+		magnetItem = new Magnet();
+
 		redstoneAxe = new RedstoneAxe();
 		redstoneBoots = new RedstoneBoots();
 		redstoneChestplate = new RedstoneChestplate();
@@ -146,8 +148,6 @@ public class Items {
 		redstonePickaxe = new RedstonePickaxe();
 		redstoneShovel = new RedstoneShovel();
 		redstoneSword = new RedstoneSword();
-
-		magnetItem = new Magnet();
 
 		registerItems();
 	}
@@ -220,6 +220,8 @@ public class Items {
 				GameRegistry.register(lapisLazuliSword);
 			}
 
+			GameRegistry.register(magnetItem);
+
 			if (ConfigHandler.enableRedstoneTools) {
 				GameRegistry.register(redstoneAxe);
 				GameRegistry.register(redstoneBoots);
@@ -232,8 +234,6 @@ public class Items {
 				GameRegistry.register(redstoneSword);
 			}
 		}
-
-		GameRegistry.register(magnetItem);
 	}
 
 	@SideOnly(Side.CLIENT)

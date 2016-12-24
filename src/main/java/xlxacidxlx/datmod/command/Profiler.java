@@ -19,11 +19,6 @@ import java.util.Objects;
  */
 public class Profiler extends Command {
 	@Override
-	public String getCommandName() {
-		return "profiler";
-	}
-
-	@Override
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		String block = getBlockByText(sender, args[0]).toString();
 		int blocksSearched = 0;
@@ -75,5 +70,10 @@ public class Profiler extends Command {
 				" of " + TextFormatting.GOLD + args[0];
 		ITextComponent message = new TextComponentString(messageSubstitute).setStyle(baseStyle);
 		sender.addChatMessage(message);
+	}
+
+	@Override
+	public String getCommandName() {
+		return "profiler";
 	}
 }

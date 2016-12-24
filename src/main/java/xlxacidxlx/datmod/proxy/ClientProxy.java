@@ -18,11 +18,6 @@ import xlxacidxlx.datmod.register.Items;
 @SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
 	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-		OBJLoader.INSTANCE.addDomain(DatMod.MODID);
-	}
-
-	@Override
 	public void init(FMLInitializationEvent event) {
 		Items.registerRenders();
 		Blocks.registerRenders();
@@ -30,6 +25,11 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void postInit(FMLPostInitializationEvent event) {
+	}
+
+	@Override
+	public void preInit(FMLPreInitializationEvent event) {
+		OBJLoader.INSTANCE.addDomain(DatMod.MODID);
 	}
 
 	public void registerModel(Item item) {

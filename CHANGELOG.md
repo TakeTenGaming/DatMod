@@ -1,6 +1,30 @@
 # Changelog
 The following is a list of changes in each release of the mod.
 
+## 1.4.1
+This update is a bug fix/general change release.
+
+**Changes/Fixes**
+- The mod can now run in Minecraft *1.9.4*, *1.10.2* as well as *1.11*
+- Fixed Achievements not being properly registered.
+- Fixed *Ore Miner* achievements being able to be received in any order, rather than Ironium->Diamondium->Emeraldi/Goldirite->Ore Miner
+- Slightly changed the world welcome message
+
+**Developer/Internal Changes**
+- Added some developer documentation
+- Added a base GuiHandler class
+- Reorganized a few classes
+- Moved in-class information to INFO.md
+- Removed fully-qualified classnames from extends/imports (acid.stuff.Thing->Thing)
+- Removed Block code that made all mod blocks not flammable
+- Removed unused debug code
+- Reimplemented debug code in a new way
+- Removed redundant code from the Magnet class
+
+**GitHub Changes**
+- Changed the README to no longer include the mod logo as it was a bit large
+- Organized the FEATURES file to be simpler and easier to read (still a work-in-progress)
+
 ## 1.4.0
 This update is a bug fix release.
 
