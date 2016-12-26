@@ -4,6 +4,10 @@ The following is a list of changes in each release of the mod.
 # 1.4.2
 This update is a bug fix release.
 
+**Changes**
+- Updated Forge (13.18.3.2185)
+- Updated JEI (3.13.6.393)
+
 **Fixes**
 - Fixes a NullPointerException on launch
 
