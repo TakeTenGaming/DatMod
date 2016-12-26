@@ -21,8 +21,6 @@ import java.io.File;
  */
 @Mod(acceptedMinecraftVersions = "[1.9.4,1.10.2,1.11]", modid = DatMod.MODID, name = DatMod.NAME, updateJSON = "http://raw.githubusercontent.com/xlxAciDxlx/DatMod/VERSION.md", version = DatMod.VERSION)
 public class DatMod {
-	private boolean debug = false;
-
 	private static CreativeTabs creativeTabs;
 
 	@SidedProxy(clientSide = "xlxacidxlx.datmod.proxy.ClientProxy", serverSide = "xlxacidxlx.datmod.proxy.CommonProxy")
@@ -34,13 +32,7 @@ public class DatMod {
 	public static final String MODID = "datmod";
 	public static final String NAME = "DatMod";
 	public static Logger logger = LogManager.getLogger(DatMod.NAME);
-	public static final String VERSION = "1.4.1";
-
-	public DatMod() {
-		if (System.getenv("debug").equals("true")) {
-			debug = true;
-		}
-	}
+	public static final String VERSION = "1.4.2";
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {

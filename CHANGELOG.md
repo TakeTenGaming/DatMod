@@ -1,6 +1,12 @@
 # Changelog
 The following is a list of changes in each release of the mod.
 
+# 1.4.2
+This update is a bug fix release.
+
+**Fixes**
+- Fixes a NullPointerException on launch
+
 ## 1.4.1
 This update is a bug fix/general change release.
 
