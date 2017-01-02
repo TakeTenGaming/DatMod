@@ -6,10 +6,12 @@ import xlxacidxlx.datmod.creativetab.CreativeTabs;
 /**
  * Created by Acid on 11/1/2016.
  */
-public class DiamondiumBlock extends Item {
-	public DiamondiumBlock() {
-		super("Diamondium Block");
+public class DiamondiumBlock extends Item
+{
+	public DiamondiumBlock ()
+	{
+		super ( "Diamondium Block" );
 
-		setCreativeTab(CreativeTabs.blocks);
+		setCreativeTab ( CreativeTabs.blocks );
 	}
 }

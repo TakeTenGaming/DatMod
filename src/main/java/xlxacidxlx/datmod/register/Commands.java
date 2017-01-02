@@ -7,12 +7,14 @@ import xlxacidxlx.datmod.command.Profiler;
 /**
  * Created by Acid on 11/18/2016.
  */
-public class Commands {
-	private static DatMod datMod = new DatMod();
-	private static Profiler profiler = new Profiler();
+public class Commands
+{
+	private static DatMod datMod = new DatMod ();
+	private static Profiler profiler = new Profiler ();
 
-	public static void serverStarting(FMLServerStartingEvent event) {
-		event.registerServerCommand(datMod);
-		event.registerServerCommand(profiler);
+	public static void serverStarting ( FMLServerStartingEvent event )
+	{
+		event.registerServerCommand ( datMod );
+		event.registerServerCommand ( profiler );
 	}
 }

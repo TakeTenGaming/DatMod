@@ -6,10 +6,12 @@ import xlxacidxlx.datmod.creativetab.CreativeTabs;
 /**
  * Created by Acid on 10/26/2016.
  */
-public class GoldiriteDust extends Item {
-	public GoldiriteDust() {
-		super("Goldirite Dust");
+public class GoldiriteDust extends Item
+{
+	public GoldiriteDust ()
+	{
+		super ( "Goldirite Dust" );
 
-		setCreativeTab(CreativeTabs.dusts);
+		setCreativeTab ( CreativeTabs.dusts );
 	}
 }

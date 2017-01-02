@@ -6,8 +6,10 @@ import xlxacidxlx.datmod.base.ItemShovel;
 /**
  * Created by Acid on 11/1/2016.
  */
-public class GoldiriteShovel extends ItemShovel {
-	public GoldiriteShovel() {
-		super(Materials.goldirite, "Goldirite Shovel");
+public class GoldiriteShovel extends ItemShovel
+{
+	public GoldiriteShovel ()
+	{
+		super ( Materials.goldirite, "Goldirite Shovel" );
 	}
 }

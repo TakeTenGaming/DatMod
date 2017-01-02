@@ -5,10 +5,12 @@ import xlxacidxlx.datmod.base.Block;
 /**
  * Created by Acid on 10/26/2016.
  */
-public class Goldirite extends Block {
-	public Goldirite() {
-		super("Goldirite Block");
+public class Goldirite extends Block
+{
+	public Goldirite ()
+	{
+		super ( "Goldirite Block" );
 
-		setHardness(3.5f);
+		setHardness ( 3.5f );
 	}
 }

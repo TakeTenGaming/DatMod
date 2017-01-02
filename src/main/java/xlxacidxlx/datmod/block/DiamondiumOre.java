@@ -11,16 +11,19 @@ import java.util.Random;
 /**
  * Created by Acid on 11/1/2016.
  */
-public class DiamondiumOre extends BlockOre {
-	public DiamondiumOre() {
-		super("Diamondium Ore");
+public class DiamondiumOre extends BlockOre
+{
+	public DiamondiumOre ()
+	{
+		super ( "Diamondium Ore" );
 
-		setHarvestLevel("pickaxe", 2);
+		setHarvestLevel ( "pickaxe", 2 );
 	}
 
 	@Nullable
 	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+	public Item getItemDropped ( IBlockState state, Random rand, int fortune )
+	{
 		return Items.diamondium;
 	}
 }

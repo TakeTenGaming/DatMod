@@ -6,13 +6,16 @@ import xlxacidxlx.datmod.DatMod;
 /**
  * Created by Acid on 10/26/2016.
  */
-public class Tools extends net.minecraft.creativetab.CreativeTabs {
-	public Tools() {
-		super(getNextID(), DatMod.MODID + "_tools");
+public class Tools extends net.minecraft.creativetab.CreativeTabs
+{
+	public Tools ()
+	{
+		super ( getNextID (), DatMod.MODID + "_tools" );
 	}
 
 	@Override
-	public Item getTabIconItem() {
+	public Item getTabIconItem ()
+	{
 		return xlxacidxlx.datmod.register.Items.diamondiumSword;
 	}
 }

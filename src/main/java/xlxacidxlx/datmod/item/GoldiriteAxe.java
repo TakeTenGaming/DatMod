@@ -6,8 +6,10 @@ import xlxacidxlx.datmod.base.ItemAxe;
 /**
  * Created by Acid on 11/1/2016.
  */
-public class GoldiriteAxe extends ItemAxe {
-	public GoldiriteAxe() {
-		super(Materials.goldirite, "Goldirite Axe");
+public class GoldiriteAxe extends ItemAxe
+{
+	public GoldiriteAxe ()
+	{
+		super ( Materials.goldirite, "Goldirite Axe" );
 	}
 }

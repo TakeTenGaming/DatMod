@@ -7,13 +7,16 @@ import xlxacidxlx.datmod.register.Items;
 /**
  * Created by Acid on 10/26/2016.
  */
-public class Dusts extends net.minecraft.creativetab.CreativeTabs {
-	public Dusts() {
-		super(getNextID(), DatMod.MODID + "_dusts");
+public class Dusts extends net.minecraft.creativetab.CreativeTabs
+{
+	public Dusts ()
+	{
+		super ( getNextID (), DatMod.MODID + "_dusts" );
 	}
 
 	@Override
-	public Item getTabIconItem() {
+	public Item getTabIconItem ()
+	{
 		return Items.ironiumDust;
 	}
 }

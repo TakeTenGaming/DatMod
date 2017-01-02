@@ -11,16 +11,19 @@ import java.util.Random;
 /**
  * Created by Acid on 11/2/2016.
  */
-public class EmeraldiOre extends BlockOre {
-	public EmeraldiOre() {
-		super("Emeraldi Ore");
+public class EmeraldiOre extends BlockOre
+{
+	public EmeraldiOre ()
+	{
+		super ( "Emeraldi Ore" );
 
-		setHarvestLevel("pickaxe", 2);
+		setHarvestLevel ( "pickaxe", 2 );
 	}
 
 	@Nullable
 	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+	public Item getItemDropped ( IBlockState state, Random rand, int fortune )
+	{
 		return Items.emeraldi;
 	}
 }

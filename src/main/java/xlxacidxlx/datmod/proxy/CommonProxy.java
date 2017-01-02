@@ -10,16 +10,21 @@ import xlxacidxlx.datmod.OreGenerator;
 /**
  * Created by Acid on 10/26/2016.
  */
-public class CommonProxy {
-	public void init(FMLInitializationEvent event) {
-		if (ConfigHandler.enableOreGeneration) {
-			GameRegistry.registerWorldGenerator(new OreGenerator(), 0);
+public class CommonProxy
+{
+	public void init ( FMLInitializationEvent event )
+	{
+		if ( ConfigHandler.enableOreGeneration )
+		{
+			GameRegistry.registerWorldGenerator ( new OreGenerator (), 0 );
 		}
 	}
 
-	public void postInit(FMLPostInitializationEvent event) {
+	public void postInit ( FMLPostInitializationEvent event )
+	{
 	}
 
-	public void preInit(FMLPreInitializationEvent event) {
+	public void preInit ( FMLPreInitializationEvent event )
+	{
 	}
 }

@@ -6,8 +6,10 @@ import xlxacidxlx.datmod.base.ItemHoe;
 /**
  * Created by Acid on 11/20/2016.
  */
-public class DiamondiumHoe extends ItemHoe {
-	public DiamondiumHoe() {
-		super(Materials.diamondium, "Diamondium Hoe");
+public class DiamondiumHoe extends ItemHoe
+{
+	public DiamondiumHoe ()
+	{
+		super ( Materials.diamondium, "Diamondium Hoe" );
 	}
 }

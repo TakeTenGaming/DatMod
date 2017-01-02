@@ -7,22 +7,26 @@ import xlxacidxlx.datmod.creativetab.CreativeTabs;
 /**
  * Created by Acid on 11/1/2016.
  */
-public class ItemPickaxe extends net.minecraft.item.ItemPickaxe {
-	public ItemPickaxe(ToolMaterial material, String name) {
-		super(material);
+public class ItemPickaxe extends net.minecraft.item.ItemPickaxe
+{
+	public ItemPickaxe ( ToolMaterial material, String name )
+	{
+		super ( material );
 
-		setCreativeTab(CreativeTabs.tools);
+		setCreativeTab ( CreativeTabs.tools );
 
-		name = name.toLowerCase().replace(" ", "");
-		setRegistryName(DatMod.MODID, name);
-		setUnlocalizedName(name);
+		name = name.toLowerCase ().replace ( " ", "" );
+		setRegistryName ( DatMod.MODID, name );
+		setUnlocalizedName ( name );
 	}
 
-	public ModelResourceLocation getModelResourceLocation() {
-		return new ModelResourceLocation(getRegistryName(), "inventory");
+	public ModelResourceLocation getModelResourceLocation ()
+	{
+		return new ModelResourceLocation ( getRegistryName (), "inventory" );
 	}
 
-	public ModelResourceLocation getModelResourceLocation(int metadata) {
-		return new ModelResourceLocation(getRegistryName() + "_" + metadata, "inventory");
+	public ModelResourceLocation getModelResourceLocation ( int metadata )
+	{
+		return new ModelResourceLocation ( getRegistryName () + "_" + metadata, "inventory" );
 	}
 }

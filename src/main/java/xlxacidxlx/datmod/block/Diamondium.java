@@ -5,10 +5,12 @@ import xlxacidxlx.datmod.base.Block;
 /**
  * Created by Acid on 11/1/2016.
  */
-public class Diamondium extends Block {
-	public Diamondium() {
-		super("Diamondium Block");
+public class Diamondium extends Block
+{
+	public Diamondium ()
+	{
+		super ( "Diamondium Block" );
 
-		setHardness(3.5f);
+		setHardness ( 3.5f );
 	}
 }

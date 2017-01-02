@@ -9,13 +9,16 @@ import xlxacidxlx.datmod.OreGenerator;
 /**
  * Created by Acid on 11/18/2016.
  */
-public class OreGen {
-	public static void init(FMLInitializationEvent event) {
-		if (!ConfigHandler.enableOreGeneration) {
-			DatMod.logger.info("Ore Generation disabled");
+public class OreGen
+{
+	public static void init ( FMLInitializationEvent event )
+	{
+		if ( !ConfigHandler.enableOreGeneration )
+		{
+			DatMod.logger.info ( "Ore Generation disabled" );
 			return;
 		}
 
-		GameRegistry.registerWorldGenerator(new OreGenerator(), 1);
+		GameRegistry.registerWorldGenerator ( new OreGenerator (), 1 );
 	}
 }

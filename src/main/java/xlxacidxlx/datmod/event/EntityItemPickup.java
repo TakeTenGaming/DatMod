@@ -9,39 +9,46 @@ import xlxacidxlx.datmod.achievement.OreMiner;
 /**
  * Created by Acid on 11/29/2016.
  */
-public class EntityItemPickup {
+public class EntityItemPickup
+{
 	@SubscribeEvent
-	public void entityItemPickup(EntityItemPickupEvent event) {
-		EntityItem item = event.getItem();
-		EntityPlayer player = event.getEntityPlayer();
+	public void entityItemPickup ( EntityItemPickupEvent event )
+	{
+		EntityItem item = event.getItem ();
+		EntityPlayer player = event.getEntityPlayer ();
 
-		switch (item.getName()) {
+		switch ( item.getName () )
+		{
 			case "item.tile.diamondiumore":
-				if (player.hasAchievement(OreMiner.ironium())) {
-					player.addStat(OreMiner.diamondium());
+				if ( player.hasAchievement ( OreMiner.ironium () ) )
+				{
+					player.addStat ( OreMiner.diamondium () );
 				}
 				break;
 
 			case "item.tile.emeraldiore":
-				if (player.hasAchievement(OreMiner.diamondium())) {
-					player.addStat(OreMiner.emeraldi());
+				if ( player.hasAchievement ( OreMiner.diamondium () ) )
+				{
+					player.addStat ( OreMiner.emeraldi () );
 				}
 				break;
 
 			case "item.tile.goldiriteore":
-				if (player.hasAchievement(OreMiner.diamondium())) {
-					player.addStat(OreMiner.goldirite());
+				if ( player.hasAchievement ( OreMiner.diamondium () ) )
+				{
+					player.addStat ( OreMiner.goldirite () );
 				}
 				break;
 
 			case "item.tile.ironiumore":
-				player.addStat(OreMiner.ironium());
+				player.addStat ( OreMiner.ironium () );
 				break;
 		}
 
-		if (player.hasAchievement(OreMiner.ironium()) && player.hasAchievement(OreMiner.diamondium()) && player.hasAchievement(OreMiner.emeraldi()) && player.hasAchievement(OreMiner
-				.goldirite())) {
-			player.addStat(OreMiner.oreMiner());
+		if ( player.hasAchievement ( OreMiner.ironium () ) && player.hasAchievement ( OreMiner.diamondium () ) && player.hasAchievement ( OreMiner.emeraldi () ) && player.hasAchievement ( OreMiner
+				.goldirite () ) )
+		{
+			player.addStat ( OreMiner.oreMiner () );
 		}
 	}
 }

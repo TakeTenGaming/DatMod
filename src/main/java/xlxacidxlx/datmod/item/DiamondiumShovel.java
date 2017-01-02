@@ -6,8 +6,10 @@ import xlxacidxlx.datmod.base.ItemShovel;
 /**
  * Created by Acid on 10/26/2016.
  */
-public class DiamondiumShovel extends ItemShovel {
-	public DiamondiumShovel() {
-		super(Materials.diamondium, "Diamondium Shovel");
+public class DiamondiumShovel extends ItemShovel
+{
+	public DiamondiumShovel ()
+	{
+		super ( Materials.diamondium, "Diamondium Shovel" );
 	}
 }

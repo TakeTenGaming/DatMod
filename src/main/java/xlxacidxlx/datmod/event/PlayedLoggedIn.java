@@ -19,51 +19,61 @@ import java.util.Set;
 /**
  * Created by Acid on 11/19/2016.
  */
-public class PlayedLoggedIn {
+public class PlayedLoggedIn
+{
 	@SubscribeEvent
-	public void playedLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+	public void playedLoggedIn ( PlayerEvent.PlayerLoggedInEvent event )
+	{
 		EntityPlayer player = event.player;
 
-		if (ConfigHandler.enableWelcomeMessage) {
-			Style chatStyle = new Style().setColor(TextFormatting.GRAY);
-			Style dividerStyle = new Style().setBold(true).setColor(TextFormatting.DARK_BLUE);
-			ITextComponent divider = new TextComponentString("-----------------------").setStyle(dividerStyle);
-			ITextComponent dividerTop = new TextComponentString("--------[" + DatMod.NAME + "]--------").setStyle(dividerStyle);
+		if ( ConfigHandler.enableWelcomeMessage )
+		{
+			Style chatStyle = new Style ().setColor ( TextFormatting.GRAY );
+			Style dividerStyle = new Style ().setBold ( true ).setColor ( TextFormatting.DARK_BLUE );
+			ITextComponent divider = new TextComponentString ( "-----------------------" ).setStyle ( dividerStyle );
+			ITextComponent dividerTop = new TextComponentString ( "--------[" + DatMod.NAME + "]--------" ).setStyle ( dividerStyle );
 
-			player.addChatComponentMessage(dividerTop);
-			player.addChatComponentMessage(ForgeHooks.newChatWithLinks("Thanks for trying my mod, " + TextFormatting.WHITE + player.getDisplayNameString() + TextFormatting.GRAY + "! " +
-					"Please suggest features/report issues at our GitHub: http://github.com/xlxacidxlx/DatMod/").setStyle(chatStyle));
-			player.addChatComponentMessage(divider);
+			player.addChatComponentMessage ( dividerTop );
+			player.addChatComponentMessage ( ForgeHooks.newChatWithLinks ( "Thanks for trying my mod, " + TextFormatting.WHITE + player.getDisplayNameString () + TextFormatting.GRAY + "! " +
+					"Please suggest features/report issues at our GitHub: http://github.com/xlxacidxlx/DatMod/" ).setStyle ( chatStyle ) );
+			player.addChatComponentMessage ( divider );
 		}
 
-		if (ConfigHandler.giveMagnet) {
-			if (ConfigHandler.giveMagnetFirstJoinOnly) {
-				Set<String> nbt = player.getTags();
+		if ( ConfigHandler.giveMagnet )
+		{
+			if ( ConfigHandler.giveMagnetFirstJoinOnly )
+			{
+				Set< String > nbt = player.getTags ();
 
-				if (!nbt.contains("playedBefore")) {
+				if ( !nbt.contains ( "playedBefore" ) )
+				{
 					return;
 				}
 			}
 
 			InventoryPlayer inventory = player.inventory;
-			ItemStack magnetStack = new ItemStack(Items.magnetItem);
-			if (!inventory.hasItemStack(magnetStack)) {
+			ItemStack magnetStack = new ItemStack ( Items.magnetItem );
+			if ( !inventory.hasItemStack ( magnetStack ) )
+			{
 				boolean itemPlaced = false;
-				int inventorySize = inventory.getSizeInventory();
+				int inventorySize = inventory.getSizeInventory ();
 
-				for (int i = 0; i < inventorySize; i++) {
-					if (itemPlaced) {
+				for ( int i = 0; i < inventorySize; i++ )
+				{
+					if ( itemPlaced )
+					{
 						continue;
 					}
 
-					if (inventory.getStackInSlot(i) == null) {
+					if ( inventory.getStackInSlot ( i ) == null )
+					{
 						itemPlaced = true;
-						inventory.setInventorySlotContents(i, magnetStack);
+						inventory.setInventorySlotContents ( i, magnetStack );
 					}
 				}
 			}
 
-			player.addTag("playedBefore");
+			player.addTag ( "playedBefore" );
 		}
 	}
 }

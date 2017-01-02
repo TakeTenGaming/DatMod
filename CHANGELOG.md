@@ -1,7 +1,30 @@
 # Changelog
 The following is a list of changes in each release of the mod.
 
-# 1.4.2
+## 1.5.0
+This update is a bug fix release.
+
+**Changes**
+[General]
+- All blocks/items/ingots/ores are now registered in the Ore Dictionary
+
+[Compatibility]
+- [EnderIO] Diamondium and Emeraldi can now be pulverized into their respective gems
+- [EnderIO] Ironium and Goldirite can now be pulverized into dusts using the Sag Mill
+- [EnderIO] Diamonds and Diamondium can now be used as an alternative to Flint in the Sag Mill, with added bonuses
+
+[Magnet]
+- Activation/deactivation message should now display properly
+- Texture has been improved
+- Can now be crafted using Minecraft's Iron Ingot
+
+[Tools]
+- All tools have been rebalanced to improve/reduce statistics
+
+[Code]
+- All code has been reformatted to make it a bit easier on the eyes and easier to manage
+
+## 1.4.2
 This update is a bug fix release.
 
 **Changes**
@@ -101,7 +124,7 @@ This update has a few minor code improvements. It's not a required update as no 
 **Changes**
 - Adds ore generation to The End and The Nether. Please note if generation seems lacking in the Overworld, it'll be the same in The End and Nether as the generation code is exactly the same.
 - Removed some debug code as it's no longer needed
-- Work on #12 
+- Work on #12
 - Fixes #10 - Gives the "welcome" message some color and flair. Also adds a configuration option to disable the message if you find it annoying.
 
 ## 0.0.2 - The Fix Update

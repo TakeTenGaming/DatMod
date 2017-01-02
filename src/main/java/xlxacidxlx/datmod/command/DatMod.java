@@ -9,15 +9,18 @@ import xlxacidxlx.datmod.base.Command;
 /**
  * Created by Acid on 11/6/2016.
  */
-public class DatMod extends Command {
+public class DatMod extends Command
+{
 	@Override
-	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
+	public void execute ( MinecraftServer server, ICommandSender sender, String[] args ) throws CommandException
+	{
 		String message = "Thanks for installing " + xlxacidxlx.datmod.DatMod.NAME + " v" + xlxacidxlx.datmod.DatMod.VERSION + "!";
-		sender.addChatMessage(new TextComponentString(message));
+		sender.addChatMessage ( new TextComponentString ( message ) );
 	}
 
 	@Override
-	public String getCommandName() {
+	public String getCommandName ()
+	{
 		return "datmod";
 	}
 }

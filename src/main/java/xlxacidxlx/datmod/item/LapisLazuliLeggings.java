@@ -7,8 +7,10 @@ import xlxacidxlx.datmod.base.ItemArmor;
 /**
  * Created by Acid on 11/20/2016.
  */
-public class LapisLazuliLeggings extends ItemArmor {
-	public LapisLazuliLeggings() {
-		super(Materials.lapisLazuliArmor, EntityEquipmentSlot.LEGS, "Lapis Lazuli Leggings");
+public class LapisLazuliLeggings extends ItemArmor
+{
+	public LapisLazuliLeggings ()
+	{
+		super ( Materials.lapisLazuliArmor, EntityEquipmentSlot.LEGS, "Lapis Lazuli Leggings" );
 	}
 }
