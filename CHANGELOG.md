@@ -1,6 +1,13 @@
 # Changelog
 The following is a list of changes in each release of the mod.
 
+## 1.5.1
+This update is a bug fix release.
+
+**Changes**
+[General]
+- Dusts can now actually be processed in furnaces. My bad, forgot to add the smelting recipe xD
+
 ## 1.5.0
 This update is a bug fix release.
 

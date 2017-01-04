@@ -1,3 +1,15 @@
 # Features
-- Adds 4 new types of ore: Ironium, Emeraldi, Goldirite, Diamondium
-- Adds 5 new tool sets: Ironium, Emeraldi, Goldirite, Diamondium, Redstone, Lapis Lazuli
+Below is a list of all of the current features of the mod. Mostly all of these can be enabled/disabled/configured via the config file stored in *config/DatMod/DatMod.cfg*
+
+### Armors
+- Adds 5 new sets of armor: Diamondium, Emeraldi, Ironium, Lapis Lazuli and Redstone
+
+### Compatibility
+*EnderIO* - Do you have too many diamonds or diamond blocks, or even Diamondium/Diamonidum Blocks? If so, use them in a Sag Mill to get an extra bonus when pulverizing ores as well as 
+reduced power consumption!
+
+### Miscellaneous
+- Magnet - Pulls items & XP towards the player (configurable radius)
+
+### Tools
+- Adds 5 new sets of tools: Diamondium, Emeraldi, Ironium, Lapis Lazuli and Redstone

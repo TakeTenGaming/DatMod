@@ -392,11 +392,19 @@ public class Recipes
 	{
 		float xp = 0.5f;
 		float xpDiamondium = 1.5f;
+		float xpDust = xp;
+		float xpDustGoldirite = ( xp + 0.4f );
+		float xpDustIronium = ( xp + 0.2f );
 		float xpEmeraldi = 0.8f;
 		float xpGoldirite = 0.6f;
 		float xpIronium = xp;
 		float xpLeather = 0.1f;
 
+		// Dust -> Gem/Ingot
+		registerSmeltingRecipe ( new ItemStack ( Items.goldiriteDust ), new ItemStack ( Items.goldiriteIngot ), xpDustGoldirite );
+		registerSmeltingRecipe ( new ItemStack ( Items.ironiumDust ), new ItemStack ( Items.ironiumIngot ), xpDustIronium );
+
+		// Ore -> Gem/Ingot
 		registerSmeltingRecipe ( new ItemStack ( Blocks.diamondiumOre ), new ItemStack ( Items.diamondium ), xpDiamondium );
 		registerSmeltingRecipe ( new ItemStack ( Blocks.emeraldiOre ), new ItemStack ( Items.emeraldi ), xpEmeraldi );
 		registerSmeltingRecipe ( new ItemStack ( Blocks.goldiriteOre ), new ItemStack ( Items.goldiriteIngot ), xpGoldirite );
