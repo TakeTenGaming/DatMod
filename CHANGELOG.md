@@ -1,6 +1,18 @@
 # Changelog
 The following is a list of changes in each release of the mod.
 
+## 1.6.0
+This update is mainly a cleanup/small change release to prepare for v2.0.0. Get hyped, big things are coming!
+
+**Changes**
+- Upgraded Forge (12.18.3.2221)
+- Upgraded JustEnoughItems (3.14.3.403)
+- This version is for 1.10.2, I'm currently working on v2.0.0 which will include an official 1.11.2 version
+- The "/profiler" command has been moved to [TenCore](http://minecraft.curseforge.com/projects/tencore/)
+- All base classes have been moved to TenCore
+- Removed "/datmod" command as it didn't do anything useful
+- Updated the welcome message to point to our new GitHub
+
 ## 1.5.1
 This update is a bug fix release.
 
