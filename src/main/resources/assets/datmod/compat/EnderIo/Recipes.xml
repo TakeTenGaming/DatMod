@@ -1,0 +1,88 @@
+<SAGMillRecipes>
+	<recipeGroup name="DatMod">
+		<recipe name="Diamondium" energyCost="4000">
+			<input>
+				<itemStack oreDictionary="oreDiamondium"/>
+			</input>
+
+			<output>
+				<itemStack oreDictionary="gemDiamondium" number="1"/>
+				<itemStack oreDictionary="gemDiamondium" number="1" chance="0.05"/>
+			</output>
+		</recipe>
+
+		<recipe name="Emeraldi" energyCost="4100">
+			<input>
+				<itemStack oreDictionary="oreEmeraldi"/>
+			</input>
+
+			<output>
+				<itemStack oreDictionary="gemEmeraldi" number="1"/>
+				<itemStack oreDictionary="gemEmeraldi" number="1" chance="0.05"/>
+			</output>
+		</recipe>
+
+		<recipe name="IroniumOre" energyCost="3700">
+			<input>
+				<itemStack oreDictionary="oreIronium"/>
+			</input>
+
+			<output>
+				<itemStack oreDictionary="dustIronium" number="2"/>
+				<itemStack oreDictionary="dustTin" number="1" chance="0.05"/>
+				<itemStack oreDictionary="dustNickel" number="1" chance="0.1"/>
+				<itemStack modID="minecraft" itemName="cobblestone" chance="0.15"/>
+			</output>
+		</recipe>
+
+		<recipe name="IroniumIngot" energyCost="2400">
+			<input>
+				<itemStack oreDictionary="ingotIronium"/>
+			</input>
+
+			<output>
+				<itemStack oreDictionary="dustIronium" number="1"/>
+			</output>
+		</recipe>
+
+		<recipe name="GoldiriteOre" energyCost="3700">
+			<input>
+				<itemStack oreDictionary="oreGoldirite"/>
+			</input>
+
+			<output>
+				<itemStack oreDictionary="dustGoldirite" number="2"/>
+				<itemStack oreDictionary="dustCopper" number="1" chance="0.2"/>
+				<itemStack modID="minecraft" itemName="cobblestone" chance="0.15"/>
+			</output>
+		</recipe>
+
+		<recipe name="GoldiriteIngot" energyCost="2500">
+			<input>
+				<itemStack oreDictionary="ingotGoldirite"/>
+			</input>
+
+			<output>
+				<itemStack oreDictionary="dustGoldirite" number="1"/>
+			</output>
+		</recipe>
+	</recipeGroup>
+
+	<grindingBalls>
+		<grindingBall id="Diamond" grindingMultiplier="1.5" chanceMultiplier="2" powerMultiplier="0.5" durationRF="50000">
+			<itemStack oreDictionary="gemDiamond"/>
+		</grindingBall>
+
+		<grindingBall id="DiamondBlock" grindingMultiplier="1.8" chanceMultiplier="4" powerMultiplier="0.1" durationRF="450000">
+			<itemStack oreDictionary="blockDiamond"/>
+		</grindingBall>
+
+		<grindingBall id="Diamondium" grindingMultiplier="1.8" chanceMultiplier="2.4" powerMultiplier="0.1" durationRF="60000">
+			<itemStack oreDictionary="gemDiamondium"/>
+		</grindingBall>
+
+		<grindingBall id="DiamondiumBlock" grindingMultiplier="2" chanceMultiplier="4.8" powerMultiplier="0.1" durationRF="540000">
+			<itemStack oreDictionary="blockDiamondium"/>
+		</grindingBall>
+	</grindingBalls>
+</SAGMillRecipes>
