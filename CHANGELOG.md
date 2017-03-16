@@ -1,11 +1,17 @@
 # Changelog
 The following is a list of changes and fixes in each release of the mod.
 
+## 2.1.0
+This update is a bug fix release.
+
+**Fixes**
+- Corrects the naming of Tile Entities, should prevent a NPE from occurring.
+
 ## 2.0.0
 This update is a feature release.
 
 **Fixes**
-- The mod should now work in 1.10+ (which *should* include 1.11/1.11.2)
+- The mod now properly works in 1.10.2 and 1.11.2
 
 **New Features**
 - `Generator`: Generates energy to be used in the `Furnace`, `Pulverizer` and `Power Bank`

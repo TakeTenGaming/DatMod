@@ -27,7 +27,7 @@ public class DatMod
 	public static final String MODID = "datmod";
 	public static final String NAME = "DatMod";
 	public static final String UPDATEURL = "https://raw.githubusercontent.com/TakeTenGaming/DatMod/master/versions.json";
-	public static final String VERSION = "2.0.0";
+	public static final String VERSION = "2.1.0";
 
 	@Mod.Instance
 	public static DatMod instance;

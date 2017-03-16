@@ -1,6 +1,7 @@
 package taketengaming.datmod.register;
 
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import taketengaming.datmod.DatMod;
 import taketengaming.datmod.machine.furnace.TileEntityFurnace;
 import taketengaming.datmod.machine.generator.TileEntityGenerator;
 import taketengaming.datmod.machine.powerbank.TileEntityPowerBank;
@@ -13,9 +14,9 @@ public class TileEntities
 {
 	public static void preInit ()
 	{
-		GameRegistry.registerTileEntity ( TileEntityFurnace.class, "furnace" );
-		GameRegistry.registerTileEntity ( TileEntityPulverizer.class, "pulverizer" );
-		GameRegistry.registerTileEntity ( TileEntityGenerator.class, "generator" );
-		GameRegistry.registerTileEntity ( TileEntityPowerBank.class, "powerbank" );
+		GameRegistry.registerTileEntity ( TileEntityFurnace.class, DatMod.MODID + "furnace" );
+		GameRegistry.registerTileEntity ( TileEntityPulverizer.class, DatMod.MODID + "pulverizer" );
+		GameRegistry.registerTileEntity ( TileEntityGenerator.class, DatMod.MODID + "generator" );
+		GameRegistry.registerTileEntity ( TileEntityPowerBank.class, DatMod.MODID + "powerbank" );
 	}
 }
