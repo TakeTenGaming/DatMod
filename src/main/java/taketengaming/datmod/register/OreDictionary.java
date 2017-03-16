@@ -22,8 +22,6 @@ public class OreDictionary
 		net.minecraftforge.oredict.OreDictionary.registerOre ( "gemEmeraldi", Items.emeraldi );
 
 		// Ingots
-		net.minecraftforge.oredict.OreDictionary.registerOre ( "diamondium", Items.diamondium );
-		net.minecraftforge.oredict.OreDictionary.registerOre ( "emeraldi", Items.emeraldi );
 		net.minecraftforge.oredict.OreDictionary.registerOre ( "ingotGoldirite", Items.goldiriteIngot );
 		net.minecraftforge.oredict.OreDictionary.registerOre ( "ingotIronium", Items.ironiumIngot );
 

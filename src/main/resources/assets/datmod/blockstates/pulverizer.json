@@ -1,0 +1,23 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"normal": {
+			"model": "datmod:pulverizer"
+		},
+		"facing=north": {
+			"model": "datmod:pulverizer"
+		},
+		"facing=south": {
+			"model": "datmod:pulverizer",
+			"y": 180
+		},
+		"facing=west": {
+			"model": "datmod:pulverizer",
+			"y": 270
+		},
+		"facing=east": {
+			"model": "datmod:pulverizer",
+			"y": 90
+		}
+	}
+}

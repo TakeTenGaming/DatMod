@@ -1,5 +1,35 @@
 # Changelog
-The following is a list of changes in each release of the mod.
+The following is a list of changes and fixes in each release of the mod.
+
+## 2.0.0
+This update is a feature release.
+
+**Fixes**
+- The mod should now work in 1.10+ (which *should* include 1.11/1.11.2)
+
+**New Features**
+- `Generator`: Generates energy to be used in the `Furnace`, `Pulverizer` and `Power Bank`
+- `Power Bank`: Stores energy to be distributed to machines, and charge the `Magnet`
+- `Furnace`: Like a normal furnace, but.. energized
+- `Pulverizer`: Crushes down ores into dusts or ores into ingots if no dusts are registered
+
+**Magnet Changes**
+- Can now optionally require energy in order to function (toggleable via config)
+- Will no longer pull items while the player is sneaking (holding shift)
+- Changed to using glimmer effect rather than adding/removing an enchantment
+
+**Misc Changes**
+- Updated Forge (12.18.3.2254)
+- Renamed classes to be more aligned with Minecraft's standard naming (`block/Diamondium` -> `block/BlockDiamondium`, etc)
+- Slightly changed ore generation to allow for increased ores
+- Organized achievements page and linked achievements together
+- All items for blocks now just use their block model, rather than providing textures twice
+- Removed `TenCore` version checker and switched to Forge's
+- Moved `EnderIO` compatibility recipes to an XML file for easier recipe management
+- Added recipes for converting blocks back to their respective gem/ingot
+- Improved extra achievement management to be a bit more robust
+- Switched from Java's `Logger` to TenCore's
+- Added a config option to only show the welcome message on first join (enabled by default)
 
 ## 1.6.0
 This update is mainly a cleanup/small change release to prepare for v2.0.0. Get hyped, big things are coming!

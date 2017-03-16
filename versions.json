@@ -1,0 +1,21 @@
+{
+	"homepage": "http://minecraft.curseforge.com/projects/datmod/",
+	"1.11.2": {
+		"2.0.0": "Initial Release"
+	},
+	"1.11": {
+		"2.0.0": "Initial Release"
+	},
+	"1.10.2": {
+		"2.0.0": "Initial Release"
+	},
+	"1.10": {
+		"2.0.0": "Initial Release"
+	},
+	"promos": {
+		"1.11.2-latest": "2.0.0",
+		"1.10.2-latest": "2.0.0",
+		"1.11.2-recommended": "2.0.0",
+		"1.10.2-recommended": "2.0.0"
+	}
+}

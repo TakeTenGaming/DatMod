@@ -88,6 +88,12 @@ public class Recipes
 				"III",
 				'I', ironiumIngot );
 
+		// Blocks > Gems/Ingots
+		GameRegistry.addShapelessRecipe ( new ItemStack ( diamondium, 9 ), Blocks.diamondium );
+		GameRegistry.addShapelessRecipe ( new ItemStack ( emeraldi, 9 ), Blocks.emeraldi );
+		GameRegistry.addShapelessRecipe ( new ItemStack ( goldiriteIngot, 9 ), Blocks.goldirite );
+		GameRegistry.addShapelessRecipe ( new ItemStack ( ironiumIngot, 9 ), Blocks.ironium );
+
 		// Boots
 		GameRegistry.addShapedRecipe ( new ItemStack ( Items.diamondiumBoots ),
 				"D D",
@@ -151,6 +157,21 @@ public class Recipes
 				"RRR",
 				"RRR",
 				'R', redstone );
+
+		// Furnace
+		GameRegistry.addRecipe ( new ItemStack ( Blocks.furnace ),
+				"III",
+				"I I",
+				"III",
+				'I', ironiumIngot );
+
+		// Generator
+		GameRegistry.addRecipe ( new ItemStack ( Blocks.generator ),
+				"III",
+				"ICI",
+				"III",
+				'C', net.minecraft.init.Items.COAL,
+				'I', ironiumIngot );
 
 		// Helmets
 		GameRegistry.addShapedRecipe ( new ItemStack ( Items.diamondiumHelmet ),
@@ -305,6 +326,22 @@ public class Recipes
 				" S ",
 				'R', redstone,
 				'S', stick );
+
+		// Power Bank
+		GameRegistry.addRecipe ( new ItemStack ( Blocks.powerBank ),
+				"III",
+				"IRI",
+				"III",
+				'I', ironiumIngot,
+				'R', redstone );
+
+		// Pulverizer
+		GameRegistry.addRecipe ( new ItemStack ( Blocks.pulverizer ),
+				"III",
+				"IFI",
+				"III",
+				'I', ironiumIngot,
+				'F', net.minecraft.init.Items.FLINT );
 
 		// Shovels
 		GameRegistry.addShapedRecipe ( new ItemStack ( Items.diamondiumShovel ),

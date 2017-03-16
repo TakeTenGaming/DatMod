@@ -35,19 +35,19 @@ public class OreGenerator implements IWorldGenerator
 	private WorldGenMinable ironiumOverworld;
 
 	// Diamondium Settings
-	private int oreDiamondiumChance = 8;
+	private int oreDiamondiumChance = 7;
 	private int oreDiamondiumMaxVein = 5;
 	private int oreDiamondiumMaxY = 20;
 	private int oreDiamondiumMinY = 2;
 
 	// Emeraldi Settings
-	private int oreEmeraldiChance = 6;
+	private int oreEmeraldiChance = 8;
 	private int oreEmeraldiMaxVein = 4;
 	private int oreEmeraldiMaxY = 32;
 	private int oreEmeraldiMinY = 2;
 
 	// Goldirite Settings
-	private int oreGoldiriteChance = 4;
+	private int oreGoldiriteChance = 6;
 	private int oreGoldiriteMaxVein = 4;
 	private int oreGoldiriteMaxY = 18;
 	private int oreGoldiriteMinY = 2;

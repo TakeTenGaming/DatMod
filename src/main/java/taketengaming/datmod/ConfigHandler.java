@@ -27,11 +27,13 @@ public class ConfigHandler
 	public static boolean enableRottenFleshToLeatherRecipe;
 	public static boolean enableTools;
 	public static boolean enableWelcomeMessage;
+	public static boolean enableWelcomeMessageFirstJoinOnly;
 
 	public static boolean giveMagnet;
 	public static boolean giveMagnetFirstJoinOnly;
 
 	public static int magnetRadius;
+	public static boolean magnetRequiresEnergy;
 
 	public static boolean mobsDropBones;
 
@@ -48,13 +50,15 @@ public class ConfigHandler
 		category = "General";
 		config.addCustomCategoryComment ( category, "Settings that don't fit into a particular group." );
 		enableWelcomeMessage = config.getBoolean ( "enableWelcomeMessage", category, true, "Should the \"welcome\" message be displayed on world join?" );
-		giveMagnet = config.getBoolean ( "giveMagnet", category, true, "Should the magnet be given to players?" );
+		enableWelcomeMessageFirstJoinOnly = config.getBoolean ( "enableWelcomeMessageFirstJoinOnly", category, true, "Should the \"welcome\" message only be shown once?" );
+		giveMagnet = config.getBoolean ( "giveMagnet", category, false, "Should the magnet be given to players?" );
 		giveMagnetFirstJoinOnly = config.getBoolean ( "giveMagnetFirstJoinOnly", category, true, "Should the magnet only be given on first join?" );
 		mobsDropBones = config.getBoolean ( "mobsDropBones", category, true, "Should mobs drop 1-4 bones upon death?" );
 
 		category = "Magnet";
 		config.addCustomCategoryComment ( category, "Settings related to the magnet." );
 		magnetRadius = config.getInt ( "magnetRadius", category, 8, 2, 16, "Sets the radius the magnet will pull items/XP from" );
+		magnetRequiresEnergy = config.getBoolean ( "magnetRequiresEnergy", category, false, "Toggles the magnet requiring energy to function" );
 
 		category = "Ores";
 		config.addCustomCategoryComment ( category, "Settings related to ore generation." );

@@ -1,0 +1,23 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"normal": {
+			"model": "datmod:generator"
+		},
+		"facing=north": {
+			"model": "datmod:generator"
+		},
+		"facing=south": {
+			"model": "datmod:generator",
+			"y": 180
+		},
+		"facing=west": {
+			"model": "datmod:generator",
+			"y": 270
+		},
+		"facing=east": {
+			"model": "datmod:generator",
+			"y": 90
+		}
+	}
+}

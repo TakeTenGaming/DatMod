@@ -1,6 +1,3 @@
 {
-	"parent": "datmod:block/goldiriteblock",
-	"textures": {
-		"layer0": "datmod:items/goldirite"
-	}
+	"parent": "datmod:block/goldiriteblock"
 }

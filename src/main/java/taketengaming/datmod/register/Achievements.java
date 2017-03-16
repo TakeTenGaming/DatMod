@@ -2,7 +2,7 @@ package taketengaming.datmod.register;
 
 import net.minecraftforge.common.AchievementPage;
 import taketengaming.datmod.DatMod;
-import taketengaming.datmod.achievement.OreMiner;
+import taketengaming.datmod.achievement.AchievementOreMiner;
 import taketengaming.tencore.Achievement;
 
 import java.util.ArrayList;
@@ -14,11 +14,11 @@ public class Achievements
 {
 	private static final ArrayList< net.minecraft.stats.Achievement > ACHIEVEMENTS = new ArrayList<> ();
 
-	private static final Achievement ORE_MINER = OreMiner.oreMiner ();
-	private static final Achievement ORE_MINER_DIAMONDIUM = OreMiner.diamondium ();
-	private static final Achievement ORE_MINER_EMERALDI = OreMiner.emeraldi ();
-	private static final Achievement ORE_MINER_GOLDIRITE = OreMiner.goldirite ();
-	private static final Achievement ORE_MINER_IRONIUM = OreMiner.ironium ();
+	private static final Achievement ORE_MINER = AchievementOreMiner.oreMiner ();
+	private static final Achievement ORE_MINER_DIAMONDIUM = AchievementOreMiner.diamondium ();
+	private static final Achievement ORE_MINER_EMERALDI = AchievementOreMiner.emeraldi ();
+	private static final Achievement ORE_MINER_GOLDIRITE = AchievementOreMiner.goldirite ();
+	private static final Achievement ORE_MINER_IRONIUM = AchievementOreMiner.ironium ();
 
 	public static void init ()
 	{

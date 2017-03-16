@@ -1,0 +1,23 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"normal": {
+			"model": "datmod:furnace"
+		},
+		"facing=north": {
+			"model": "datmod:furnace"
+		},
+		"facing=south": {
+			"model": "datmod:furnace",
+			"y": 180
+		},
+		"facing=west": {
+			"model": "datmod:furnace",
+			"y": 270
+		},
+		"facing=east": {
+			"model": "datmod:furnace",
+			"y": 90
+		}
+	}
+}

@@ -3,20 +3,20 @@
 #
 
 # Achievements
-achievement.datmod_oreMiner=Ore Miner
-achievement.datmod_oreMiner.desc=You've mined every ore from DatMod!
+achievement.oreMiner=Ore Miner
+achievement.oreMiner.desc=You've mined every ore from DatMod!
 
-achievement.datmod_oreMinerDiamondium=Ore Miner - Diamondium
-achievement.datmod_oreMinerDiamondium.desc=You mined Diamondium Ore!
+achievement.oreMinerDiamondium=Ore Miner - Diamondium
+achievement.oreMinerDiamondium.desc=You mined Diamondium Ore!
 
-achievement.datmod_oreMinerEmeraldi=Ore Miner - Emeraldi
-achievement.datmod_oreMinerEmeraldi.desc=You mined Emeraldi Ore!
+achievement.oreMinerEmeraldi=Ore Miner - Emeraldi
+achievement.oreMinerEmeraldi.desc=You mined Emeraldi Ore!
 
-achievement.datmod_oreMinerGoldirite=Ore Miner - Goldirite
-achievement.datmod_oreMinerGoldirite.desc=You mined Goldirite Ore!
+achievement.oreMinerGoldirite=Ore Miner - Goldirite
+achievement.oreMinerGoldirite.desc=You mined Goldirite Ore!
 
-achievement.datmod_oreMinerIronium=Ore Miner - Ironium
-achievement.datmod_oreMinerIronium.desc=You mined Ironium Ore!
+achievement.oreMinerIronium=Ore Miner - Ironium
+achievement.oreMinerIronium.desc=You mined Ironium Ore!
 
 # Creative Tabs
 itemGroup.datmod_armors=DatMod - Armors
@@ -61,8 +61,12 @@ item.redstoneleggings.name=Redstone Leggings
 # Blocks
 tile.diamondiumblock.name=Diamondium Block
 tile.emeraldiblock.name=Emeraldi Block
+tile.furnace.name=Furnace
+tile.generator.name=Generator
 tile.goldiriteblock.name=Goldirite Block
 tile.ironiumblock.name=Ironium Block
+tile.powerbank.name=Power Bank
+tile.pulverizer.name=Pulverizer
 
 # Dusts
 item.goldiritedust.name=Goldirite Dust

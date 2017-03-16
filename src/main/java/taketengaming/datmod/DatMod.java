@@ -14,20 +14,20 @@ import taketengaming.datmod.proxy.CommonProxy;
 import taketengaming.datmod.register.*;
 import taketengaming.tencore.Logger;
 import taketengaming.tencore.TenCore;
-import taketengaming.tencore.VersionChecker;
 
 import java.io.File;
 
 /**
  * Created by Acid on 10/20/2016.
  */
-@Mod( modid = DatMod.MODID, dependencies = "after:TenCore", name = DatMod.NAME, version = DatMod.VERSION )
+@Mod( acceptedMinecraftVersions = "[1.10,]", modid = DatMod.MODID, dependencies = "required-after:" + TenCore.MODID, name = DatMod.NAME, updateJSON = DatMod.UPDATEURL, version = DatMod
+		.VERSION )
 public class DatMod
 {
 	public static final String MODID = "datmod";
 	public static final String NAME = "DatMod";
-	public static final String UPDATEURL = "https://raw.githubusercontent.com/TakeTenGaming/DatMod/master/VERSION.md";
-	public static final String VERSION = "1.6.0";
+	public static final String UPDATEURL = "https://raw.githubusercontent.com/TakeTenGaming/DatMod/master/versions.json";
+	public static final String VERSION = "2.0.0";
 
 	@Mod.Instance
 	public static DatMod instance;
@@ -35,7 +35,7 @@ public class DatMod
 	public static Logger logger = new Logger ( DatMod.NAME );
 
 	@SidedProxy( clientSide = "taketengaming.datmod.proxy.ClientProxy", serverSide = "taketengaming.datmod.proxy.CommonProxy" )
-	private static CommonProxy proxy;
+	public static CommonProxy proxy;
 
 	private static CreativeTabs creativeTabs;
 
@@ -49,28 +49,26 @@ public class DatMod
 
 		creativeTabs = new CreativeTabs ();
 
+		proxy.preInit ( event );
+
 		Items.preInit ();
 		Blocks.preInit ();
 		TileEntities.preInit ();
 		OreDictionary.preInit ();
-		proxy.preInit ( event );
 
 		NetworkRegistry.INSTANCE.registerGuiHandler ( DatMod.instance, new GuiHandler () );
-
-		TenCore.addVersionChecker ( new VersionChecker ( DatMod.NAME, DatMod.VERSION, DatMod.UPDATEURL ) );
 	}
 
 	@EventHandler
 	public void init ( FMLInitializationEvent event )
 	{
 		proxy.init ( event );
+
 		Events.init ();
 		Recipes.init ();
 		OreGen.init ( event );
 		Achievements.init ();
 		CompatHandler.init ();
-
-		logger.info ( "Hellooooo Minecraft!" );
 	}
 
 	@EventHandler

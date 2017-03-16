@@ -3,7 +3,6 @@ package taketengaming.datmod.proxy;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -23,11 +22,6 @@ public class ClientProxy extends CommonProxy
 	{
 		Items.registerRenders ();
 		Blocks.registerRenders ();
-	}
-
-	@Override
-	public void postInit ( FMLPostInitializationEvent event )
-	{
 	}
 
 	@Override
