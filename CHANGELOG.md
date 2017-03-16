@@ -1,11 +1,12 @@
 # Changelog
 The following is a list of changes and fixes in each release of the mod.
 
-## 2.1.0
+## 2.0.1
 This update is a bug fix release.
 
 **Fixes**
 - Corrects the naming of Tile Entities, should prevent a NPE from occurring.
+- Prevents an NPE caused by improper furnace inventory checking
 
 ## 2.0.0
 This update is a feature release.

@@ -74,7 +74,7 @@ public class TileEntityFurnace extends TileEntityBase implements ITickable
 		ItemStack inputSlot = itemHandler.getStackInSlot ( 0 );
 		ItemStack outputSlot = itemHandler.getStackInSlot ( 1 );
 
-		if ( inputSlot == null || inputSlot.stackSize == 0 || ( outputSlot != null && outputSlot.stackSize >= outputSlot.getMaxStackSize () ) )
+		if ( inputSlot == null || outputSlot != null && outputSlot.stackSize >= outputSlot.getMaxStackSize () )
 		{
 			this.currentItemProcessingTime = 0;
 			this.totalItemProcessingTime = 0;
