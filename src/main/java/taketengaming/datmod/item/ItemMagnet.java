@@ -161,9 +161,12 @@ public class ItemMagnet extends Item
 			return;
 		}
 
-		if ( this.requiresEnergy () && !this.hasEnergy ( stack ) || stack.getTagCompound ().getInteger ( "energyStored" ) < Energy.REQUIREMENT )
+		if ( this.requiresEnergy () )
 		{
-			return;
+			if ( !this.hasEnergy ( stack ) || stack.getTagCompound ().getInteger ( "energyStored" ) < Energy.REQUIREMENT )
+			{
+				return;
+			}
 		}
 
 		double radius = ConfigHandler.magnetRadius;

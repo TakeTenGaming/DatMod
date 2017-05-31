@@ -11,6 +11,7 @@ buildscript {
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'maven-publish'
 
 version = mc_version + "-" + mod_version
 group = "taketengaming.datmod"
@@ -25,10 +26,23 @@ compileJava {
 minecraft {
 	version = mc_version + "-" + forge_version
 	runDir = "run"
+	makeObfSourceJar = true
+	useDepAts = true
 	mappings = mcp_mappings
 }
 
+task deobfJar(type: Jar) { // Generate deobfuscated
+	from sourceSets.main.output
+	classifier = 'deobf'
+}
+tasks.build.dependsOn('deobfJar')
+tasks.build.dependsOn('generatePomFileForMavenJavaPublication')
+tasks.build.dependsOn('publishToMavenLocal')
+
 repositories {
+	// Local Maven
+	mavenLocal()
+
 	// JustEnoughItems
 	maven { url = "http://dvs1.progwml6.com/files/maven" }
 
@@ -38,14 +52,14 @@ repositories {
 
 dependencies {
 	// TenCore
-	compile files("../../1.11/TenCore/build/libs/TenCore-${tencore_version}.jar")
+	deobfCompile "taketengaming.tencore:TenCore:" + tencore_version
 
 	// JustEnoughItems
-	deobfCompile "mezz.jei:jei_${mc_version}:${jei_version}:api" // Compile against API
-	runtime "mezz.jei:jei_${mc_version}:${jei_version}" // Use the full jar at runtime
+	deobfCompile "mezz.jei:jei_${mc_version}:${jei_version}:api"
+	runtime "mezz.jei:jei_${mc_version}:${jei_version}"
 
 	// HWYLA
-	deobfCompile "mcp.mobius.waila:Hwyla:${hwyla_version}" // Compile against API
+	deobfCompile "mcp.mobius.waila:Hwyla:${hwyla_version}"
 }
 
 processResources {
@@ -64,5 +78,17 @@ processResources {
 	// copy everything else, thats not the mcmod.info
 	from(sourceSets.main.resources.srcDirs) {
 		exclude 'mcmod.info'
+	}
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+
+			artifact sourceJar {
+				classifier "sources"
+			}
+		}
 	}
 }

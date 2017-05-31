@@ -34,8 +34,8 @@ public class GuiPowerBank extends GuiContainer
 	@Override
 	protected void drawGuiContainerForegroundLayer ( int mouseX, int mouseY )
 	{
-		int centerX = ( int ) ( this.guiLeft / 2.4 );
-		int centerY = ( int ) ( this.guiTop / 3.5 );
+		int centerX = 54;
+		int centerY = 10;
 
 		FontRenderer fontObj = this.fontRenderer;
 		fontObj.drawString ( "Energy Stored: " + this.tileEntity.getCapability ( CapabilityEnergy.ENERGY, null ).getEnergyStored (), centerX, centerY, 0 );
