@@ -1,8 +1,5 @@
 # **DatMod** &mdash; *A mod of miscellaneous bits & bobs, gadgets & gizmos.*
 
-### Current Version
-The current version of **DatMod** is v[*2.0.0*](), released *May 31s, 2017*.
-
 ### Features
 #### Armors
 - Adds 5 new sets of armor: Diamondium, Emeraldi, Ironium, Lapis Lazuli and Redstone
