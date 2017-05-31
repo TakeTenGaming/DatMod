@@ -1,6 +1,7 @@
 package taketengaming.datmod.creativetab;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import taketengaming.datmod.DatMod;
 
 /**
@@ -14,8 +15,8 @@ public class Blocks extends net.minecraft.creativetab.CreativeTabs
 	}
 
 	@Override
-	public Item getTabIconItem ()
+	public ItemStack getTabIconItem ()
 	{
-		return Item.getItemFromBlock ( taketengaming.datmod.register.Blocks.diamondium );
+		return new ItemStack ( Item.getItemFromBlock ( taketengaming.datmod.register.Blocks.diamondium ) );
 	}
 }

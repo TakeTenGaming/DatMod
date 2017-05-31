@@ -1,6 +1,7 @@
 package taketengaming.datmod.creativetab;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import taketengaming.datmod.DatMod;
 import taketengaming.datmod.register.Blocks;
 
@@ -15,8 +16,8 @@ public class Ores extends net.minecraft.creativetab.CreativeTabs
 	}
 
 	@Override
-	public Item getTabIconItem ()
+	public ItemStack getTabIconItem ()
 	{
-		return Item.getItemFromBlock ( Blocks.diamondiumOre );
+		return new ItemStack ( Item.getItemFromBlock ( Blocks.diamondiumOre ) );
 	}
 }

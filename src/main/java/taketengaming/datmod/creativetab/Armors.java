@@ -1,6 +1,6 @@
 package taketengaming.datmod.creativetab;
 
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import taketengaming.datmod.DatMod;
 import taketengaming.datmod.register.Items;
 
@@ -15,8 +15,8 @@ public class Armors extends net.minecraft.creativetab.CreativeTabs
 	}
 
 	@Override
-	public Item getTabIconItem ()
+	public ItemStack getTabIconItem ()
 	{
-		return Items.diamondiumHelmet;
+		return new ItemStack ( Items.diamondiumHelmet );
 	}
 }

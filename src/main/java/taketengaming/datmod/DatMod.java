@@ -11,6 +11,8 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import taketengaming.datmod.compat.CompatHandler;
 import taketengaming.datmod.creativetab.CreativeTabs;
 import taketengaming.datmod.proxy.CommonProxy;
+import taketengaming.datmod.recipes.FurnaceRecipes;
+import taketengaming.datmod.recipes.PulverizerRecipes;
 import taketengaming.datmod.register.*;
 import taketengaming.tencore.Logger;
 import taketengaming.tencore.TenCore;
@@ -27,7 +29,7 @@ public class DatMod
 	public static final String MODID = "datmod";
 	public static final String NAME = "DatMod";
 	public static final String UPDATEURL = "https://raw.githubusercontent.com/TakeTenGaming/DatMod/master/versions.json";
-	public static final String VERSION = "2.0.1";
+	public static final String VERSION = "2.0.0";
 
 	@Mod.Instance
 	public static DatMod instance;
@@ -62,10 +64,11 @@ public class DatMod
 	@EventHandler
 	public void init ( FMLInitializationEvent event )
 	{
-		proxy.init ( event );
-
 		Events.init ();
 		Recipes.init ();
+		FurnaceRecipes.init ();
+		PulverizerRecipes.init ();
+		proxy.init ( event );
 		OreGen.init ( event );
 		Achievements.init ();
 		CompatHandler.init ();

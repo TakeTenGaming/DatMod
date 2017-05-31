@@ -6,8 +6,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ITickable;
 import net.minecraftforge.items.ItemStackHandler;
 import taketengaming.datmod.item.ItemMagnet;
-import taketengaming.datmod.machine.PowerSender;
 import taketengaming.tencore.energy.EnergyStorage;
+import taketengaming.tencore.machine.PowerSender;
 import taketengaming.tencore.tileentity.TileEntityBase;
 import taketengaming.tencore.util.Energy;
 
@@ -48,6 +48,20 @@ public class TileEntityPowerBank extends TileEntityBase implements ITickable
 		this.totalItemProcessingTime = compound.getInteger ( "totalItemProcessingTime" );
 	}
 
+	@Override
+	public NBTTagCompound writeToNBT ( NBTTagCompound compound )
+	{
+		super.writeToNBT ( compound );
+
+		this.energyStorageHandler.writeToNBT ( compound );
+		compound.setTag ( "Items", this.itemStackHandler.serializeNBT () );
+
+		compound.setInteger ( "currentItemProcessingTime", this.currentItemProcessingTime );
+		compound.setInteger ( "totalItemProcessingTime", this.totalItemProcessingTime );
+
+		return compound;
+	}
+
 	/**
 	 * Like the old updateEntity(), except more generic.
 	 */
@@ -61,7 +75,7 @@ public class TileEntityPowerBank extends TileEntityBase implements ITickable
 		ItemStack inputSlot = itemHandler.getStackInSlot ( 0 );
 		ItemStack outputSlot = itemHandler.getStackInSlot ( 1 );
 
-		if ( inputSlot == null || energyHandler.getEnergyStored () == 0 )
+		if ( inputSlot.isEmpty () || energyHandler.getEnergyStored () == 0 )
 		{
 			return;
 		}
@@ -76,10 +90,10 @@ public class TileEntityPowerBank extends TileEntityBase implements ITickable
 			}
 
 			int energyStored = nbt.getInteger ( "energyStored" );
-			if ( energyStored >= Energy.CAPACITY )
+			if ( ( energyStored + Energy.MAX_RECEIVE ) > Energy.CAPACITY )
 			{
 				itemHandler.setStackInSlot ( 1, inputSlot.copy () );
-				itemHandler.setStackInSlot ( 0, null );
+				itemHandler.setStackInSlot ( 0, ItemStack.EMPTY );
 			}
 			else
 			{
@@ -87,19 +101,5 @@ public class TileEntityPowerBank extends TileEntityBase implements ITickable
 				energyHandler.extractEnergy ( Energy.MAX_SEND, false );
 			}
 		}
-	}
-
-	@Override
-	public NBTTagCompound writeToNBT ( NBTTagCompound compound )
-	{
-		super.writeToNBT ( compound );
-
-		this.energyStorageHandler.writeToNBT ( compound );
-		compound.setTag ( "Items", this.itemStackHandler.serializeNBT () );
-
-		compound.setInteger ( "currentItemProcessingTime", this.currentItemProcessingTime );
-		compound.setInteger ( "totalItemProcessingTime", this.totalItemProcessingTime );
-
-		return compound;
 	}
 }

@@ -6,7 +6,6 @@ import net.minecraft.util.ITickable;
 import net.minecraftforge.items.ItemStackHandler;
 import taketengaming.tencore.energy.EnergyStorage;
 import taketengaming.tencore.recipes.PulverizerRecipes;
-import taketengaming.tencore.recipes.Recipe;
 import taketengaming.tencore.tileentity.TileEntityBase;
 import taketengaming.tencore.util.Energy;
 import taketengaming.tencore.util.Machine;
@@ -35,7 +34,7 @@ public class TileEntityPulverizer extends TileEntityBase implements ITickable
 	public boolean isProcessing ()
 	{
 		ItemStack inputSlot = this.itemStackHandler.getStackInSlot ( 0 );
-		if ( inputSlot != null && inputSlot.stackSize > 0 )
+		if ( !inputSlot.isEmpty () && inputSlot.getCount () > 0 )
 		{
 			if ( this.currentItemProcessingTime > 0 )
 			{
@@ -65,67 +64,6 @@ public class TileEntityPulverizer extends TileEntityBase implements ITickable
 		this.totalItemProcessingTime = compound.getInteger ( "totalItemProcessingTime" );
 	}
 
-	/**
-	 * Like the old updateEntity(), except more generic.
-	 */
-	@Override
-	public void update ()
-	{
-		EnergyStorage energyHandler = this.energyStorageHandler;
-		ItemStackHandler itemHandler = this.itemStackHandler;
-		ItemStack inputSlot = itemHandler.getStackInSlot ( 0 );
-		ItemStack outputSlot = itemHandler.getStackInSlot ( 1 );
-
-		if ( inputSlot == null )
-		{
-			this.currentItemProcessingTime = 0;
-			this.totalItemProcessingTime = 0;
-			return;
-		}
-
-		if ( this.currentItemProcessingTime == 0 )
-		{
-			this.totalItemProcessingTime = Machine.getItemProcessingTime ( inputSlot );
-		}
-
-		if ( energyHandler.getEnergyStored () == 0 )
-		{
-			return;
-		}
-
-		Recipe outputResult = PulverizerRecipes.getInstance ().getRecipe ( inputSlot );
-		if ( outputResult == null )
-		{
-			return;
-		}
-
-		if ( this.currentItemProcessingTime == this.totalItemProcessingTime )
-		{
-			energyHandler.extractEnergy ( Energy.REQUIREMENT, false );
-
-			if ( ( inputSlot.stackSize - 1 ) == 0 )
-			{
-				itemHandler.setStackInSlot ( 0, null );
-			}
-			else
-			{
-				inputSlot.stackSize--;
-			}
-
-			ItemStack outputResultItem = outputResult.getOutput ();
-			itemHandler.insertItem ( 1, outputResultItem.copy (), false );
-
-			this.currentItemProcessingTime = 0;
-			this.totalItemProcessingTime = 0;
-
-			energyHandler.extractEnergy ( Machine.getItemPowerValue ( inputSlot ), false );
-		}
-		else
-		{
-			this.currentItemProcessingTime++;
-		}
-	}
-
 	@Override
 	public NBTTagCompound writeToNBT ( NBTTagCompound compound )
 	{
@@ -138,5 +76,59 @@ public class TileEntityPulverizer extends TileEntityBase implements ITickable
 		compound.setInteger ( "totalItemProcessingTime", this.totalItemProcessingTime );
 
 		return compound;
+	}
+
+	/**
+	 * Like the old updateEntity(), except more generic.
+	 */
+	@Override
+	public void update ()
+	{
+		EnergyStorage energyHandler = this.energyStorageHandler;
+		ItemStackHandler itemHandler = this.itemStackHandler;
+		ItemStack inputSlot = itemHandler.getStackInSlot ( 0 );
+		ItemStack outputSlot = itemHandler.getStackInSlot ( 1 );
+
+		if ( inputSlot.isEmpty () || energyHandler.getEnergyStored () == 0 || outputSlot.getCount () == 64 )
+		{
+			this.currentItemProcessingTime = 0;
+			this.totalItemProcessingTime = 0;
+			return;
+		}
+
+		ItemStack outputResult = PulverizerRecipes.getInstance ().getRecipe ( inputSlot );
+		if ( outputResult.isEmpty () )
+		{
+			return;
+		}
+		else
+		{
+			if ( !outputSlot.isEmpty () && outputResult.getItem () != outputSlot.getItem () )
+			{
+				return;
+			}
+
+			outputResult.setCount ( 2 );
+		}
+
+		if ( this.currentItemProcessingTime == 0 )
+		{
+			this.totalItemProcessingTime = Machine.getItemProcessingTime ( inputSlot );
+		}
+
+		if ( this.currentItemProcessingTime == this.totalItemProcessingTime )
+		{
+			this.currentItemProcessingTime = 0;
+			this.totalItemProcessingTime = 0;
+
+			inputSlot.splitStack ( 1 );
+			itemHandler.insertItem ( 1, outputResult.copy (), false );
+			this.markDirty ();
+		}
+		else
+		{
+			this.currentItemProcessingTime++;
+			energyHandler.extractEnergy ( Energy.REQUIREMENT, false );
+		}
 	}
 }

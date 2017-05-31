@@ -35,6 +35,8 @@ public class Items
 	public static ItemEmeraldiShovel emeraldiShovel;
 	public static ItemEmeraldiSword emeraldiSword;
 
+	public static ItemGoldDust goldDust;
+
 	public static ItemGoldiriteAxe goldiriteAxe;
 	public static ItemGoldiriteBoots goldiriteBoots;
 	public static ItemGoldiriteChestplate goldiriteChestplate;
@@ -46,6 +48,8 @@ public class Items
 	public static ItemGoldiritePickaxe goldiritePickaxe;
 	public static ItemGoldiriteShovel goldiriteShovel;
 	public static ItemGoldiriteSword goldiriteSword;
+
+	public static ItemIronDust ironDust;
 
 	public static ItemIroniumAxe ironiumAxe;
 	public static ItemIroniumBoots ironiumBoots;
@@ -105,6 +109,8 @@ public class Items
 		emeraldiShovel = new ItemEmeraldiShovel ();
 		emeraldiSword = new ItemEmeraldiSword ();
 
+		goldDust = new ItemGoldDust ();
+
 		goldiriteAxe = new ItemGoldiriteAxe ();
 		goldiriteBoots = new ItemGoldiriteBoots ();
 		goldiriteChestplate = new ItemGoldiriteChestplate ();
@@ -116,6 +122,8 @@ public class Items
 		goldiritePickaxe = new ItemGoldiritePickaxe ();
 		goldiriteShovel = new ItemGoldiriteShovel ();
 		goldiriteSword = new ItemGoldiriteSword ();
+
+		ironDust = new ItemIronDust ();
 
 		ironiumAxe = new ItemIroniumAxe ();
 		ironiumBoots = new ItemIroniumBoots ();
@@ -186,6 +194,8 @@ public class Items
 				GameRegistry.register ( emeraldiSword );
 			}
 
+			GameRegistry.register ( goldDust );
+
 			if ( ConfigHandler.enableOreGenerationGoldirite && ConfigHandler.enableGoldiriteTools )
 			{
 				GameRegistry.register ( goldiriteAxe );
@@ -200,6 +210,8 @@ public class Items
 				GameRegistry.register ( goldiriteShovel );
 				GameRegistry.register ( goldiriteSword );
 			}
+
+			GameRegistry.register ( ironDust );
 
 			if ( ConfigHandler.enableOreGenerationIronium && ConfigHandler.enableIroniumTools )
 			{
@@ -255,8 +267,7 @@ public class Items
 	@SideOnly( Side.CLIENT )
 	private static void registerRender ( Item item, int metadata )
 	{
-		Minecraft.getMinecraft ().getRenderItem ().getItemModelMesher ().register ( item, metadata, item.getModelResourceLocation
-				( metadata ) );
+		Minecraft.getMinecraft ().getRenderItem ().getItemModelMesher ().register ( item, metadata, item.getModelResourceLocation ( metadata ) );
 	}
 
 	@SideOnly( Side.CLIENT )
@@ -356,6 +367,8 @@ public class Items
 		registerRender ( emeraldiShovel );
 		registerRender ( emeraldiSword );
 
+		registerRender ( goldDust );
+
 		registerRender ( goldiriteAxe );
 		registerRender ( goldiriteBoots );
 		registerRender ( goldiriteChestplate );
@@ -367,6 +380,8 @@ public class Items
 		registerRender ( goldiritePickaxe );
 		registerRender ( goldiriteShovel );
 		registerRender ( goldiriteSword );
+
+		registerRender ( ironDust );
 
 		registerRender ( ironiumAxe );
 		registerRender ( ironiumBoots );

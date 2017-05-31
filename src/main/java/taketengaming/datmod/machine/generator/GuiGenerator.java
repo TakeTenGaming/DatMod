@@ -2,6 +2,7 @@ package taketengaming.datmod.machine.generator;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 import taketengaming.datmod.DatMod;
 import taketengaming.tencore.energy.EnergyStorage;
 
@@ -21,11 +22,25 @@ public class GuiGenerator extends GuiContainer
 		this.tileEntity = tileEntity;
 	}
 
+	/**
+	 * Draw the foreground layer for the GuiContainer (everything in front of the items)
+	 *
+	 * @param mouseX
+	 * @param mouseY
+	 */
+	@Override
+	protected void drawGuiContainerForegroundLayer ( int mouseX, int mouseY )
+	{
+		// TODO: Draw the inventory title here..
+	}
+
 	@Override
 	protected void drawGuiContainerBackgroundLayer ( float partialTicks, int mouseX, int mouseY )
 	{
+		GL11.glColor4f ( 1, 1, 1, 1 );
+
 		mc.getTextureManager ().bindTexture ( background );
-		drawTexturedModalRect ( guiLeft, guiTop, 0, 0, xSize, ySize );
+		this.drawTexturedModalRect ( guiLeft, guiTop, 0, 0, xSize, ySize );
 
 		EnergyStorage energyStorage = this.tileEntity.energyStorageHandler;
 		float energyPercentage = 0;
@@ -37,24 +52,12 @@ public class GuiGenerator extends GuiContainer
 			energyPercentage = ( float ) ( ( energyStored * 100 ) / maxEnergy );
 		}
 
-		drawTexturedModalRect ( ( guiLeft + 8 ), ( guiTop + 7 ), 176, 24, 16, ( int ) energyPercentage );
+		this.drawTexturedModalRect ( ( guiLeft + 8 ), ( guiTop + 7 ), 176, 24, 16, ( int ) energyPercentage );
 
 		if ( this.tileEntity.isProcessing () && this.tileEntity.getCurrentItemProcessingTime () > 0 )
 		{
 			float percentageCompleted = ( float ) ( ( this.tileEntity.currentItemProcessingTime * 100 ) / this.tileEntity.getTotalItemProcessingTime () ) / 4;
-			drawTexturedModalRect ( ( guiLeft + 84 ), ( guiTop + 41 ), 177, 0, 18, ( int ) ( percentageCompleted - 2 ) );
+			this.drawTexturedModalRect ( ( guiLeft + 84 ), ( guiTop + 41 ), 177, 0, 18, ( int ) ( percentageCompleted - 2 ) );
 		}
-	}
-
-	/**
-	 * Draw the foreground layer for the GuiContainer (everything in front of the items)
-	 *
-	 * @param mouseX
-	 * @param mouseY
-	 */
-	@Override
-	protected void drawGuiContainerForegroundLayer ( int mouseX, int mouseY )
-	{
-		// TODO: Draw the inventory title here..
 	}
 }

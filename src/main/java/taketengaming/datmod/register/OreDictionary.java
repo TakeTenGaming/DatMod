@@ -14,7 +14,9 @@ public class OreDictionary
 		net.minecraftforge.oredict.OreDictionary.registerOre ( "blockIronium", Blocks.ironium );
 
 		// Dusts
+		net.minecraftforge.oredict.OreDictionary.registerOre ( "dustGold", Items.goldDust );
 		net.minecraftforge.oredict.OreDictionary.registerOre ( "dustGoldirite", Items.goldiriteDust );
+		net.minecraftforge.oredict.OreDictionary.registerOre ( "dustIron", Items.ironDust );
 		net.minecraftforge.oredict.OreDictionary.registerOre ( "dustIronium", Items.ironiumDust );
 
 		// Gems

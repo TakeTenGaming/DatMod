@@ -33,6 +33,36 @@ public class GuiHandler implements IGuiHandler
 	public static final int POWER_BANK = 5;
 
 	@Override
+	public Object getServerGuiElement ( int ID, EntityPlayer player, World world, int x, int y, int z )
+	{
+		InventoryPlayer playerInventory = player.inventory;
+		TileEntity tileEntity = world.getTileEntity ( new BlockPos ( x, y, z ) );
+
+		if ( tileEntity == null )
+		{
+			return null;
+		}
+
+		switch ( ID )
+		{
+			case ENERGIZED_FURNACE:
+				return new ContainerFurnace ( playerInventory, ( TileEntityFurnace ) tileEntity );
+
+			case ENERGIZED_PULVERIZER:
+				return new ContainerPulverizer ( playerInventory, ( TileEntityPulverizer ) tileEntity );
+
+			case GENERATOR:
+				return new ContainerGenerator ( playerInventory, ( TileEntityGenerator ) tileEntity );
+
+			case POWER_BANK:
+				return new ContainerPowerBank ( playerInventory, ( TileEntityPowerBank ) tileEntity );
+
+			default:
+				return null;
+		}
+	}
+
+	@Override
 	@SideOnly( Side.CLIENT )
 	public Object getClientGuiElement ( int ID, EntityPlayer player, World world, int x, int y, int z )
 	{
@@ -57,36 +87,6 @@ public class GuiHandler implements IGuiHandler
 
 			case POWER_BANK:
 				return new GuiPowerBank ( ( TileEntityPowerBank ) tileEntity, new ContainerPowerBank ( playerInventory, ( TileEntityPowerBank ) tileEntity ) );
-
-			default:
-				return null;
-		}
-	}
-
-	@Override
-	public Object getServerGuiElement ( int ID, EntityPlayer player, World world, int x, int y, int z )
-	{
-		InventoryPlayer playerInventory = player.inventory;
-		TileEntity tileEntity = world.getTileEntity ( new BlockPos ( x, y, z ) );
-
-		if ( tileEntity == null )
-		{
-			return null;
-		}
-
-		switch ( ID )
-		{
-			case ENERGIZED_FURNACE:
-				return new ContainerFurnace ( playerInventory, ( TileEntityFurnace ) tileEntity );
-
-			case ENERGIZED_PULVERIZER:
-				return new ContainerPulverizer ( playerInventory, ( TileEntityPulverizer ) tileEntity );
-
-			case GENERATOR:
-				return new ContainerGenerator ( playerInventory, ( TileEntityGenerator ) tileEntity );
-
-			case POWER_BANK:
-				return new ContainerPowerBank ( playerInventory, ( TileEntityPowerBank ) tileEntity );
 
 			default:
 				return null;

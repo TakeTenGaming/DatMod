@@ -6,7 +6,6 @@ import net.minecraft.util.ITickable;
 import net.minecraftforge.items.ItemStackHandler;
 import taketengaming.tencore.energy.EnergyStorage;
 import taketengaming.tencore.recipes.FurnaceRecipes;
-import taketengaming.tencore.recipes.Recipe;
 import taketengaming.tencore.tileentity.TileEntityBase;
 import taketengaming.tencore.util.Energy;
 import taketengaming.tencore.util.Machine;
@@ -33,7 +32,7 @@ public class TileEntityFurnace extends TileEntityBase implements ITickable
 	public boolean isProcessing ()
 	{
 		ItemStack inputSlot = this.itemStackHandler.getStackInSlot ( 0 );
-		if ( inputSlot != null && inputSlot.stackSize > 0 )
+		if ( !inputSlot.isEmpty () && inputSlot.getCount () > 0 )
 		{
 			if ( this.currentItemProcessingTime > 0 )
 			{
@@ -63,65 +62,6 @@ public class TileEntityFurnace extends TileEntityBase implements ITickable
 		this.totalItemProcessingTime = compound.getInteger ( "totalItemProcessingTime" );
 	}
 
-	/**
-	 * Like the old updateEntity(), except more generic.
-	 */
-	@Override
-	public void update ()
-	{
-		EnergyStorage energyHandler = this.energyStorageHandler;
-		ItemStackHandler itemHandler = this.itemStackHandler;
-		ItemStack inputSlot = itemHandler.getStackInSlot ( 0 );
-		ItemStack outputSlot = itemHandler.getStackInSlot ( 1 );
-
-		if ( inputSlot == null || outputSlot != null && outputSlot.stackSize >= outputSlot.getMaxStackSize () )
-		{
-			this.currentItemProcessingTime = 0;
-			this.totalItemProcessingTime = 0;
-			return;
-		}
-
-		Recipe outputResult = FurnaceRecipes.getInstance ().getRecipe ( inputSlot );
-		if ( outputResult == null )
-		{
-			return;
-		}
-
-		ItemStack outputResultItem = outputResult.getOutput ();
-
-		if ( this.currentItemProcessingTime == 0 )
-		{
-			this.totalItemProcessingTime = Machine.getItemProcessingTime ( outputResultItem );
-		}
-
-		if ( energyHandler.getEnergyStored () == 0 )
-		{
-			return;
-		}
-
-		if ( this.currentItemProcessingTime == this.totalItemProcessingTime )
-		{
-			if ( ( inputSlot.stackSize - 1 ) == 0 )
-			{
-				itemHandler.setStackInSlot ( 0, null );
-			}
-			else
-			{
-				inputSlot.stackSize--;
-			}
-
-			this.currentItemProcessingTime = 0;
-			this.totalItemProcessingTime = 0;
-
-			itemHandler.insertItem ( 1, outputResultItem.copy (), false );
-			energyHandler.extractEnergy ( Energy.REQUIREMENT, false );
-		}
-		else
-		{
-			this.currentItemProcessingTime++;
-		}
-	}
-
 	@Override
 	public NBTTagCompound writeToNBT ( NBTTagCompound compound )
 	{
@@ -134,5 +74,55 @@ public class TileEntityFurnace extends TileEntityBase implements ITickable
 		compound.setInteger ( "totalItemProcessingTime", this.totalItemProcessingTime );
 
 		return compound;
+	}
+
+	/**
+	 * Like the old updateEntity(), except more generic.
+	 */
+	@Override
+	public void update ()
+	{
+		EnergyStorage energyHandler = this.energyStorageHandler;
+		ItemStackHandler itemHandler = this.itemStackHandler;
+		ItemStack inputSlot = itemHandler.getStackInSlot ( 0 );
+		ItemStack outputSlot = itemHandler.getStackInSlot ( 1 );
+
+		if ( inputSlot.isEmpty () || outputSlot.getCount () == 64 )
+		{
+			this.currentItemProcessingTime = 0;
+			this.totalItemProcessingTime = 0;
+			return;
+		}
+
+		ItemStack outputResult = FurnaceRecipes.getInstance ().getRecipe ( inputSlot );
+		if ( outputResult.isEmpty () )
+		{
+			return;
+		}
+
+		if ( this.currentItemProcessingTime == 0 )
+		{
+			this.totalItemProcessingTime = Machine.getItemProcessingTime ( outputResult.getItem () );
+		}
+
+		if ( energyHandler.getEnergyStored () == 0 )
+		{
+			return;
+		}
+		else
+		{
+			this.currentItemProcessingTime++;
+			energyHandler.extractEnergy ( Energy.REQUIREMENT, false );
+		}
+
+		if ( this.currentItemProcessingTime == this.totalItemProcessingTime )
+		{
+			this.currentItemProcessingTime = 0;
+			this.totalItemProcessingTime = 0;
+
+			inputSlot.splitStack ( 1 );
+			itemHandler.insertItem ( 1, outputResult.copy (), false );
+			this.markDirty ();
+		}
 	}
 }

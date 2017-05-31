@@ -15,7 +15,7 @@ import taketengaming.datmod.GuiHandler;
 import taketengaming.datmod.creativetab.CreativeTabs;
 import taketengaming.tencore.block.BlockFacable;
 
-import javax.annotation.Nullable;
+import java.util.List;
 
 /**
  * Created by Acid on 1/31/2017.
@@ -31,7 +31,11 @@ public class BlockPulverizer extends BlockFacable implements ITileEntityProvider
 		this.setCreativeTab ( CreativeTabs.blocks );
 	}
 
-	// TODO: Make the block drop it's contents when broken..
+	@Override
+	public void addInformation ( ItemStack stack, EntityPlayer player, List< String > tooltip, boolean advanced )
+	{
+		tooltip.add ( "Crushes down items into dusts" );
+	}
 
 	/**
 	 * Returns a new instance of a block's tile entity class. Called on placing the block.
@@ -45,8 +49,21 @@ public class BlockPulverizer extends BlockFacable implements ITileEntityProvider
 		return new TileEntityPulverizer ();
 	}
 
+	/**
+	 * Called when the block is right clicked by a player.
+	 *
+	 * @param worldIn
+	 * @param pos
+	 * @param state
+	 * @param playerIn
+	 * @param hand
+	 * @param facing
+	 * @param hitX
+	 * @param hitY
+	 * @param hitZ
+	 */
 	@Override
-	public boolean onBlockActivated ( World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ )
+	public boolean onBlockActivated ( World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ )
 	{
 		if ( worldIn.isRemote )
 		{
@@ -62,45 +79,4 @@ public class BlockPulverizer extends BlockFacable implements ITileEntityProvider
 		playerIn.openGui ( DatMod.instance, GUI_ID, worldIn, pos.getX (), pos.getY (), pos.getZ () );
 		return true;
 	}
-
-	/*@Override
-	public void randomDisplayTick ( IBlockState stateIn, World worldIn, BlockPos pos, Random rand )
-	{
-		if ( this.isProcessing )
-		{
-			EnumFacing facing = stateIn.getValue ( FACING );
-			double d0 = ( double ) pos.getX () + 0.5D;
-			double d1 = ( double ) pos.getY () + rand.nextDouble () * 6.0D / 16.0D;
-			double d2 = ( double ) pos.getZ () + 0.5D;
-			double d3 = 0.52D;
-			double d4 = rand.nextDouble () * 0.6D - 0.3D;
-
-			if ( rand.nextDouble () < 0.1D )
-			{
-				worldIn.playSound ( ( double ) pos.getX () + 0.5D, ( double ) pos.getY (), ( double ) pos.getZ () + 0.5D, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false );
-			}
-
-			switch ( facing )
-			{
-				case WEST:
-					worldIn.spawnParticle ( EnumParticleTypes.SMOKE_NORMAL, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D, new int[ 0 ] );
-					worldIn.spawnParticle ( EnumParticleTypes.FLAME, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D, new int[ 0 ] );
-					break;
-
-				case EAST:
-					worldIn.spawnParticle ( EnumParticleTypes.SMOKE_NORMAL, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D, new int[ 0 ] );
-					worldIn.spawnParticle ( EnumParticleTypes.FLAME, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D, new int[ 0 ] );
-					break;
-
-				case NORTH:
-					worldIn.spawnParticle ( EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D, new int[ 0 ] );
-					worldIn.spawnParticle ( EnumParticleTypes.FLAME, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D, new int[ 0 ] );
-					break;
-
-				case SOUTH:
-					worldIn.spawnParticle ( EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D, new int[ 0 ] );
-					worldIn.spawnParticle ( EnumParticleTypes.FLAME, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D, new int[ 0 ] );
-			}
-		}
-	}*/
 }

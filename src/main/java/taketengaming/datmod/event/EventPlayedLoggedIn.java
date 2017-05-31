@@ -43,10 +43,10 @@ public class EventPlayedLoggedIn
 				ITextComponent divider = new TextComponentString ( "-----------------------" ).setStyle ( dividerStyle );
 				ITextComponent dividerTop = new TextComponentString ( "--------[" + DatMod.NAME + "]--------" ).setStyle ( dividerStyle );
 
-				player.addChatMessage ( dividerTop );
-				player.addChatMessage ( ForgeHooks.newChatWithLinks ( "Thanks for trying our mod, " + TextFormatting.WHITE + player.getDisplayNameString () + TextFormatting.GRAY + "! " +
-						"Please suggest features/report issues at our GitHub: http://github.com/TakeTenGaming/DatMod/" ).setStyle ( chatStyle ) );
-				player.addChatMessage ( divider );
+				player.sendMessage ( dividerTop );
+				player.sendMessage ( ForgeHooks.newChatWithLinks ( "Thanks for trying our mod, " + TextFormatting.WHITE + player.getDisplayNameString () + TextFormatting.GRAY + "! " +
+						"Suggest features/report issues: http://github.com/TakeTenGaming/DatMod/" ).setStyle ( chatStyle ) );
+				player.sendMessage ( divider );
 			}
 		}
 

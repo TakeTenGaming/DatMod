@@ -28,105 +28,107 @@ itemGroup.datmod_ores=DatMod - Ores
 itemGroup.datmod_tools=DatMod - Tools
 
 # Armors
-item.diamondiumboots.name=Diamondium Boots
-item.diamondiumchestplate.name=Diamondium Chestplate
-item.diamondiumhelmet.name=Diamondium Helmet
-item.diamondiumleggings.name=Diamondium Leggings
+item.diamondium_boots.name=Diamondium Boots
+item.diamondium_chestplate.name=Diamondium Chestplate
+item.diamondium_helmet.name=Diamondium Helmet
+item.diamondium_leggings.name=Diamondium Leggings
 
-item.emeraldiboots.name=Emeraldi Boots
-item.emeraldichestplate.name=Emeraldi Chestplate
-item.emeraldihelmet.name=Emeraldi Helmet
-item.emeraldileggings.name=Emeraldi Leggings
+item.emeraldi_boots.name=Emeraldi Boots
+item.emeraldi_chestplate.name=Emeraldi Chestplate
+item.emeraldi_helmet.name=Emeraldi Helmet
+item.emeraldi_leggings.name=Emeraldi Leggings
 
-item.goldiriteboots.name=Goldirite Boots
-item.goldiritechestplate.name=Goldirite Chestplate
-item.goldiritehelmet.name=Goldirite Helmet
-item.goldiriteleggings.name=Goldirite Leggings
+item.goldirite_boots.name=Goldirite Boots
+item.goldirite_chestplate.name=Goldirite Chestplate
+item.goldirite_helmet.name=Goldirite Helmet
+item.goldirite_leggings.name=Goldirite Leggings
 
-item.ironiumboots.name=Ironium Boots
-item.ironiumchestplate.name=Ironium Chestplate
-item.ironiumhelmet.name=Ironium Helmet
-item.ironiumleggings.name=Ironium Leggings
+item.ironium_boots.name=Ironium Boots
+item.ironium_chestplate.name=Ironium Chestplate
+item.ironium_helmet.name=Ironium Helmet
+item.ironium_leggings.name=Ironium Leggings
 
-item.lapislazuliboots.name=Lapis Lazuli Boots
-item.lapislazulichestplate.name=Lapis Lazuli Chestplate
-item.lapislazulihelmet.name=Lapis Lazuli Helmet
-item.lapislazulileggings.name=Lapis Lazuli Leggings
+item.lapis_lazuli_boots.name=Lapis Lazuli Boots
+item.lapis_lazuli_chestplate.name=Lapis Lazuli Chestplate
+item.lapis_lazuli_helmet.name=Lapis Lazuli Helmet
+item.lapis_lazuli_leggings.name=Lapis Lazuli Leggings
 
-item.redstoneboots.name=Redstone Boots
-item.redstonechestplate.name=Redstone Chestplate
-item.redstonehelmet.name=Redstone Helmet
-item.redstoneleggings.name=Redstone Leggings
+item.redstone_boots.name=Redstone Boots
+item.redstone_chestplate.name=Redstone Chestplate
+item.redstone_helmet.name=Redstone Helmet
+item.redstone_leggings.name=Redstone Leggings
 
 # Blocks
-tile.diamondiumblock.name=Diamondium Block
-tile.emeraldiblock.name=Emeraldi Block
+tile.diamondium_block.name=Diamondium Block
+tile.emeraldi_block.name=Emeraldi Block
 tile.furnace.name=Furnace
 tile.generator.name=Generator
-tile.goldiriteblock.name=Goldirite Block
-tile.ironiumblock.name=Ironium Block
-tile.powerbank.name=Power Bank
+tile.goldirite_block.name=Goldirite Block
+tile.ironium_block.name=Ironium Block
+tile.power_bank.name=Power Bank
 tile.pulverizer.name=Pulverizer
 
 # Dusts
-item.goldiritedust.name=Goldirite Dust
-item.ironiumdust.name=Ironium Dust
+item.gold_dust.name=Gold Dust
+item.goldirite_dust.name=Goldirite Dust
+item.iron_dust.name=Iron Dust
+item.ironium_dust.name=Ironium Dust
 
 # Gems/Ingots
 item.diamondium.name=Diamondium
 item.emeraldi.name=Emeraldi
-item.goldiriteingot.name=Goldirite Ingot
-item.ironiumingot.name=Ironium Ingot
+item.goldirite_ingot.name=Goldirite Ingot
+item.ironium_ingot.name=Ironium Ingot
 
 # Items
 item.magnet.name=Magnet
 
 # Ores
-item.diamondiumore.name=Diamondium Ore
-tile.diamondiumore.name=Diamondium Ore
+item.diamondium_ore.name=Diamondium Ore
+tile.diamondium_ore.name=Diamondium Ore
 
-item.emeraldiore.name=Emeraldi Ore
-tile.emeraldiore.name=Emeraldi Ore
+item.emeraldi_ore.name=Emeraldi Ore
+tile.emeraldi_ore.name=Emeraldi Ore
 
-item.goldiriteore.name=Goldirite Ore
-tile.goldiriteore.name=Goldirite Ore
+item.goldirite_ore.name=Goldirite Ore
+tile.goldirite_ore.name=Goldirite Ore
 
-item.ironiumore.name=Ironium Ore
-tile.ironiumore.name=Ironium Ore
+item.ironium_ore.name=Ironium Ore
+tile.ironium_ore.name=Ironium Ore
 
 # Tools
-item.diamondiumaxe.name=Diamondium Axe
-item.diamondiumhoe.name=Diamondium Hoe
-item.diamondiumpickaxe.name=Diamondium Pickaxe
-item.diamondiumshovel.name=Diamondium Shovel
-item.diamondiumsword.name=Diamondium Sword
+item.diamondium_axe.name=Diamondium Axe
+item.diamondium_hoe.name=Diamondium Hoe
+item.diamondium_pickaxe.name=Diamondium Pickaxe
+item.diamondium_shovel.name=Diamondium Shovel
+item.diamondium_sword.name=Diamondium Sword
 
-item.emeraldiaxe.name=Emeraldi Axe
-item.emeraldihoe.name=Emeraldi Hoe
-item.emeraldipickaxe.name=Emeraldi Pickaxe
-item.emeraldishovel.name=Emeraldi Shovel
-item.emeraldisword.name=Emeraldi Sword
+item.emeraldi_axe.name=Emeraldi Axe
+item.emeraldi_hoe.name=Emeraldi Hoe
+item.emeraldi_pickaxe.name=Emeraldi Pickaxe
+item.emeraldi_shovel.name=Emeraldi Shovel
+item.emeraldi_sword.name=Emeraldi Sword
 
-item.goldiriteaxe.name=Goldirite Axe
-item.goldiritehoe.name=Goldirite Hoe
-item.goldiritepickaxe.name=Goldirite Pickaxe
-item.goldiriteshovel.name=Goldirite Shovel
-item.goldiritesword.name=Goldirite Sword
+item.goldirite_axe.name=Goldirite Axe
+item.goldirite_hoe.name=Goldirite Hoe
+item.goldirite_pickaxe.name=Goldirite Pickaxe
+item.goldirite_shovel.name=Goldirite Shovel
+item.goldirite_sword.name=Goldirite Sword
 
-item.ironiumaxe.name=Ironium Axe
-item.ironiumhoe.name=Ironium Hoe
-item.ironiumpickaxe.name=Ironium Pickaxe
-item.ironiumshovel.name=Ironium Shovel
-item.ironiumsword.name=Ironium Sword
+item.ironium_axe.name=Ironium Axe
+item.ironium_hoe.name=Ironium Hoe
+item.ironium_pickaxe.name=Ironium Pickaxe
+item.ironium_shovel.name=Ironium Shovel
+item.ironium_sword.name=Ironium Sword
 
-item.lapislazuliaxe.name=Lapis Lazuli Axe
-item.lapislazulihoe.name=Lapis Lazuli Hoe
-item.lapislazulipickaxe.name=Lapis Lazuli Pickaxe
-item.lapislazulishovel.name=Lapis Lazuli Shovel
-item.lapislazulisword.name=Lapis Lazuli Sword
+item.lapis_lazuli_axe.name=Lapis Lazuli Axe
+item.lapis_lazuli_hoe.name=Lapis Lazuli Hoe
+item.lapis_lazuli_pickaxe.name=Lapis Lazuli Pickaxe
+item.lapis_lazuli_shovel.name=Lapis Lazuli Shovel
+item.lapis_lazuli_sword.name=Lapis Lazuli Sword
 
-item.redstoneaxe.name=Redstone Axe
-item.redstonehoe.name=Redstone Hoe
-item.redstonepickaxe.name=Redstone Pickaxe
-item.redstoneshovel.name=Redstone Shovel
-item.redstonesword.name=Redstone Sword
+item.redstone_axe.name=Redstone Axe
+item.redstone_hoe.name=Redstone Hoe
+item.redstone_pickaxe.name=Redstone Pickaxe
+item.redstone_shovel.name=Redstone Shovel
+item.redstone_sword.name=Redstone Sword

@@ -1,0 +1,23 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"normal": {
+			"model": "datmod:power_bank"
+		},
+		"facing=north": {
+			"model": "datmod:power_bank"
+		},
+		"facing=south": {
+			"model": "datmod:power_bank",
+			"y": 180
+		},
+		"facing=west": {
+			"model": "datmod:power_bank",
+			"y": 270
+		},
+		"facing=east": {
+			"model": "datmod:power_bank",
+			"y": 90
+		}
+	}
+}

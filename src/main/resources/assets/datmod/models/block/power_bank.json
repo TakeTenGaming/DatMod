@@ -1,0 +1,9 @@
+{
+	"parent": "block/orientable",
+	"textures": {
+		"bottom": "datmod:blocks/machine",
+		"front": "datmod:blocks/power_bank_front",
+		"top": "datmod:blocks/machine",
+		"side": "datmod:blocks/machine"
+	}
+}

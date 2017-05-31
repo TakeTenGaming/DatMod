@@ -53,7 +53,7 @@ public class ConfigHandler
 		enableWelcomeMessageFirstJoinOnly = config.getBoolean ( "enableWelcomeMessageFirstJoinOnly", category, true, "Should the \"welcome\" message only be shown once?" );
 		giveMagnet = config.getBoolean ( "giveMagnet", category, false, "Should the magnet be given to players?" );
 		giveMagnetFirstJoinOnly = config.getBoolean ( "giveMagnetFirstJoinOnly", category, true, "Should the magnet only be given on first join?" );
-		mobsDropBones = config.getBoolean ( "mobsDropBones", category, true, "Should mobs drop 1-4 bones upon death?" );
+		mobsDropBones = config.getBoolean ( "mobsDropBones", category, true, "Should mobs drop bones upon death?" );
 
 		category = "Magnet";
 		config.addCustomCategoryComment ( category, "Settings related to the magnet." );

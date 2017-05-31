@@ -1,6 +1,6 @@
 package taketengaming.datmod.creativetab;
 
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import taketengaming.datmod.DatMod;
 
 /**
@@ -14,8 +14,8 @@ public class Items extends net.minecraft.creativetab.CreativeTabs
 	}
 
 	@Override
-	public Item getTabIconItem ()
+	public ItemStack getTabIconItem ()
 	{
-		return taketengaming.datmod.register.Items.magnetItem;
+		return new ItemStack ( taketengaming.datmod.register.Items.magnetItem );
 	}
 }

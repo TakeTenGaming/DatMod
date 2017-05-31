@@ -16,7 +16,7 @@ import taketengaming.datmod.creativetab.CreativeTabs;
 import taketengaming.datmod.register.Blocks;
 import taketengaming.tencore.block.BlockFacable;
 
-import javax.annotation.Nullable;
+import java.util.List;
 
 /**
  * Created by Acid on 1/31/2017.
@@ -32,7 +32,11 @@ public class BlockPowerBank extends BlockFacable implements ITileEntityProvider
 		setCreativeTab ( CreativeTabs.blocks );
 	}
 
-	// TODO: Make the block drop it's contents when broken..
+	@Override
+	public void addInformation ( ItemStack stack, EntityPlayer player, List< String > tooltip, boolean advanced )
+	{
+		tooltip.add ( "Stores power to be distributed to other machines" );
+	}
 
 	/**
 	 * Returns a new instance of a block's tile entity class. Called on placing the block.
@@ -46,8 +50,21 @@ public class BlockPowerBank extends BlockFacable implements ITileEntityProvider
 		return new TileEntityPowerBank ();
 	}
 
+	/**
+	 * Called when the block is right clicked by a player.
+	 *
+	 * @param worldIn
+	 * @param pos
+	 * @param state
+	 * @param playerIn
+	 * @param hand
+	 * @param facing
+	 * @param hitX
+	 * @param hitY
+	 * @param hitZ
+	 */
 	@Override
-	public boolean onBlockActivated ( World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ )
+	public boolean onBlockActivated ( World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ )
 	{
 		if ( worldIn.isRemote )
 		{

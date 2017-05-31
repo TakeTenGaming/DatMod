@@ -26,12 +26,10 @@ public class EventLivingDrops
 		{
 			if ( entity instanceof IMob || entity instanceof IAnimals )
 			{
-				Random random = new Random ();
 				int maxDrops = 4;
-				int minDrops = 1;
+				int minDrops = 0;
 				int range = ( maxDrops - minDrops );
-				int drops = random.nextInt ( range );
-
+				int drops = new Random ().nextInt ( range );
 				if ( drops > maxDrops )
 				{
 					drops = maxDrops;

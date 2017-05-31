@@ -1,47 +1,63 @@
 # Changelog
 The following is a list of changes and fixes in each release of the mod.
 
-## 2.0.1
-This update is a bug fix release.
+#### 2.0.0 (re-release)
+This update is a huge feature, bug fix, and maintenance release.
 
-**Fixes**
-- Corrects the naming of Tile Entities, should prevent a NPE from occurring.
-- Prevents an NPE caused by improper furnace inventory checking
-
-## 2.0.0
-This update is a feature release.
-
-**Fixes**
-- The mod now properly works in 1.10.2 and 1.11.2
-
-**New Features**
+##### New Features
 - `Generator`: Generates energy to be used in the `Furnace`, `Pulverizer` and `Power Bank`
 - `Power Bank`: Stores energy to be distributed to machines, and charge the `Magnet`
 - `Furnace`: Like a normal furnace, but.. energized
 - `Pulverizer`: Crushes down ores into dusts or ores into ingots if no dusts are registered
 
-**Magnet Changes**
+##### Magnet Changes
 - Can now optionally require energy in order to function (toggleable via config)
 - Will no longer pull items while the player is sneaking (holding shift)
 - Changed to using glimmer effect rather than adding/removing an enchantment
 
-**Misc Changes**
-- Updated Forge (12.18.3.2254)
+##### Fixes
+- Fixed an NPE caused by the machines using pre-1.11 ItemStack methods
+- Fixes Creative Tabs not working properly
+- Fixed broken block/container methods that were changed in 1.11+
+- Fixed `Pulverizer` having 2 output slots as this isn't implemented yet
+- Fixes `Magnet` not being toggleable (possibly)
+- Fixed `Magnet` sharing an instance anytime a magnet is created/spawned in
+
+##### Misc Changes
+- Updated `Forge` (13.20.0.2310)
+- Updated `MCP Mappings` (snapshot_20170529)
+- Updated `TenCore` (1.1.1)
+- Updated `HWYLA (Here's What You're Looking At)` (1.8.13-B26_1.11)
+- Updated `JustEnoughItems` (4.3.5.274)
 - Renamed classes to be more aligned with Minecraft's standard naming (`block/Diamondium` -> `block/BlockDiamondium`, etc)
 - Slightly changed ore generation to allow for increased ores
 - Organized achievements page and linked achievements together
 - All items for blocks now just use their block model, rather than providing textures twice
 - Removed `TenCore` version checker and switched to Forge's
+- General code cleanup of a few classes, both for performance and general organization
+- Changed the minimum amount of bones dropped from mobs from 1 to 0
+- Moved `machine.PowerSender` class to `TenCore`
+- Added descriptions to `Furnace`, `Power Bank`, and `Pulverizer`
+- Armors have been rebalanced for improved stats
+- Fixed armors not appearing properly in third-person (F5 display)
 - Moved `EnderIO` compatibility recipes to an XML file for easier recipe management
 - Added recipes for converting blocks back to their respective gem/ingot
 - Improved extra achievement management to be a bit more robust
 - Switched from Java's `Logger` to TenCore's
 - Added a config option to only show the welcome message on first join (enabled by default)
+- Added `Iron Dust` and `Gold Dust`, can be obtained from the `Pulverizer`
+- `Generator` now gives energy while it's running, rather than once it's done processing
+- `Pulverizer` and `Furnace` now require energy while running, rather than per process completion
+- `Magnet` now uses the action bar for showing magnet toggle status, rather than showing a message in chat every time
+- `Magnet` energy information will now change color based on amount (red = empty, yellow = ~50%, green = >50%)
+- `Magnet` is now smarter and won't drain energy if your inventory is full, it will however still pull the items towards you
+- `Pulverizer` now outputs double of what it's pulverizing
+- Changed GUI text to a single position not relative to the window size to prevent overflow
 
-## 1.6.0
+#### 1.6.0
 This update is mainly a cleanup/small change release to prepare for v2.0.0. Get hyped, big things are coming!
 
-**Changes**
+##### Changes
 - Upgraded Forge (12.18.3.2221)
 - Upgraded JustEnoughItems (3.14.3.403)
 - This version is for 1.10.2, I'm currently working on v2.0.0 which will include an official 1.11.2 version
@@ -50,17 +66,17 @@ This update is mainly a cleanup/small change release to prepare for v2.0.0. Get 
 - Removed "/datmod" command as it didn't do anything useful
 - Updated the welcome message to point to our new GitHub
 
-## 1.5.1
+#### 1.5.1
 This update is a bug fix release.
 
-**Changes**
-[General]
+##### Changes
+###### General
 - Dusts can now actually be processed in furnaces. My bad, forgot to add the smelting recipe xD
 
-## 1.5.0
+#### 1.5.0
 This update is a bug fix release.
 
-**Changes**
+##### Changes
 [General]
 - All blocks/items/ingots/ores are now registered in the Ore Dictionary
 
@@ -80,26 +96,26 @@ This update is a bug fix release.
 [Code]
 - All code has been reformatted to make it a bit easier on the eyes and easier to manage
 
-## 1.4.2
+#### 1.4.2
 This update is a bug fix release.
 
-**Changes**
+##### Changes
 - Updated Forge (13.18.3.2185)
 - Updated JEI (3.13.6.393)
 
-**Fixes**
+##### Fixes
 - Fixes a NullPointerException on launch
 
-## 1.4.1
+#### 1.4.1
 This update is a bug fix/general change release.
 
-**Changes/Fixes**
+##### Changes/Fixes
 - The mod can now run in Minecraft *1.9.4*, *1.10.2* as well as *1.11*
 - Fixed Achievements not being properly registered.
 - Fixed *Ore Miner* achievements being able to be received in any order, rather than Ironium->Diamondium->Emeraldi/Goldirite->Ore Miner
 - Slightly changed the world welcome message
 
-**Developer/Internal Changes**
+##### Developer/Internal Changes
 - Added some developer documentation
 - Added a base GuiHandler class
 - Reorganized a few classes
@@ -110,22 +126,22 @@ This update is a bug fix/general change release.
 - Reimplemented debug code in a new way
 - Removed redundant code from the Magnet class
 
-**GitHub Changes**
+##### GitHub Changes
 - Changed the README to no longer include the mod logo as it was a bit large
 - Organized the FEATURES file to be simpler and easier to read (still a work-in-progress)
 
-## 1.4.0
+#### 1.4.0
 This update is a bug fix release.
 
-**Changes**
+##### Changes
 - Cleaned up Recipes a bit. No more redundant code, yay!
 - Fixed Lapis Lazuli armors not being craftable due to wrong ingredient.
 - Fixed Redstone Axe not being craftable
 
-## 1.3.0
+#### 1.3.0
 This update is a feature/general change release.
 
-**Additions/Changes**
+##### Additions/Changes
 - Added achievements when mining ores (fixes #42)
 - Added metadata support for Block and Item classes (fixes #43)
 - Updated Forge (12.18.2.2171)
@@ -133,10 +149,10 @@ This update is a feature/general change release.
 - Removed code documentation to make room for something better.
 - Removed old/unused/test classes
 
-## 1.2.0
+#### 1.2.0
 This update includes bug fixes, code changes and some new features. It's recommended to update to this version.
 
-**Additions/Changes**
+##### Additions/Changes
 - Cleaned up/removed code that wasn't used or needed
 - Adjusted Ore Generation values to allow for a bit more flexible ore generation
 - Cleaned up Ore Generation code and added Overworld, Nether and The End ore definitions
@@ -146,12 +162,12 @@ This update includes bug fixes, code changes and some new features. It's recomme
 - Adds armor for each Ore type
 - Emeraldi and Diamondium now drops it's gem rather than the ore when mined. Silk Touch & Fortune are accounted for
 
-**Fixes**
+##### Fixes
 - Fixes entities always dropping bones on death, even if not killed by a player.
 - Fixes "welcome" message being shown after death, rather than only on first login
 - Fixes commands never being registered. Derp!
 
-## 1.1.0
+#### 1.1.0
 This update fixes some issues. It's recommended to update to this version.
 
 - Fixes #15 - Magnet State Doesn't Persist on Reload, this should actually be fixed now.. I hope.. lol
@@ -159,34 +175,34 @@ This update fixes some issues. It's recommended to update to this version.
 - Fixes #18 - Some classes missing @SideOnly annotation
 - Fixes #19 - Code Refactor, moved some classes around
 
-## 1.0.0 - The Gold Update
+#### 1.0.0 - The Gold Update
 This update has a few minor changes. It's recommend to update to this version.
 
-**Changes**
+##### Changes
 - General code cleanup
 - Update "README.md", "VERSION.md", "src/main/java/xlxacidxlx/datmod/DatMod.java"
   - Changes version number to *1.0.0*
 
-**Bug/Issue Changes**
+##### Bug/Issue Changes
   - Fixes #1 - Adds documentation to the code to aid in development
   - Fixes #11 - Adds more configuration options
   - Fixes #12 - Adjusted Ore Generation
   - Fixes #14 - All Tools Have Identical Statistics
   - Fixes #15 - Magnet State Doesn't Persist on Reload
 
-## 0.0.3 - Cleverly Titled Update
+#### 0.0.3 - Cleverly Titled Update
 This update has a few minor code improvements. It's not a required update as no bugs were fixed, but I would recommend it if you want to stay current.
 
-**Changes**
+##### Changes
 - Adds ore generation to The End and The Nether. Please note if generation seems lacking in the Overworld, it'll be the same in The End and Nether as the generation code is exactly the same.
 - Removed some debug code as it's no longer needed
 - Work on #12
 - Fixes #10 - Gives the "welcome" message some color and flair. Also adds a configuration option to disable the message if you find it annoying.
 
-## 0.0.2 - The Fix Update
+#### 0.0.2 - The Fix Update
 This update just fixes a few of the bugs/issues I found after initially releasing the mod. No breaking changes are present in this build.
 
-**Bug/Issue Fixes**
+##### Bug/Issue Fixes
   - Fixes #2 - Magnet can replace other items
   - Fixes #3 - "Welcome" message displays twice
   - Fixes #4 - Missing Recipes
@@ -194,4 +210,4 @@ This update just fixes a few of the bugs/issues I found after initially releasin
   - Fixes #8 - Classes Need Creation Header
   - Fixes #9 - Missing JEI Dependency
 
-## 0.0.1 - Initial Release
+#### 0.0.1 - Initial Release

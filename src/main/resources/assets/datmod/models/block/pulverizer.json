@@ -2,7 +2,7 @@
 	"parent": "block/orientable",
 	"textures": {
 		"bottom": "datmod:blocks/machine",
-		"front": "datmod:blocks/pulverizerfront",
+		"front": "datmod:blocks/pulverizer_front",
 		"top": "datmod:blocks/machine",
 		"side": "datmod:blocks/machine"
 	}

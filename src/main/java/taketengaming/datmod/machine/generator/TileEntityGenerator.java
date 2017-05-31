@@ -4,8 +4,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ITickable;
 import net.minecraftforge.items.ItemStackHandler;
-import taketengaming.datmod.machine.PowerSender;
 import taketengaming.tencore.energy.EnergyStorage;
+import taketengaming.tencore.machine.PowerSender;
 import taketengaming.tencore.tileentity.TileEntityBase;
 import taketengaming.tencore.util.Machine;
 
@@ -16,7 +16,7 @@ public class TileEntityGenerator extends TileEntityBase implements ITickable
 {
 	private PowerSender powerSender = new PowerSender ();
 
-	public static final int SIZE = 2;
+	public static int SIZE = 2;
 
 	// Fields
 	protected int currentItemProcessingTime;
@@ -35,7 +35,7 @@ public class TileEntityGenerator extends TileEntityBase implements ITickable
 	public boolean isProcessing ()
 	{
 		ItemStack inputSlot = this.itemStackHandler.getStackInSlot ( 0 );
-		if ( inputSlot != null && inputSlot.stackSize > 0 )
+		if ( !inputSlot.isEmpty () && inputSlot.getCount () > 0 )
 		{
 			if ( this.currentItemProcessingTime > 0 )
 			{
@@ -65,6 +65,20 @@ public class TileEntityGenerator extends TileEntityBase implements ITickable
 		this.totalItemProcessingTime = compound.getInteger ( "totalItemProcessingTime" );
 	}
 
+	@Override
+	public NBTTagCompound writeToNBT ( NBTTagCompound compound )
+	{
+		super.writeToNBT ( compound );
+
+		this.energyStorageHandler.writeToNBT ( compound );
+		compound.setTag ( "Items", this.itemStackHandler.serializeNBT () );
+
+		compound.setInteger ( "currentItemProcessingTime", this.currentItemProcessingTime );
+		compound.setInteger ( "totalItemProcessingTime", this.totalItemProcessingTime );
+
+		return compound;
+	}
+
 	/**
 	 * Like the old updateEntity(), except more generic.
 	 */
@@ -77,7 +91,7 @@ public class TileEntityGenerator extends TileEntityBase implements ITickable
 		ItemStackHandler itemHandler = this.itemStackHandler;
 		ItemStack inputSlot = itemHandler.getStackInSlot ( 0 );
 
-		if ( inputSlot == null )
+		if ( inputSlot.isEmpty () )
 		{
 			this.currentItemProcessingTime = 0;
 			this.totalItemProcessingTime = 0;
@@ -92,6 +106,7 @@ public class TileEntityGenerator extends TileEntityBase implements ITickable
 		if ( energyHandler.canReceive () && energyHandler.canReceive ( Machine.getItemPowerValue ( inputSlot ) ) )
 		{
 			this.currentItemProcessingTime++;
+			energyHandler.receiveEnergy ( Machine.getItemPowerValue ( inputSlot ), false );
 		}
 
 		if ( this.currentItemProcessingTime == this.totalItemProcessingTime )
@@ -99,31 +114,8 @@ public class TileEntityGenerator extends TileEntityBase implements ITickable
 			this.currentItemProcessingTime = 0;
 			this.totalItemProcessingTime = 0;
 
-			if ( ( inputSlot.stackSize - 1 ) == 0 )
-			{
-				itemHandler.setStackInSlot ( 0, null );
-			}
-			else
-			{
-				inputSlot.stackSize--;
-			}
-
-			energyHandler.receiveEnergy ( Machine.getItemPowerValue ( inputSlot ), false );
+			inputSlot.splitStack ( 1 );
 			this.markDirty ();
 		}
-	}
-
-	@Override
-	public NBTTagCompound writeToNBT ( NBTTagCompound compound )
-	{
-		super.writeToNBT ( compound );
-
-		this.energyStorageHandler.writeToNBT ( compound );
-		compound.setTag ( "Items", this.itemStackHandler.serializeNBT () );
-
-		compound.setInteger ( "currentItemProcessingTime", this.currentItemProcessingTime );
-		compound.setInteger ( "totalItemProcessingTime", this.totalItemProcessingTime );
-
-		return compound;
 	}
 }

@@ -48,17 +48,16 @@ public class EventEntityItemPickup
 
 		Achievement[] achievements = { AchievementOreMiner.ironium, AchievementOreMiner.diamondium, AchievementOreMiner.goldirite, AchievementOreMiner.emeraldi };
 		int receivedAchievements = 0;
-		int totalAchievements = achievements.length;
 
-		for ( int i = 0; i < totalAchievements; i++ )
+		for ( Achievement achievement : achievements )
 		{
-			if ( player.hasAchievement ( achievements[ i ] ) )
+			if ( player.hasAchievement ( achievement ) )
 			{
 				receivedAchievements++;
 			}
 		}
 
-		if ( receivedAchievements == totalAchievements )
+		if ( receivedAchievements == achievements.length )
 		{
 			player.addStat ( AchievementOreMiner.oreMiner () );
 		}
