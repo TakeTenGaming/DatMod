@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"   ",
+		"E E",
+		"E E"
+	],
+	"key": {
+		"E": {
+			"item": "datmod:emeraldi"
+		}
+	},
+	"result": {
+		"item": "datmod:emeraldi_boots"
+	}
+}

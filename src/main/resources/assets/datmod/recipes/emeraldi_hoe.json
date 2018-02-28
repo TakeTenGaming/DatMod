@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" EE",
+		" S ",
+		" S "
+	],
+	"key": {
+		"E": {
+			"item": "datmod:emeraldi"
+		},
+		"S": {
+			"item": "minecraft:stick"
+		}
+	},
+	"result": {
+		"item": "datmod:emeraldi_hoe"
+	}
+}

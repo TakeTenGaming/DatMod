@@ -1,0 +1,44 @@
+{
+	"display": {
+		"description": {
+			"translate": "datmod.advancement.base.desc",
+			"color": "white"
+		},
+		"title": {
+			"translate": "datmod.advancement.base.name",
+			"bold": true,
+			"color": "white"
+		},
+		"icon": {
+			"item": "datmod:diamondium",
+			"data": 0
+		},
+		"frame": "task",
+		"announce_to_chat": false,
+		"background": "minecraft:textures/blocks/bedrock.png"
+	},
+	"criteria": {
+		"location": {
+			"trigger": "minecraft:location",
+			"conditions": {
+				"dimension": "overworld",
+				"position": {
+					"y": {
+						"max": 5
+					}
+				}
+			}
+		}
+	},
+	"rewards": {
+		"loot": [
+			"datmod:diamondium"
+		],
+		"experience": 10
+	},
+	"requirements": [
+		[
+			"location"
+		]
+	]
+}

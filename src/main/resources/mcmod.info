@@ -2,15 +2,13 @@
 	{
 		"modid": "datmod",
 		"name": "DatMod",
-		"description": "A mod of miscellaneous bits & bobs, gadgets & gizmos.",
+		"description": "A mod of miscellaneous bits & bobs, gadgets & gizmos",
 		"version": "${version}",
 		"mcversion": "${mcversion}",
-		"url": "http://github.com/TakeTenGaming/DatMod/",
+		"url": "https://github.com/TakeTenGaming/DatMod/",
 		"updateUrl": "",
-		"authorList": [
-			"TakeTenGaming",
-			"xlxAciDxlx"
-		],
+		"authorList": ["TakeTenGaming", "xlxAciDxlx"],
+		"credits": "",
 		"logoFile": "assets/datmod/logo.png",
 		"screenshots": [],
 		"dependencies": []

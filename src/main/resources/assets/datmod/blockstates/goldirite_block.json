@@ -1,8 +1,16 @@
 {
 	"forge_marker": 1,
+	"defaults": {
+		"textures": {
+			"all": "datmod:blocks/goldirite_block"
+		}
+	},
 	"variants": {
 		"normal": {
-			"model": "datmod:goldirite_block"
+			"model": "cube_all"
+		},
+		"inventory": {
+			"model": "cube_all"
 		}
 	}
 }

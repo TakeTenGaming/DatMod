@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"III",
+		"III",
+		"III"
+	],
+	"key": {
+		"I": {
+			"item": "datmod:ironium_ingot"
+		}
+	},
+	"result": {
+		"item": "datmod:ironium_block"
+	}
+}
