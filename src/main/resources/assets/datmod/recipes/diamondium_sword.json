@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" D ",
+		" D ",
+		" S "
+	],
+	"key": {
+		"D": {
+			"item": "datmod:diamondium"
+		},
+		"S": {
+			"item": "minecraft:stick"
+		}
+	},
+	"result": {
+		"item": "datmod:diamondium_sword"
+	}
+}

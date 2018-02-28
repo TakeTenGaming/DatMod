@@ -1,8 +1,16 @@
 {
 	"forge_marker": 1,
+	"defaults": {
+		"textures": {
+			"all": "datmod:blocks/diamondium_ore"
+		}
+	},
 	"variants": {
 		"normal": {
-			"model": "datmod:diamondium_ore"
+			"model": "cube_all"
+		},
+		"inventory": {
+			"model": "cube_all"
 		}
 	}
 }

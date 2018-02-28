@@ -1,0 +1,31 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"DEI",
+		"LNR",
+		" N "
+	],
+	"key": {
+		"D": {
+			"item": "datmod:diamondium_pickaxe"
+		},
+		"E": {
+			"item": "datmod:emeraldi_pickaxe"
+		},
+		"I": {
+			"item": "datmod:ironium_pickaxe"
+		},
+		"L": {
+			"item": "datmod:lapis_lazuli_pickaxe"
+		},
+		"N": {
+			"item": "datmod:ironium_ingot"
+		},
+		"R": {
+			"item": "datmod:redstone_pickaxe"
+		}
+	},
+	"result": {
+		"item": "datmod:ultimate_pickaxe"
+	}
+}

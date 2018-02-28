@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"C C",
+		"CCC",
+		"CCC"
+	],
+	"key": {
+		"C": {
+			"item": "minecraft:coal",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "datmod:coal_chestplate"
+	}
+}

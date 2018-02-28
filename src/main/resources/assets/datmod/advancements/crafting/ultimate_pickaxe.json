@@ -1,0 +1,37 @@
+{
+	"display": {
+		"description": {
+			"translate": "datmod.advancement.crafting.ultimate_pickaxe.desc",
+			"color": "white"
+		},
+		"title": {
+			"translate": "datmod.advancement.crafting.ultimate_pickaxe.name",
+			"color": "white"
+		},
+		"icon": {
+			"item": "datmod:ultimate_pickaxe",
+			"data": 0
+		}
+	},
+	"criteria": {
+		"inv_changed-datmod:item_material": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "datmod:ultimate_pickaxe"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"experience": 40
+	},
+	"requirements": [
+		[
+			"inv_changed-datmod:item_material"
+		]
+	],
+	"parent": "datmod:ores/emeraldi_picked_up"
+}

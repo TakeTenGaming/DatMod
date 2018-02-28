@@ -1,0 +1,12 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"normal": {
+			"model": "datmod:pedestal"
+		},
+		"inventory": {
+			"model": "datmod:pedestal",
+			"transform": "forge:default-block"
+		}
+	}
+}

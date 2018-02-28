@@ -1,0 +1,37 @@
+{
+	"display": {
+		"description": {
+			"translate": "datmod.advancement.ores.diamondium_picked_up.desc",
+			"color": "white"
+		},
+		"title": {
+			"translate": "datmod.advancement.ores.diamondium_picked_up.name",
+			"color": "white"
+		},
+		"icon": {
+			"item": "datmod:diamondium_ore",
+			"data": 0
+		}
+	},
+	"criteria": {
+		"inv_changed-datmod:item_material": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "datmod:diamondium_ore"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"experience": 20
+	},
+	"requirements": [
+		[
+			"inv_changed-datmod:item_material"
+		]
+	],
+	"parent": "datmod:ores/ironium_picked_up"
+}

@@ -1,6 +1,6 @@
 {
 	"parent": "block/cube_all",
 	"textures": {
-		"all": "datmod:blocks/emeraldi"
+		"all": "datmod:blocks/emeraldi_block"
 	}
 }

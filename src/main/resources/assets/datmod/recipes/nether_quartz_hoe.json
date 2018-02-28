@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" NN",
+		" S ",
+		" S "
+	],
+	"key": {
+		"N": {
+			"item": "minecraft:quartz"
+		},
+		"S": {
+			"item": "minecraft:stick"
+		}
+	},
+	"result": {
+		"item": "datmod:nether_quartz_hoe"
+	}
+}

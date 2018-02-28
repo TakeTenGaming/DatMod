@@ -1,0 +1,37 @@
+{
+	"display": {
+		"description": {
+			"translate": "datmod.advancement.ores.ironium_picked_up.desc",
+			"color": "white"
+		},
+		"title": {
+			"translate": "datmod.advancement.ores.ironium_picked_up.name",
+			"color": "white"
+		},
+		"icon": {
+			"item": "datmod:ironium_ore",
+			"data": 0
+		}
+	},
+	"criteria": {
+		"inv_changed-datmod:item_material": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "datmod:ironium_ore"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"experience": 5
+	},
+	"requirements": [
+		[
+			"inv_changed-datmod:item_material"
+		]
+	],
+	"parent": "datmod:base"
+}

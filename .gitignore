@@ -1,39 +1,47 @@
-## General Files
-*.ini
-*.hprof
-INFO.md
-PLANNED_FEATURES.md
-TODO.md
+/download
+/eclipseBin
 
-## General Folders
-build
-docs
-run
-src/api
-src/test
-testrun
-
-## Eclipse
-eclipse
-.metadata
-.classpath
-.project
-bin
+## gradle
+**/.gradle
+**/build
 
 ## ForgeGradle
-run
-*.launch
+/run
+/*/run
+/*.launch
+/*/*.launch
 
-## GEdit
+## eclipse
+/eclipse
+**/.settings
+**/.metadata
+**/.classpath
+**/.project
+**/bin
+
+## intellij
+/out
+/.idea
+/*.iml
+/*.ipr
+/*.iws
+/atlassian-ide-plugin.xml
+/classes
+
+## gedit
 *~
 
-## Gradle
-.gradle
+## most Windows editors
+*.bak
+## OSX
+.DS_Store
 
-## IntelliJ Idea
-atlassian-ide-plugin.xml
-out
-.idea
-*.iml
-*.ipr
-*.iws
+## local user properties
+user.properties
+
+## temporary build files
+eiostore.jks
+
+build\.sh
+gradle-local.properties
+TODO.md

@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" RR",
+		" S ",
+		" S "
+	],
+	"key": {
+		"R": {
+			"item": "minecraft:redstone"
+		},
+		"S":{
+			"item":"minecraft:stick"
+		}
+	},
+	"result": {
+		"item": "datmod:redstone_hoe"
+	}
+}

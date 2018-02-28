@@ -1,0 +1,11 @@
+{
+	"type": "forge:ore_shapeless",
+	"ingredients": [
+		{
+			"item": "datmod:goldirite_block"
+		}
+	],
+	"result": {
+		"item": "datmod:goldirite_ingot"
+	}
+}

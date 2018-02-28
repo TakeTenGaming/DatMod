@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" CC",
+		" S ",
+		" S "
+	],
+	"key": {
+		"C": {
+			"item": "minecraft:coal",
+			"data": 0
+		},
+		"S": {
+			"item": "minecraft:stick"
+		}
+	},
+	"result": {
+		"item": "datmod:coal_hoe"
+	}
+}

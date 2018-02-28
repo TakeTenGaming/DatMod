@@ -1,0 +1,12 @@
+{
+	"type": "forge:ore_shapeless",
+	"ingredients": [
+		{
+			"item": "datmod:ironium_block"
+		}
+	],
+	"result": {
+		"count": 9,
+		"item": "datmod:ironium_ingot"
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"GGG",
+		"G G",
+		"G G"
+	],
+	"key": {
+		"G": {
+			"item": "datmod:goldirite_ingot"
+		}
+	},
+	"result": {
+		"item": "datmod:goldirite_leggings"
+	}
+}
