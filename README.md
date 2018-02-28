@@ -1,6 +1,4 @@
 # **DatMod** &mdash; *A mod of miscellaneous bits & bobs, gadgets & gizmos.* 
-+
- 
 ### Features 
 #### Armors 
 - Adds 7 new sets of armor: Coal, Diamondium, Emeraldi, Ironium, Lapis Lazuli, Nether Quartz and Redstone 
