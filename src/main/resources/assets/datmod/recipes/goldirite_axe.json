@@ -2,15 +2,15 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		" GG",
-		" SG",
-		" S "
+		" IG",
+		" I "
 	],
 	"key": {
 		"G": {
 			"item": "datmod:goldirite_ingot"
 		},
-		"S": {
-			"item": "minecraft:stick"
+		"I": {
+			"item": "datmod:ironium_ingot"
 		}
 	},
 	"result": {

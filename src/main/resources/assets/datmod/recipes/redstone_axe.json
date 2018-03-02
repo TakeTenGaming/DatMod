@@ -2,15 +2,15 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		" RR",
-		" SR",
-		" S "
+		" IR",
+		" I "
 	],
 	"key": {
+		"I":{
+			"item":"datmod:ironium_ingot"
+		},
 		"R": {
 			"item": "minecraft:redstone"
-		},
-		"S":{
-			"item":"minecraft:stick"
 		}
 	},
 	"result": {

@@ -11,10 +11,13 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.taketengaming.datmod.DatMod;
 import net.taketengaming.datmod.ModConfig;
 import net.taketengaming.datmod.util.ItemBase;
 
@@ -23,6 +26,10 @@ import java.util.List;
 
 public class ItemMagnet extends ItemBase
 {
+	private boolean pullToInventory = ModConfig.Magnet.global.pullToInventory;
+	private double range = ModConfig.Magnet.global.range;
+	private double speed = ModConfig.Magnet.global.speed;
+
 	public ItemMagnet ()
 	{
 		super ( "Magnet" );
@@ -35,8 +42,15 @@ public class ItemMagnet extends ItemBase
 	public void addInformation ( ItemStack stack, @Nullable World worldIn, List< String > tooltip, ITooltipFlag flagIn )
 	{
 		tooltip.add ( "It's very.. attractive" );
+		tooltip.add ( TextFormatting.YELLOW + "Pulls in items and experience" + TextFormatting.RESET );
 
 		super.addInformation ( stack, worldIn, tooltip, flagIn );
+	}
+
+	@Override
+	public boolean hasEffect ( ItemStack stack )
+	{
+		return this.isActive ( stack );
 	}
 
 	private boolean isActive ( ItemStack stack )
@@ -66,12 +80,6 @@ public class ItemMagnet extends ItemBase
 	public boolean isDamageable ()
 	{
 		return false;
-	}
-
-	@Override
-	public boolean hasEffect ( ItemStack stack )
-	{
-		return this.isActive ( stack );
 	}
 
 	@Override
@@ -109,6 +117,11 @@ public class ItemMagnet extends ItemBase
 			return;
 		}
 
+		if ( worldIn.isRemote )
+		{
+			return;
+		}
+
 		EntityPlayer player = ( EntityPlayer ) entityIn;
 		InventoryPlayer playerInventory = player.inventory;
 		int fullSlots = 0;
@@ -126,28 +139,60 @@ public class ItemMagnet extends ItemBase
 			return;
 		}
 
-		double range = ModConfig.Magnet.range.range;
-		List< EntityItem > items = entityIn.getEntityWorld ().getEntitiesWithinAABB ( EntityItem.class, entityIn.getEntityBoundingBox ().expand ( range, range, range ) );
+		AxisAlignedBB axisAlignedBB = new AxisAlignedBB ( player.posX - this.range, player.posY - this.range, player.posZ - this.range, player.posX + this.range, player.posY + this.range, player.posZ + this.range );
+		World entityWorld = entityIn.getEntityWorld ();
+		List< EntityItem > items = worldIn.getEntitiesWithinAABB ( EntityItem.class, axisAlignedBB );
 		for ( EntityItem item : items )
 		{
-			this.teleportToPlayer ( item, ( EntityPlayer ) entityIn );
+			this.teleportToPlayer ( item, player );
 		}
 
-		List< EntityXPOrb > xps = entityIn.getEntityWorld ().getEntitiesWithinAABB ( EntityXPOrb.class, entityIn.getEntityBoundingBox ().expand ( range, range, range ) );
+		List< EntityXPOrb > xps = entityWorld.getEntitiesWithinAABB ( EntityXPOrb.class, axisAlignedBB );
 		for ( EntityXPOrb xp : xps )
 		{
-			this.teleportToPlayer ( xp, ( EntityPlayer ) entityIn );
+			this.teleportToPlayer ( xp, player );
 		}
 	}
 
 	private void teleportToPlayer ( Entity item, EntityPlayer player )
 	{
-		double x = player.posX;
-		double y = player.posY;
-		double z = player.posZ;
-		double factor = 1;
+		if ( item.getEntityData ().getBoolean ( "PreventRemoteMovement" ) || item.isDead )
+		{
+			return;
+		}
 
-		item.addVelocity ( ( x - item.posX ) * factor, ( y - item.posY ) * factor, ( z - item.posZ ) * factor );
+		if ( this.pullToInventory )
+		{
+			World entityWorld = player.getEntityWorld ();
+
+			if ( item instanceof EntityXPOrb )
+			{
+				player.addExperienceLevel ( ( ( EntityXPOrb ) item ).getXpValue () );
+				entityWorld.removeEntity ( item );
+			}
+			else if ( item instanceof EntityItem )
+			{
+				EntityItem entityItem = ( EntityItem ) item;
+				player.inventory.addItemStackToInventory ( entityItem.getItem () );
+				entityWorld.removeEntity ( item );
+			}
+		}
+		else
+		{
+			double x = player.posX;
+			double y = player.posY;
+			double z = player.posZ;
+			double speed = this.speed;
+
+			if ( item instanceof EntityItem && ( ( EntityItem ) item ).cannotPickup () )
+			{
+				DatMod.logger.info ( "Cannot pickup.." );
+				return;
+			}
+
+			item.addVelocity ( ( x - item.posX ) * speed, ( y - item.posY ) * speed, ( z - item.posZ ) * speed );
+			item.onCollideWithPlayer ( player );
+		}
 	}
 
 	private void toggle ( boolean active, ItemStack itemStackIn, EntityPlayer playerIn )

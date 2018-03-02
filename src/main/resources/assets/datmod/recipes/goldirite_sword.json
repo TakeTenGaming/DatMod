@@ -3,14 +3,14 @@
 	"pattern": [
 		" G ",
 		" G ",
-		" S "
+		" I "
 	],
 	"key": {
 		"G": {
 			"item": "datmod:goldirite_ingot"
 		},
-		"S": {
-			"item": "minecraft:stick"
+		"I": {
+			"item": "datmod:ironium_ingot"
 		}
 	},
 	"result": {

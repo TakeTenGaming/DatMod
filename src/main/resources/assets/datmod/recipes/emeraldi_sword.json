@@ -3,14 +3,14 @@
 	"pattern": [
 		" E ",
 		" E ",
-		" S "
+		" I "
 	],
 	"key": {
 		"E": {
 			"item": "datmod:emeraldi"
 		},
-		"S": {
-			"item": "minecraft:stick"
+		"I": {
+			"item": "datmod:ironium_ingot"
 		}
 	},
 	"result": {

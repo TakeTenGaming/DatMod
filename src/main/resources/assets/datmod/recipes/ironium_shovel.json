@@ -2,15 +2,15 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		" I ",
-		" S ",
-		" S "
+		" A ",
+		" A "
 	],
 	"key": {
+		"A": {
+			"item": "minecraft:iron_ingot"
+		},
 		"I": {
 			"item": "datmod:ironium_ingot"
-		},
-		"S": {
-			"item": "minecraft:stick"
 		}
 	},
 	"result": {

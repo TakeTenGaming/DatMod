@@ -2,15 +2,16 @@ package net.taketengaming.datmod;
 
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Config.Comment;
-import net.minecraftforge.common.config.Config.RangeInt;
 import net.minecraftforge.common.config.ConfigManager;
-import net.minecraftforge.fml.client.event.ConfigChangedEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import static net.minecraftforge.common.config.Config.RangeDouble;
+import static net.minecraftforge.common.config.Config.RangeInt;
+import static net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import static net.taketengaming.datmod.DatMod.*;
 
-@Mod.EventBusSubscriber( modid = MODID )
+@EventBusSubscriber( modid = MODID )
 public class ModConfig
 {
 	public static void sync ()
@@ -19,7 +20,7 @@ public class ModConfig
 	}
 
 	@SubscribeEvent
-	public static void onConfigChanged ( ConfigChangedEvent.OnConfigChangedEvent event )
+	public static void onConfigChanged ( OnConfigChangedEvent event )
 	{
 		if ( event.getModID ().equals ( MODID ) )
 		{
@@ -28,205 +29,153 @@ public class ModConfig
 	}
 
 	@Config( modid = MODID, name = MODID + "/config", category = "" )
-	public static class Main
+	public static class General
 	{
-		public static final _General _general = new _General ();
+		public static final Global global = new Global ();
 
-		public static class _General
+		public static class Global
 		{
-			@Comment( { "The version of " + NAME + " used to generate this config" } )
+			@Comment( "The version of " + NAME + " used to generate this config" )
 			public String version = VERSION;
 		}
 	}
 
-	@Config( modid = MODID, name = MODID + "/armors", category = "" )
+	@Config( category = "", modid = MODID, name = MODID + "/armors" )
 	public static class Armors
 	{
-		public static final _General _general = new _General ();
-		public static final Coal coal = new Coal ();
-		public static final Diamondium diamondium = new Diamondium ();
-		public static final Emeraldi emeraldi = new Emeraldi ();
-		public static final Goldirite goldirite = new Goldirite ();
-		public static final Ironium ironium = new Ironium ();
-		public static final LapisLazuli lapisLazuli = new LapisLazuli ();
-		public static final NetherQuartz netherQuartz = new NetherQuartz ();
-		public static final Redstone redstone = new Redstone ();
+		public static final Global global = new Global ();
 
-		public static class _General
+		public static class Global
 		{
-			@Comment( { "Enable all armors?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable all Armors?" )
+			public boolean enableAll = true;
 
-		public static class Coal
-		{
-			@Comment( { "Enable Coal armors?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable Coal Armor?" )
+			public boolean enableCoal = true;
 
-		public static class Diamondium
-		{
-			@Comment( { "Enable Diamondium armors?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable Diamondium Armor?" )
+			public boolean enableDiamondium = true;
 
-		public static class Emeraldi
-		{
-			@Comment( { "Enable Emeraldi armors?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable Emeraldi Armor?" )
+			public boolean enableEmeraldi = true;
 
-		public static class Goldirite
-		{
-			@Comment( { "Enable Goldirite armors?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable Goldirite Armor?" )
+			public boolean enableGoldirite = true;
 
-		public static class Ironium
-		{
-			@Comment( { "Enable Ironium armors?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable Ironium Armor?" )
+			public boolean enableIronium = true;
 
-		public static class LapisLazuli
-		{
-			@Comment( { "Enable Lapis Lazuli armors?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable Lapis Lazuli Armor?" )
+			public boolean enableLapisLazuli = true;
 
-		public static class NetherQuartz
-		{
-			@Comment( { "Enable Nether Quartz armors?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable Nether Quartz Armor?" )
+			public boolean enableNetherQuartz = true;
 
-		public static class Redstone
-		{
-			@Comment( { "Enable Redstone armors?" } )
-			public boolean enabled = true;
+			@Comment( "Enable Redstone Armor?" )
+			public boolean enableRedstone = true;
+
+			@Comment( "Enable Ultimate Armor?" )
+			public boolean enableUltimate = true;
 		}
 	}
 
-	@Config( modid = MODID, name = MODID + "/magnet", category = "" )
+	@Config( category = "", modid = MODID, name = MODID + "/magnet" )
 	public static class Magnet
 	{
-		public static final _General _general = new _General ();
-		public static final Range range = new Range ();
+		public static final Global global = new Global ();
 
-		public static class _General
+		public static class Global
 		{
-			@Comment( { "Enable Magnet?" } )
+			@Comment( "Enable Magnet?" )
 			public boolean enabled = true;
-		}
 
-		public static class Range
-		{
-			@Comment( { "The range the magnet should try to pick up items" } )
-			@RangeInt( min = 10, max = 20 )
-			public int range = 10;
+			@Comment( { "Should the Magnet pull items/XP into the player?", "Disable this if you like seeing items/XP move across the ground" } )
+			public boolean pullToInventory = true;
+
+			@Comment( { "How far away should the Magnet try to pickup items/XP from?", "Default: 12" } )
+			@RangeInt( min = 5, max = 30 )
+			public int range = 12;
+
+			@Comment( { "How fast should the Magnet pull items/XP towards the player?", "Default: 0.03" } )
+			@RangeDouble( min = 0.03, max = 0.08 )
+			public double speed = 0.03;
 		}
 	}
 
-	@Config( modid = MODID, name = MODID + "/tools", category = "" )
+	@Config( category = "", modid = MODID, name = MODID + "/oregen" )
+	public static class Oregen
+	{
+		public static final Dimensions dimensions = new Dimensions ();
+		public static final Global global = new Global ();
+
+		public static class Dimensions
+		{
+			@Comment( "Enable The End generation?" )
+			public boolean enableEnd = true;
+
+			@Comment( "Enable Nether generation?" )
+			public boolean enableNether = true;
+
+			@Comment( "Enable Overworld generation?" )
+			public boolean enableOverworld = true;
+		}
+
+		public static class Global
+		{
+			@Comment( "Enable all Ore Generation?" )
+			public boolean enableAll = true;
+
+			@Comment( "Enable Diamondium Generation?" )
+			public boolean enableDiamondium = true;
+
+			@Comment( "Enable Emeraldi Generation?" )
+			public boolean enableEmeraldi = true;
+
+			@Comment( "Enable Goldirite Generation?" )
+			public boolean enableGoldirite = true;
+
+			@Comment( "Enable Ironium Generation?" )
+			public boolean enableIronium = true;
+		}
+	}
+
+	@Config( category = "", modid = MODID, name = MODID + "/tools" )
 	public static class Tools
 	{
-		public static final _General _general = new _General ();
-		public static final Coal coal = new Coal ();
-		public static final Diamondium diamondium = new Diamondium ();
-		public static final Emeraldi emeraldi = new Emeraldi ();
-		public static final Goldirite goldirite = new Goldirite ();
-		public static final Ironium ironium = new Ironium ();
-		public static final LapisLazuli lapisLazuli = new LapisLazuli ();
-		public static final NetherQuartz netherQuartz = new NetherQuartz ();
-		public static final Redstone redstone = new Redstone ();
-		public static final Ultimate ultimate = new Ultimate ();
+		public static final Global global = new Global ();
 
-		public static class _General
+		public static class Global
 		{
-			@Comment( { "Enable all tools?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable all Tools?" )
+			public boolean enableAll = true;
 
-		public static class Coal
-		{
-			@Comment( { "Enable Coal tools?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable Coal Tools?" )
+			public boolean enableCoal = true;
 
-		public static class Diamondium
-		{
-			@Comment( { "Enable Diamondium tools?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable Diamondium Tools?" )
+			public boolean enableDiamondium = true;
 
-		public static class Emeraldi
-		{
-			@Comment( { "Enable Emeraldi tools?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable Emeraldi Tools?" )
+			public boolean enableEmeraldi = true;
 
-		public static class Goldirite
-		{
-			@Comment( { "Enable Goldirite tools?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable Goldirite Tools?" )
+			public boolean enableGoldirite = true;
 
-		public static class Ironium
-		{
-			@Comment( { "Enable Ironium tools?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable Ironium Tools?" )
+			public boolean enableIronium = true;
 
-		public static class LapisLazuli
-		{
-			@Comment( { "Enable Lapis Lazuli tools?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable Lapis Lazuli Tools?" )
+			public boolean enableLapisLazuli = true;
 
-		public static class NetherQuartz
-		{
-			@Comment( { "Enable Nether Quartz tools?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable Nether Quartz Tools?" )
+			public boolean enableNetherQuartz = true;
 
-		public static class Redstone
-		{
-			@Comment( { "Enable Redstone tools?" } )
-			public boolean enabled = true;
-		}
+			@Comment( "Enable Redstone Tools?" )
+			public boolean enableRedstone = true;
 
-		public static class Ultimate
-		{
-			@Comment( { "Enable Ultimate tools?" } )
-			public boolean enabled = true;
-		}
-	}
-
-	@Config( modid = MODID, name = MODID + "/worldgen", category = "" )
-	public static class Worldgen
-	{
-		public static final _General _general = new _General ();
-		public static final Oregen Oregen = new Oregen ();
-
-		public static class _General
-		{
-			@Comment( { "Enable all World Generation?" } )
-			public boolean enabled = true;
-		}
-
-		public static class Oregen
-		{
-			@Comment( { "Enable Diamondium Generation?" } )
-			public boolean enableDiamondiumWorldgen = true;
-
-			@Comment( { "Enable Emeraldi Generation?" } )
-			public boolean enableEmeraldiWorldgen = true;
-
-			@Comment( { "Enable Goldirite Generation?" } )
-			public boolean enableGoldiriteWorldgen = true;
-
-			@Comment( { "Enable Ironium Generation?" } )
-			public boolean enableIroniumWorldgen = true;
+			@Comment( "Enable Ultimate Tools?" )
+			public boolean enableUltimate = true;
 		}
 	}
 }
+

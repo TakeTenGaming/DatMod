@@ -11,7 +11,7 @@ public class BlockOreBase extends BlockBase
 {
 	public BlockOreBase ( String name )
 	{
-		super ( Material.ROCK, name );
+		super ( name, Material.ROCK );
 
 		this.setCreativeTab ();
 

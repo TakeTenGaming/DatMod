@@ -2,15 +2,15 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		" D ",
-		" S ",
-		" S "
+		" I ",
+		" I "
 	],
 	"key": {
 		"D": {
 			"item": "datmod:diamondium"
 		},
-		"S": {
-			"item": "minecraft:stick"
+		"I": {
+			"item": "datmod:ironium_ingot"
 		}
 	},
 	"result": {

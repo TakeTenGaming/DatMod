@@ -2,15 +2,15 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		"EEE",
-		" S ",
-		" S "
+		" I ",
+		" I "
 	],
 	"key": {
 		"E": {
 			"item": "datmod:emeraldi"
 		},
-		"S": {
-			"item": "minecraft:stick"
+		"I": {
+			"item": "datmod:ironium_ingot"
 		}
 	},
 	"result": {

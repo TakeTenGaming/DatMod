@@ -12,7 +12,7 @@ public abstract class BlockTileEntityBase< TE extends TileEntityBase > extends B
 {
 	public BlockTileEntityBase ( Material material, String name )
 	{
-		super ( material, name );
+		super ( name, material );
 	}
 
 	@Nullable

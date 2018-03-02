@@ -2,16 +2,16 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		" LL",
-		" SL",
-		" S "
+		" IL",
+		" I "
 	],
 	"key": {
+		"I": {
+			"item": "datmod:ironium_ingot"
+		},
 		"L": {
 			"item": "minecraft:dye",
 			"data": 4
-		},
-		"S": {
-			"item": "minecraft:stick"
 		}
 	},
 	"result": {

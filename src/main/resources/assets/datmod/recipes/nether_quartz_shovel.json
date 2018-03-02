@@ -2,15 +2,15 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		" N ",
-		" S ",
-		" S "
+		" I ",
+		" I "
 	],
 	"key": {
+		"I": {
+			"item": "datmod:ironium_ingot"
+		},
 		"N": {
 			"item": "minecraft:quartz"
-		},
-		"S": {
-			"item": "minecraft:stick"
 		}
 	},
 	"result": {

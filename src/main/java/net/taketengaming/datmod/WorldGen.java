@@ -16,6 +16,19 @@ import static net.taketengaming.datmod.ModBlocks.*;
 
 public class WorldGen implements IWorldGenerator
 {
+	// Config Value Holders
+	// Dimensions
+	private boolean dimensionEndEnabled = ModConfig.Oregen.dimensions.enableEnd;
+	private boolean dimensionNetherEnabled = ModConfig.Oregen.dimensions.enableNether;
+	private boolean dimensionOverworldEnabled = ModConfig.Oregen.dimensions.enableOverworld;
+
+	// Ores
+	private boolean _enabled = ModConfig.Oregen.global.enableAll;
+	private boolean diamondiumEnabled = ModConfig.Oregen.global.enableDiamondium;
+	private boolean emeraldiEnabled = ModConfig.Oregen.global.enableEmeraldi;
+	private boolean goldiriteEnabled = ModConfig.Oregen.global.enableGoldirite;
+	private boolean ironiumEnabled = ModConfig.Oregen.global.enableIronium;
+
 	// Default Block State Holders
 	private IBlockState diamondiumOreBlockState = diamondiumOre.getDefaultState ();
 	private IBlockState emeraldiOreBlockState = emeraldiOre.getDefaultState ();
@@ -25,11 +38,34 @@ public class WorldGen implements IWorldGenerator
 	// Dimension Warnings Tracker
 	private ArrayList< Integer > warnedDimensions = new ArrayList<> ();
 
+	// Generation Settings Holder
+	// Diamondium Settings
+	private int diamondiumChance = 7;
+	private int diamondiumMaxVein = 5;
+	private int diamondiumMaxY = 20;
+	private int diamondiumMinY = 2;
+
+	// Emeraldi Settings
+	private int emeraldiChance = 8;
+	private int emeraldiMaxVein = 4;
+	private int emeraldiMaxY = 32;
+	private int emeraldiMinY = 2;
+
+	// Goldirite Settings
+	private int goldiriteChance = 6;
+	private int goldiriteMaxVein = 4;
+	private int goldiriteMaxY = 18;
+	private int goldiriteMinY = 2;
+
+	// Ironium Settings
+	private int ironiumChance = 15;
+	private int ironiumMaxVein = 8;
+	private int ironiumMaxY = 63;
+	private int ironiumMinY = 2;
+
 	private void doOreGeneration ( IBlockState ore, World world, Random random, int x, int z, int minY, int maxY, int size, int chances )
 	{
 		int deltaY = maxY - minY;
-
-		DatMod.logger.debug ( "Attempting to generate: " + ore.getBlock ().getLocalizedName () );
 
 		for ( int i = 0; i < chances; i++ )
 		{
@@ -46,19 +82,33 @@ public class WorldGen implements IWorldGenerator
 		int dimensionId = dimensionType.getId ();
 		String dimensionName = dimensionType.getName ();
 
-		switch ( dimensionName )
+		switch ( dimensionId )
 		{
-			case "overworld":
-				generateOverworld ( random, chunkX, chunkZ, world, chunkGenerator, chunkProvider );
+			case -1: // The Nether
+				if ( this.dimensionNetherEnabled )
+				{
+					generateNether ( random, chunkX, chunkZ, world, chunkGenerator, chunkProvider );
+				}
 				break;
 
-			// TODO: Add support for The End
-			// TODO: Add support for The Nether
+			case 0: // Overworld
+				if ( this.dimensionOverworldEnabled )
+				{
+					generateOverworld ( random, chunkX, chunkZ, world, chunkGenerator, chunkProvider );
+				}
+				break;
+
+			case 1: // The End
+				if ( this.dimensionEndEnabled )
+				{
+					generateEnd ( random, chunkX, chunkZ, world, chunkGenerator, chunkProvider );
+				}
+				break;
 
 			default:
 				if ( !this.warnedDimensions.contains ( dimensionId ) )
 				{
-					DatMod.logger.info ( "Unknown dimension: " + dimensionName + "(ID: " + dimensionId + ")" + System.lineSeparator () + "Report this on GitHub if you'd like support added for this dimension" );
+					DatMod.logger.info ( "Unknown dimension: " + dimensionName + " (ID: " + dimensionId + ")" + System.lineSeparator () + "Report this on GitHub if you'd like support added for this dimension" );
 					this.warnedDimensions.add ( dimensionId );
 				}
 				break;
@@ -67,25 +117,94 @@ public class WorldGen implements IWorldGenerator
 
 	private void generateEnd ( Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider )
 	{
-		this.doOreGeneration ( this.diamondiumOreBlockState, world, random, chunkX * 16, chunkZ * 16, 16, 64, 4 + random.nextInt ( 4 ), 6 );
-		this.doOreGeneration ( this.emeraldiOreBlockState, world, random, chunkX * 16, chunkZ * 16, 16, 64, 4 + random.nextInt ( 4 ), 6 );
-		this.doOreGeneration ( this.goldiriteOreBlockState, world, random, chunkX * 16, chunkZ * 16, 16, 64, 4 + random.nextInt ( 4 ), 6 );
-		this.doOreGeneration ( this.ironiumOreBlockState, world, random, chunkX * 16, chunkZ * 16, 16, 64, 4 + random.nextInt ( 4 ), 6 );
+		if ( this._enabled )
+		{
+			return;
+		}
+
+		chunkX = chunkX * 16;
+		chunkZ = chunkZ * 16;
+
+		if ( this.diamondiumEnabled )
+		{
+			this.doOreGeneration ( this.diamondiumOreBlockState, world, random, chunkX, chunkZ, this.diamondiumMinY, this.diamondiumMaxY, this.diamondiumMaxVein, this.diamondiumChance );
+		}
+
+		if ( this.emeraldiEnabled )
+		{
+			this.doOreGeneration ( this.emeraldiOreBlockState, world, random, chunkX, chunkZ, this.emeraldiMinY, this.emeraldiMaxY, this.emeraldiMaxVein, this.emeraldiChance );
+		}
+
+		if ( this.goldiriteEnabled )
+		{
+			this.doOreGeneration ( this.goldiriteOreBlockState, world, random, chunkX, chunkZ, this.goldiriteMinY, this.goldiriteMaxY, this.goldiriteMaxVein, this.goldiriteChance );
+		}
+
+		if ( this.ironiumEnabled )
+		{
+			this.doOreGeneration ( this.ironiumOreBlockState, world, random, chunkX, chunkZ, this.ironiumMinY, this.ironiumMaxY, this.ironiumMaxVein, this.ironiumChance );
+		}
 	}
 
 	private void generateNether ( Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider )
 	{
-		this.doOreGeneration ( this.diamondiumOreBlockState, world, random, chunkX * 16, chunkZ * 16, 16, 64, 4 + random.nextInt ( 4 ), 6 );
-		this.doOreGeneration ( this.emeraldiOreBlockState, world, random, chunkX * 16, chunkZ * 16, 16, 64, 4 + random.nextInt ( 4 ), 6 );
-		this.doOreGeneration ( this.goldiriteOreBlockState, world, random, chunkX * 16, chunkZ * 16, 16, 64, 4 + random.nextInt ( 4 ), 6 );
-		this.doOreGeneration ( this.ironiumOreBlockState, world, random, chunkX * 16, chunkZ * 16, 16, 64, 4 + random.nextInt ( 4 ), 6 );
+		if ( this._enabled )
+		{
+			return;
+		}
+
+		chunkX = chunkX * 16;
+		chunkZ = chunkZ * 16;
+
+		if ( this.diamondiumEnabled )
+		{
+			this.doOreGeneration ( this.diamondiumOreBlockState, world, random, chunkX, chunkZ, this.diamondiumMinY, this.diamondiumMaxY, this.diamondiumMaxVein, this.diamondiumChance );
+		}
+
+		if ( this.emeraldiEnabled )
+		{
+			this.doOreGeneration ( this.emeraldiOreBlockState, world, random, chunkX, chunkZ, this.emeraldiMinY, this.emeraldiMaxY, this.emeraldiMaxVein, this.emeraldiChance );
+		}
+
+		if ( this.goldiriteEnabled )
+		{
+			this.doOreGeneration ( this.goldiriteOreBlockState, world, random, chunkX, chunkZ, this.goldiriteMinY, this.goldiriteMaxY, this.goldiriteMaxVein, this.goldiriteChance );
+		}
+
+		if ( this.ironiumEnabled )
+		{
+			this.doOreGeneration ( this.ironiumOreBlockState, world, random, chunkX, chunkZ, this.ironiumMinY, this.ironiumMaxY, this.ironiumMaxVein, this.ironiumChance );
+		}
 	}
 
 	private void generateOverworld ( Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider )
 	{
-		this.doOreGeneration ( this.diamondiumOreBlockState, world, random, chunkX * 16, chunkZ * 16, 16, 64, 4 + random.nextInt ( 4 ), 6 );
-		this.doOreGeneration ( this.emeraldiOreBlockState, world, random, chunkX * 16, chunkZ * 16, 16, 64, 4 + random.nextInt ( 4 ), 6 );
-		this.doOreGeneration ( this.goldiriteOreBlockState, world, random, chunkX * 16, chunkZ * 16, 16, 64, 4 + random.nextInt ( 4 ), 6 );
-		this.doOreGeneration ( this.ironiumOreBlockState, world, random, chunkX * 16, chunkZ * 16, 16, 64, 4 + random.nextInt ( 4 ), 6 );
+		if ( this._enabled )
+		{
+			return;
+		}
+
+		chunkX = chunkX * 16;
+		chunkZ = chunkZ * 16;
+
+		if ( this.diamondiumEnabled )
+		{
+			this.doOreGeneration ( this.diamondiumOreBlockState, world, random, chunkX, chunkZ, this.diamondiumMinY, this.diamondiumMaxY, this.diamondiumMaxVein, this.diamondiumChance );
+		}
+
+		if ( this.emeraldiEnabled )
+		{
+			this.doOreGeneration ( this.emeraldiOreBlockState, world, random, chunkX, chunkZ, this.emeraldiMinY, this.emeraldiMaxY, this.emeraldiMaxVein, this.emeraldiChance );
+		}
+
+		if ( this.goldiriteEnabled )
+		{
+			this.doOreGeneration ( this.goldiriteOreBlockState, world, random, chunkX, chunkZ, this.goldiriteMinY, this.goldiriteMaxY, this.goldiriteMaxVein, this.goldiriteChance );
+		}
+
+		if ( this.ironiumEnabled )
+		{
+			this.doOreGeneration ( this.ironiumOreBlockState, world, random, chunkX, chunkZ, this.ironiumMinY, this.ironiumMaxY, this.ironiumMaxVein, this.ironiumChance );
+		}
 	}
 }

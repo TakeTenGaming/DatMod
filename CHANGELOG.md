@@ -1,4 +1,7 @@
 # Changelog
+## 3.0.1
+### Changes
+
 ## 3.0.0 - The Great Refactoring
 ### Notes
 - The `Furnace`, `Generator`, `Pulverizer` and `Power Bank` are not currently in this build. They will be added later when I can implement them in a better way

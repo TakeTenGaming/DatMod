@@ -2,7 +2,7 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		"DEI",
-		"LNR",
+		"LSR",
 		" N "
 	],
 	"key": {
@@ -23,6 +23,9 @@
 		},
 		"R": {
 			"item": "datmod:redstone_pickaxe"
+		},
+		"S": {
+			"item": "datmod:diamondium"
 		}
 	},
 	"result": {

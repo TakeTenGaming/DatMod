@@ -1,11 +1,10 @@
 package net.taketengaming.datmod;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
+import net.taketengaming.datmod.block.*;
 import net.taketengaming.datmod.util.BlockBase;
-import net.taketengaming.datmod.util.BlockOreBase;
 
 import java.util.ArrayList;
 
@@ -13,25 +12,21 @@ public class ModBlocks
 {
 	// Config Holders
 	// Tools
-	public static boolean enableAllTools = ModConfig.Tools._general.enabled;
-	public static boolean enableCoalTools = ModConfig.Tools.coal.enabled;
-	public static boolean enableDiamondiumTools = ModConfig.Tools.diamondium.enabled;
-	public static boolean enableEmeraldiTools = ModConfig.Tools.emeraldi.enabled;
-	public static boolean enableGoldiriteTools = ModConfig.Tools.goldirite.enabled;
-	public static boolean enableIroniumTools = ModConfig.Tools.ironium.enabled;
-	public static boolean enableLapisLazuliTools = ModConfig.Tools.lapisLazuli.enabled;
-	public static boolean enableNetherQuartzTools = ModConfig.Tools.netherQuartz.enabled;
-	public static boolean enableRedstoneTools = ModConfig.Tools.redstone.enabled;
+	public static boolean enableAllTools = ModConfig.Tools.global.enableAll;
+	public static boolean enableDiamondiumTools = ModConfig.Tools.global.enableDiamondium;
+	public static boolean enableEmeraldiTools = ModConfig.Tools.global.enableEmeraldi;
+	public static boolean enableGoldiriteTools = ModConfig.Tools.global.enableGoldirite;
+	public static boolean enableIroniumTools = ModConfig.Tools.global.enableIronium;
 
 	// Blocks
-	public static BlockBase diamondiumBlock = new BlockBase ( Material.ROCK, "diamondium_block" );
-	public static BlockOreBase diamondiumOre = new BlockOreBase ( "diamondium_ore" );
-	public static BlockBase emeraldiBlock = new BlockBase ( Material.ROCK, "emeraldi_block" );
-	public static BlockOreBase emeraldiOre = new BlockOreBase ( "emeraldi_ore" );
-	public static BlockBase goldiriteBlock = new BlockBase ( Material.ROCK, "goldirite_block" );
-	public static BlockOreBase goldiriteOre = new BlockOreBase ( "goldirite_ore" );
-	public static BlockBase ironiumBlock = new BlockBase ( Material.ROCK, "ironium_block" );
-	public static BlockOreBase ironiumOre = new BlockOreBase ( "ironium_ore" );
+	public static BlockDiamondiumBlock diamondiumBlock = new BlockDiamondiumBlock ();
+	public static BlockDiamondiumOre diamondiumOre = new BlockDiamondiumOre ();
+	public static BlockEmeraldiBlock emeraldiBlock = new BlockEmeraldiBlock ();
+	public static BlockEmeraldiOre emeraldiOre = new BlockEmeraldiOre ();
+	public static BlockGoldiriteBlock goldiriteBlock = new BlockGoldiriteBlock ();
+	public static BlockGoldiriteOre goldiriteOre = new BlockGoldiriteOre ();
+	public static BlockIroniumBlock ironiumBlock = new BlockIroniumBlock ();
+	public static BlockIroniumOre ironiumOre = new BlockIroniumOre ();
 
 	public static void initOreDict ()
 	{
@@ -95,33 +90,33 @@ public class ModBlocks
 		}
 		else
 		{
-			ArrayList< BlockBase > registerBlocks = new ArrayList<> ();
+			ArrayList< BlockBase > registerableBlocks = new ArrayList<> ();
 
 			if ( enableDiamondiumTools )
 			{
-				registerBlocks.add ( diamondiumBlock );
-				registerBlocks.add ( diamondiumOre );
+				registerableBlocks.add ( diamondiumBlock );
+				registerableBlocks.add ( diamondiumOre );
 			}
 
 			if ( enableEmeraldiTools )
 			{
-				registerBlocks.add ( emeraldiBlock );
-				registerBlocks.add ( emeraldiOre );
+				registerableBlocks.add ( emeraldiBlock );
+				registerableBlocks.add ( emeraldiOre );
 			}
 
 			if ( enableGoldiriteTools )
 			{
-				registerBlocks.add ( goldiriteBlock );
-				registerBlocks.add ( goldiriteOre );
+				registerableBlocks.add ( goldiriteBlock );
+				registerableBlocks.add ( goldiriteOre );
 			}
 
 			if ( enableIroniumTools )
 			{
-				registerBlocks.add ( ironiumBlock );
-				registerBlocks.add ( ironiumOre );
+				registerableBlocks.add ( ironiumBlock );
+				registerableBlocks.add ( ironiumOre );
 			}
 
-			for ( BlockBase block : registerBlocks )
+			for ( BlockBase block : registerableBlocks )
 			{
 				registry.register ( block );
 			}

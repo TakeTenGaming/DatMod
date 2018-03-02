@@ -13,28 +13,28 @@ public class ModItems
 {
 	// Config Holders
 	// Armors
-	public static boolean enableAllArmors = ModConfig.Armors._general.enabled;
-	public static boolean enableCoalArmors = ModConfig.Armors.coal.enabled;
-	public static boolean enableDiamondiumArmors = ModConfig.Armors.diamondium.enabled;
-	public static boolean enableEmeraldiArmors = ModConfig.Armors.emeraldi.enabled;
-	public static boolean enableGoldiriteArmors = ModConfig.Armors.goldirite.enabled;
-	public static boolean enableIroniumArmors = ModConfig.Armors.ironium.enabled;
-	public static boolean enableLapisLazuliArmors = ModConfig.Armors.lapisLazuli.enabled;
-	public static boolean enableNetherQuartzArmors = ModConfig.Armors.netherQuartz.enabled;
-	public static boolean enableRedstoneArmors = ModConfig.Armors.redstone.enabled;
+	public static boolean enableAllArmors = ModConfig.Armors.global.enableAll;
+	public static boolean enableCoalArmors = ModConfig.Armors.global.enableCoal;
+	public static boolean enableDiamondiumArmors = ModConfig.Armors.global.enableDiamondium;
+	public static boolean enableEmeraldiArmors = ModConfig.Armors.global.enableEmeraldi;
+	public static boolean enableGoldiriteArmors = ModConfig.Armors.global.enableGoldirite;
+	public static boolean enableIroniumArmors = ModConfig.Armors.global.enableIronium;
+	public static boolean enableLapisLazuliArmors = ModConfig.Armors.global.enableLapisLazuli;
+	public static boolean enableNetherQuartzArmors = ModConfig.Armors.global.enableNetherQuartz;
+	public static boolean enableRedstoneArmors = ModConfig.Armors.global.enableRedstone;
 
 	// Tools
-	public static boolean enableAllTools = ModConfig.Tools._general.enabled;
-	public static boolean enableCoalTools = ModConfig.Tools.coal.enabled;
-	public static boolean enableDiamondiumTools = ModConfig.Tools.diamondium.enabled;
-	public static boolean enableEmeraldiTools = ModConfig.Tools.emeraldi.enabled;
-	public static boolean enableGoldiriteTools = ModConfig.Tools.goldirite.enabled;
-	public static boolean enableIroniumTools = ModConfig.Tools.ironium.enabled;
-	public static boolean enableLapisLazuliTools = ModConfig.Tools.lapisLazuli.enabled;
-	public static boolean enableMagnet = ModConfig.Magnet._general.enabled;
-	public static boolean enableNetherQuartzTools = ModConfig.Tools.netherQuartz.enabled;
-	public static boolean enableRedstoneTools = ModConfig.Tools.redstone.enabled;
-	public static boolean enableUltimateTools = ModConfig.Tools.ultimate.enabled;
+	public static boolean enableAllTools = ModConfig.Tools.global.enableAll;
+	public static boolean enableCoalTools = ModConfig.Tools.global.enableCoal;
+	public static boolean enableDiamondiumTools = ModConfig.Tools.global.enableDiamondium;
+	public static boolean enableEmeraldiTools = ModConfig.Tools.global.enableEmeraldi;
+	public static boolean enableGoldiriteTools = ModConfig.Tools.global.enableGoldirite;
+	public static boolean enableIroniumTools = ModConfig.Tools.global.enableIronium;
+	public static boolean enableLapisLazuliTools = ModConfig.Tools.global.enableLapisLazuli;
+	public static boolean enableMagnet = ModConfig.Magnet.global.enabled;
+	public static boolean enableNetherQuartzTools = ModConfig.Tools.global.enableNetherQuartz;
+	public static boolean enableRedstoneTools = ModConfig.Tools.global.enableRedstone;
+	public static boolean enableUltimateTools = ModConfig.Tools.global.enableUltimate;
 
 	// Items
 	public static ToolCoalAxe coalAxe = new ToolCoalAxe ();
