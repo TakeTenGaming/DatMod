@@ -17,7 +17,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.taketengaming.datmod.DatMod;
 import net.taketengaming.datmod.ModConfig;
 import net.taketengaming.datmod.util.ItemBase;
 
@@ -123,22 +122,6 @@ public class ItemMagnet extends ItemBase
 		}
 
 		EntityPlayer player = ( EntityPlayer ) entityIn;
-		InventoryPlayer playerInventory = player.inventory;
-		int fullSlots = 0;
-		int inventorySize = playerInventory.getSizeInventory ();
-		for ( int i = 0; i < inventorySize; i++ )
-		{
-			if ( !playerInventory.getStackInSlot ( i ).isEmpty () )
-			{
-				fullSlots++;
-			}
-		}
-
-		if ( fullSlots == inventorySize )
-		{
-			return;
-		}
-
 		AxisAlignedBB axisAlignedBB = new AxisAlignedBB ( player.posX - this.range, player.posY - this.range, player.posZ - this.range, player.posX + this.range, player.posY + this.range, player.posZ + this.range );
 		World entityWorld = entityIn.getEntityWorld ();
 		List< EntityItem > items = worldIn.getEntitiesWithinAABB ( EntityItem.class, axisAlignedBB );
@@ -161,13 +144,29 @@ public class ItemMagnet extends ItemBase
 			return;
 		}
 
+		int fullSlots = 0;
+		InventoryPlayer playerInventory = player.inventory;
+		int inventorySize = playerInventory.getSizeInventory ();
+		for ( int i = 0; i < inventorySize; i++ )
+		{
+			if ( !playerInventory.getStackInSlot ( i ).isEmpty () )
+			{
+				fullSlots++;
+			}
+		}
+
+		if ( item instanceof EntityItem && fullSlots == inventorySize )
+		{
+			return;
+		}
+
 		if ( this.pullToInventory )
 		{
 			World entityWorld = player.getEntityWorld ();
 
 			if ( item instanceof EntityXPOrb )
 			{
-				player.addExperienceLevel ( ( ( EntityXPOrb ) item ).getXpValue () );
+				player.addExperience ( ( ( EntityXPOrb ) item ).getXpValue () );
 				entityWorld.removeEntity ( item );
 			}
 			else if ( item instanceof EntityItem )
@@ -186,7 +185,6 @@ public class ItemMagnet extends ItemBase
 
 			if ( item instanceof EntityItem && ( ( EntityItem ) item ).cannotPickup () )
 			{
-				DatMod.logger.info ( "Cannot pickup.." );
 				return;
 			}
 
