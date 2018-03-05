@@ -67,12 +67,6 @@ public class ContainerBase extends Container
 		}
 	}
 
-	@Override
-	public boolean canInteractWith ( EntityPlayer entityPlayer )
-	{
-		return this.tileEntity.canInteractWith ( entityPlayer );
-	}
-
 	protected int getGuiBaseHeight ()
 	{
 		return this.guiBaseHeight;
@@ -126,5 +120,11 @@ public class ContainerBase extends Container
 		}
 
 		return itemstack;
+	}
+
+	@Override
+	public boolean canInteractWith ( EntityPlayer entityPlayer )
+	{
+		return this.tileEntity.canInteractWith ( entityPlayer );
 	}
 }

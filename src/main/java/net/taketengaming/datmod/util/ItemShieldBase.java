@@ -51,18 +51,18 @@ public class ItemShieldBase extends ItemShield
 		OreDictionary.registerOre ( this.getName (), this );
 	}
 
+	@Override
+	public EnumAction getItemUseAction ( ItemStack stack )
+	{
+		return EnumAction.BLOCK;
+	}
+
 	public ActionResult< ItemStack > onItemRightClick ( World worldIn, EntityPlayer playerIn, EnumHand handIn )
 	{
 		ItemStack itemstack = playerIn.getHeldItem ( handIn );
 		playerIn.setActiveHand ( handIn );
 
 		return new ActionResult< ItemStack > ( EnumActionResult.SUCCESS, itemstack );
-	}
-
-	@Override
-	public EnumAction getItemUseAction ( ItemStack stack )
-	{
-		return EnumAction.BLOCK;
 	}
 
 	public void registerItemModel ()

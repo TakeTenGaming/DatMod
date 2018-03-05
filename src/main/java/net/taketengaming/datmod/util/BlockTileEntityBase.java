@@ -15,10 +15,6 @@ public abstract class BlockTileEntityBase< TE extends TileEntityBase > extends B
 		super ( name, material );
 	}
 
-	@Nullable
-	@Override
-	public abstract TE createTileEntity ( World world, IBlockState state );
-
 	@SuppressWarnings( "unchecked" ) // TODO: Look into this later to ensure it's not going to break everything
 	public TE getTileEntity ( IBlockAccess world, BlockPos pos )
 	{
@@ -32,4 +28,8 @@ public abstract class BlockTileEntityBase< TE extends TileEntityBase > extends B
 	{
 		return true;
 	}
+
+	@Nullable
+	@Override
+	public abstract TE createTileEntity ( World world, IBlockState state );
 }

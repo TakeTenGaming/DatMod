@@ -6,6 +6,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
@@ -36,22 +37,6 @@ public class ItemMagnet extends ItemBase
 		setMaxStackSize ( 1 );
 	}
 
-	@Override
-	@SideOnly( Side.CLIENT )
-	public void addInformation ( ItemStack stack, @Nullable World worldIn, List< String > tooltip, ITooltipFlag flagIn )
-	{
-		tooltip.add ( "It's very.. attractive" );
-		tooltip.add ( TextFormatting.YELLOW + "Pulls in items and experience" + TextFormatting.RESET );
-
-		super.addInformation ( stack, worldIn, tooltip, flagIn );
-	}
-
-	@Override
-	public boolean hasEffect ( ItemStack stack )
-	{
-		return this.isActive ( stack );
-	}
-
 	private boolean isActive ( ItemStack stack )
 	{
 		NBTTagCompound tags = stack.getTagCompound ();
@@ -76,19 +61,6 @@ public class ItemMagnet extends ItemBase
 	}
 
 	@Override
-	public boolean isDamageable ()
-	{
-		return false;
-	}
-
-	@Override
-	public boolean onDroppedByPlayer ( ItemStack item, EntityPlayer player )
-	{
-		this.toggle ( false, item, player );
-		return super.onDroppedByPlayer ( item, player );
-	}
-
-	@Override
 	public ActionResult< ItemStack > onItemRightClick ( World worldIn, EntityPlayer playerIn, EnumHand handIn )
 	{
 		ItemStack itemStackIn = playerIn.getHeldItem ( handIn );
@@ -105,6 +77,12 @@ public class ItemMagnet extends ItemBase
 
 		this.toggle ( this.isActive ( itemStackIn ), itemStackIn, playerIn );
 		return super.onItemRightClick ( worldIn, playerIn, handIn );
+	}
+
+	@Override
+	public boolean isDamageable ()
+	{
+		return false;
 	}
 
 	@SuppressWarnings( "ConstantConditions" )
@@ -127,6 +105,11 @@ public class ItemMagnet extends ItemBase
 		List< EntityItem > items = worldIn.getEntitiesWithinAABB ( EntityItem.class, axisAlignedBB );
 		for ( EntityItem item : items )
 		{
+			if ( item.equals ( Blocks.AIR ) )
+			{
+				continue;
+			}
+
 			this.teleportToPlayer ( item, player );
 		}
 
@@ -135,6 +118,29 @@ public class ItemMagnet extends ItemBase
 		{
 			this.teleportToPlayer ( xp, player );
 		}
+	}
+
+	@Override
+	@SideOnly( Side.CLIENT )
+	public void addInformation ( ItemStack stack, @Nullable World worldIn, List< String > tooltip, ITooltipFlag flagIn )
+	{
+		tooltip.add ( "It's very.. attractive" );
+		tooltip.add ( TextFormatting.YELLOW + "Pulls in items and experience" + TextFormatting.RESET );
+
+		super.addInformation ( stack, worldIn, tooltip, flagIn );
+	}
+
+	@Override
+	public boolean hasEffect ( ItemStack stack )
+	{
+		return this.isActive ( stack );
+	}
+
+	@Override
+	public boolean onDroppedByPlayer ( ItemStack item, EntityPlayer player )
+	{
+		this.toggle ( false, item, player );
+		return super.onDroppedByPlayer ( item, player );
 	}
 
 	private void teleportToPlayer ( Entity item, EntityPlayer player )
@@ -155,11 +161,6 @@ public class ItemMagnet extends ItemBase
 			}
 		}
 
-		if ( item instanceof EntityItem && fullSlots == inventorySize )
-		{
-			return;
-		}
-
 		if ( this.pullToInventory )
 		{
 			World entityWorld = player.getEntityWorld ();
@@ -171,13 +172,69 @@ public class ItemMagnet extends ItemBase
 			}
 			else if ( item instanceof EntityItem )
 			{
+				boolean mergeItem = false;
+				int stackSizeDifference = 0;
+
+				if ( fullSlots == ( inventorySize - 5 ) )
+				{
+					for ( int i = 0; i < ( inventorySize - 9 ); i++ )
+					{
+						if ( mergeItem )
+						{
+							continue;
+						}
+
+						ItemStack itemStack = ( ( EntityItem ) item ).getItem ();
+						ItemStack inventoryStack = playerInventory.getStackInSlot ( i );
+						int inventoryStackCount = inventoryStack.getCount ();
+						int itemStackCount = ( ( EntityItem ) item ).getItem ().getCount ();
+
+						if ( inventoryStack.getItem () == itemStack.getItem () )
+						{
+							if ( inventoryStackCount == 64 )
+							{
+								continue;
+							}
+
+							mergeItem = true;
+							if ( inventoryStackCount > itemStackCount )
+							{
+								stackSizeDifference = ( inventoryStackCount - itemStackCount );
+							}
+							else
+							{
+								stackSizeDifference = ( itemStackCount - inventoryStackCount );
+							}
+						}
+					}
+
+					if ( !mergeItem )
+					{
+						return;
+					}
+				}
+
 				EntityItem entityItem = ( EntityItem ) item;
+				if ( stackSizeDifference > 0 )
+				{
+					entityItem.getItem ().setCount ( stackSizeDifference );
+				}
+
 				player.inventory.addItemStackToInventory ( entityItem.getItem () );
-				entityWorld.removeEntity ( item );
+
+				if ( stackSizeDifference == 0 )
+				{
+					entityWorld.removeEntity ( item );
+				}
 			}
 		}
 		else
 		{
+			if ( item instanceof EntityItem && fullSlots == inventorySize )
+			{
+				return;
+			}
+
 			double x = player.posX;
 			double y = player.posY;
 			double z = player.posZ;
