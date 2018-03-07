@@ -19,7 +19,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.taketengaming.datmod.DatMod;
 import net.taketengaming.datmod.ModConfig;
 import net.taketengaming.datmod.util.ItemBase;
 
@@ -202,11 +201,17 @@ public class ItemMagnet extends ItemBase
 							foundMatchingItem = true;
 
 							int itemStackSize = entityItem.getItem ().getCount ();
-							int availableDifference = ( maxStackSize - stackSize );
-							entityItem.getItem ().setCount ( itemStackSize - availableDifference );
-							inventorySlot.setCount ( stackSize + availableDifference );
 
-							if ( entityItem.getItem ().getCount () == 0 )
+							if ( ( stackSize + itemStackSize ) > maxStackSize )
+							{
+								foundMatchingItem = false;
+								continue;
+							}
+
+							entityItem.getItem ().setCount ( itemStackSize - itemStackSize );
+							inventorySlot.setCount ( stackSize + itemStackSize );
+
+							if ( itemStackSize == 0 )
 							{
 								entityWorld.removeEntity ( entityItem );
 							}
