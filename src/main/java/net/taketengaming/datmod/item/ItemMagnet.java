@@ -5,8 +5,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
@@ -18,6 +19,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.taketengaming.datmod.DatMod;
 import net.taketengaming.datmod.ModConfig;
 import net.taketengaming.datmod.util.ItemBase;
 
@@ -150,14 +152,18 @@ public class ItemMagnet extends ItemBase
 			return;
 		}
 
-		int fullSlots = 0;
-		InventoryPlayer playerInventory = player.inventory;
-		int inventorySize = playerInventory.getSizeInventory ();
-		for ( int i = 0; i < inventorySize; i++ )
+		boolean hasEmptySlot = false;
+		for ( int i = 0; i < player.inventory.mainInventory.size (); i++ )
 		{
-			if ( !playerInventory.getStackInSlot ( i ).isEmpty () )
+			if ( hasEmptySlot )
 			{
-				fullSlots++;
+				continue;
+			}
+
+			ItemStack inventoryStack = player.inventory.mainInventory.get ( i );
+			if ( inventoryStack.getItem ().equals ( Items.AIR ) )
+			{
+				hasEmptySlot = true;
 			}
 		}
 
@@ -172,65 +178,52 @@ public class ItemMagnet extends ItemBase
 			}
 			else if ( item instanceof EntityItem )
 			{
-				boolean mergeItem = false;
-				int stackSizeDifference = 0;
-
-				if ( fullSlots == ( inventorySize - 5 ) )
-				{
-					for ( int i = 0; i < ( inventorySize - 9 ); i++ )
-					{
-						if ( mergeItem )
-						{
-							continue;
-						}
-
-						ItemStack itemStack = ( ( EntityItem ) item ).getItem ();
-						ItemStack inventoryStack = playerInventory.getStackInSlot ( i );
-						int inventoryStackCount = inventoryStack.getCount ();
-						int itemStackCount = ( ( EntityItem ) item ).getItem ().getCount ();
-
-						if ( inventoryStack.getItem () == itemStack.getItem () )
-						{
-							if ( inventoryStackCount == 64 )
-							{
-								continue;
-							}
-
-							mergeItem = true;
-							if ( inventoryStackCount > itemStackCount )
-							{
-								stackSizeDifference = ( inventoryStackCount - itemStackCount );
-							}
-							else
-							{
-								stackSizeDifference = ( itemStackCount - inventoryStackCount );
-							}
-						}
-					}
-
-					if ( !mergeItem )
-					{
-						return;
-					}
-				}
-
 				EntityItem entityItem = ( EntityItem ) item;
-				if ( stackSizeDifference > 0 )
+				Item entityItemItem = entityItem.getItem ().getItem ();
+				boolean foundMatchingItem = false;
+
+				for ( int i = 0; i < player.inventory.mainInventory.size (); i++ )
 				{
-					entityItem.getItem ().setCount ( stackSizeDifference );
+					ItemStack inventorySlot = player.inventory.mainInventory.get ( i );
+					Item inventorySlotItem = inventorySlot.getItem ();
+
+					if ( inventorySlot.getItem ().equals ( Items.AIR ) )
+					{
+						continue;
+					}
+
+					if ( inventorySlotItem.equals ( entityItemItem ) )
+					{
+						int stackSize = inventorySlot.getCount ();
+						int maxStackSize = inventorySlot.getMaxStackSize ();
+
+						if ( stackSize < maxStackSize )
+						{
+							foundMatchingItem = true;
+
+							int itemStackSize = entityItem.getItem ().getCount ();
+							int availableDifference = ( maxStackSize - stackSize );
+							entityItem.getItem ().setCount ( itemStackSize - availableDifference );
+							inventorySlot.setCount ( stackSize + availableDifference );
+
+							if ( entityItem.getItem ().getCount () == 0 )
+							{
+								entityWorld.removeEntity ( entityItem );
+							}
+						}
+					}
 				}
 
-				player.inventory.addItemStackToInventory ( entityItem.getItem () );
-
-				if ( stackSizeDifference == 0 )
+				if ( hasEmptySlot && !foundMatchingItem )
 				{
-					entityWorld.removeEntity ( item );
+					player.inventory.addItemStackToInventory ( entityItem.getItem () );
+					entityWorld.removeEntity ( entityItem );
 				}
 			}
 		}
 		else
 		{
-			if ( item instanceof EntityItem && fullSlots == inventorySize )
+			if ( item instanceof EntityItem && !hasEmptySlot )
 			{
 				return;
 			}

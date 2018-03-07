@@ -25,7 +25,7 @@ public class DatMod
 	public static final String NAME = "DatMod";
 	public static final String PROXY_CLIENT = "net.taketengaming.datmod.proxy.ClientProxy";
 	public static final String PROXY_SERVER = "net.taketengaming.datmod.proxy.ServerProxy";
-	public static final String VERSION = "3.0.3";
+	public static final String VERSION = "3.0.4";
 
 	@Mod.Instance
 	public static DatMod instance;
@@ -49,14 +49,14 @@ public class DatMod
 	{
 		logEventStart ( "preInit" );
 
-		logger.info ( "Register World Generator.." );
-		GameRegistry.registerWorldGenerator ( new WorldGen (), 3 );
+		logger.info ( "Registering World Generator.." );
+		GameRegistry.registerWorldGenerator ( new WorldGen (), 5 );
 
-		logger.info ( "Registering GUI Handler.." );
-		//NetworkRegistry.INSTANCE.registerGuiHandler ( this, new GuiHandler () );
+		/*logger.info ( "Registering GUI Handler.." );
+		NetworkRegistry.INSTANCE.registerGuiHandler ( this, new GuiHandler () );
 
 		logger.info ( "Registering renderers.." );
-		proxy.registerRenderers ();
+		proxy.registerRenderers ();*/
 
 		logEventEnd ( "preInit" );
 	}
