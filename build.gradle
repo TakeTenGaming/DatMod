@@ -83,23 +83,25 @@ processResources {
 	}
 }
 
-curseforge {
-	Properties props = new Properties()
-	props.load(new FileInputStream("${project.rootDir}/gradle-local.properties"))
-	props.each { prop ->
-		project.ext.set(prop.key, prop.value)
-	}
+if (file("${project.rootDir}/gradle-local.properties").exists()) {
+	curseforge {
+		Properties props = new Properties()
+		props.load(new FileInputStream("${project.rootDir}/gradle-local.properties"))
+		props.each { prop ->
+			project.ext.set(prop.key, prop.value)
+		}
 
-	apiKey = "${curseForge_apiKey}"
+		apiKey = "${curseForge_apiKey}"
 
-	project {
-		id = "${curse_projectId}"
-		changelog = file("CHANGELOG_CURRENT.md")
-		changelogType = "markdown"
-		releaseType = "release"
+		project {
+			id = "${curse_projectId}"
+			changelog = file("CHANGELOG_CURRENT.md")
+			changelogType = "markdown"
+			releaseType = "release"
 
-		mainArtifact(jar) {
-			displayName = "DatMod-${mc_version}-${version}"
+			mainArtifact(jar) {
+				displayName = "DatMod-${mc_version}-${version}"
+			}
 		}
 	}
 }
